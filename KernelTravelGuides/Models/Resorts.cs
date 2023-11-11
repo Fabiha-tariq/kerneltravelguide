@@ -55,5 +55,32 @@ namespace KernelTravelGuides.Models
         public IFormFile main_image3 { get; set; }
 
     }
+
+
+    public class ResortCreatedate : Resorts
+    {
+
+        public ResortCreatedate()
+        {
+            created_at = DateTime.UtcNow;
+        }
+
+
+
+
+    }
+
+    public class ResortUpdatedat : Resorts
+    {
+
+        public ResortUpdatedat()
+        {
+            created_at = DateTime.UtcNow;
+        }
+
+
+
+
+    }
 }
 

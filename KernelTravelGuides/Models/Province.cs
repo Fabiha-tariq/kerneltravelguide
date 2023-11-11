@@ -39,5 +39,32 @@ namespace KernelTravelGuides.Models
 
         
     }
+
+
+    public class ProvinceCreatedate : Province
+    {
+
+        public ProvinceCreatedate()
+        {
+            created_at = DateTime.UtcNow;
+        }
+
+
+
+
+    }
+
+    public class ProvinceUpdatedat : Province
+    {
+
+        public ProvinceUpdatedat()
+        {
+            created_at = DateTime.UtcNow;
+        }
+
+
+
+
+    }
 }
 

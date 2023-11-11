@@ -37,5 +37,31 @@ namespace KernelTravelGuides.Models
         [NotMapped]
         public IFormFile main_image { get; set; }
 
+        public class CityCreatedate : City
+        {
+
+            public CityCreatedate()
+            {
+                created_at = DateTime.UtcNow;
+            }
+
+           
+
+
+        }
+
+        public class CityUpdatedat : City
+        {
+
+            public CityUpdatedat()
+            {
+                created_at = DateTime.UtcNow;
+            }
+
+
+
+
+        }
+
     }
 }

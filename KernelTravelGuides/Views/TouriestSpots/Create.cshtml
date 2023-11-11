@@ -1,0 +1,78 @@
+﻿@model KernelTravelGuides.Models.TouriestSpots
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>TouriestSpots</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="t_spot_name" class="control-label"></label>
+                <input asp-for="t_spot_name" class="form-control" />
+                <span asp-validation-for="t_spot_name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="t_spot_locaion" class="control-label"></label>
+                <input asp-for="t_spot_locaion" class="form-control" />
+                <span asp-validation-for="t_spot_locaion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="t_spot_desc" class="control-label"></label>
+                <input asp-for="t_spot_desc" class="form-control" />
+                <span asp-validation-for="t_spot_desc" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="t_spot_rating" class="control-label"></label>
+                <input asp-for="t_spot_rating" class="form-control" />
+                <span asp-validation-for="t_spot_rating" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="t_spot_img1" class="control-label"></label>
+                <input asp-for="t_spot_img1" class="form-control" />
+                <span asp-validation-for="t_spot_img1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="t_spot_img2" class="control-label"></label>
+                <input asp-for="t_spot_img2" class="form-control" />
+                <span asp-validation-for="t_spot_img2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="t_spot_img3" class="control-label"></label>
+                <input asp-for="t_spot_img3" class="form-control" />
+                <span asp-validation-for="t_spot_img3" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="t_spot_status" /> @Html.DisplayNameFor(model => model.t_spot_status)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="created_at" class="control-label"></label>
+                <input asp-for="created_at" class="form-control" />
+                <span asp-validation-for="created_at" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="updated_at" class="control-label"></label>
+                <input asp-for="updated_at" class="form-control" />
+                <span asp-validation-for="updated_at" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

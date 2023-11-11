@@ -38,5 +38,32 @@ namespace KernelTravelGuides.Models
         public IFormFile main_image { get; set; }
 
     }
+
+
+    public class TravelCategoryCreatedate : TravelCategory
+    {
+
+        public TravelCategoryCreatedate()
+        { 
+            created_at = DateTime.UtcNow;
+        }
+
+
+
+
+    }
+
+    public class TravelCategoryUpdatedat : TravelCategory
+    {
+
+        public TravelCategoryUpdatedat()
+        {
+            created_at = DateTime.UtcNow;
+        }
+
+
+
+
+    }
 }
 

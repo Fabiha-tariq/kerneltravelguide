@@ -29,8 +29,35 @@ namespace KernelTravelGuides.Models
 
 
         [DataType(DataType.DateTime)]
-        [Display(Name = "Resorts Created Time")]
+        [Display(Name = "Messages Created Time")]
         public DateTime created_at { get; set; }
+
+
+
+    }
+
+
+    public class MessageCreatedate : Messages
+    {
+
+        public MessageCreatedate()
+        {
+            created_at = DateTime.UtcNow;
+        }
+
+
+
+
+    }
+
+    public class MessageUpdatedat : Messages
+    {
+
+        public MessageUpdatedat()
+        {
+            created_at = DateTime.UtcNow;
+        }
+
 
 
 

@@ -60,4 +60,31 @@ namespace KernelTravelGuides.Models
         public IFormFile main_image { get; set; }
 
     }
+
+
+    public class PackageCreatedate : Packages
+    {
+
+        public PackageCreatedate()
+        {
+            created_at = DateTime.UtcNow;
+        }
+
+
+
+
+    }
+
+    public class PackageUpdatedat : Packages
+    {
+
+        public PackageUpdatedat()
+        {
+            created_at = DateTime.UtcNow;
+        }
+
+
+
+
+    }
 }

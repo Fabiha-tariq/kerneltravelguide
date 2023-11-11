@@ -1,0 +1,69 @@
+﻿@model KernelTravelGuides.Models.Transport
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Transport</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="transport_id" />
+            <div class="form-group">
+                <label asp-for="transport_name" class="control-label"></label>
+                <input asp-for="transport_name" class="form-control" />
+                <span asp-validation-for="transport_name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="transport_number" class="control-label"></label>
+                <input asp-for="transport_number" class="form-control" />
+                <span asp-validation-for="transport_number" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="transport_price" class="control-label"></label>
+                <input asp-for="transport_price" class="form-control" />
+                <span asp-validation-for="transport_price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="transport_rating" class="control-label"></label>
+                <input asp-for="transport_rating" class="form-control" />
+                <span asp-validation-for="transport_rating" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="transport_desc" class="control-label"></label>
+                <input asp-for="transport_desc" class="form-control" />
+                <span asp-validation-for="transport_desc" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="transport_status" /> @Html.DisplayNameFor(model => model.transport_status)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="created_at" class="control-label"></label>
+                <input asp-for="created_at" class="form-control" />
+                <span asp-validation-for="created_at" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="updated_at" class="control-label"></label>
+                <input asp-for="updated_at" class="form-control" />
+                <span asp-validation-for="updated_at" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -65,4 +65,31 @@ namespace KernelTravelGuides.Models
         public IFormFile main_image3 { get; set; }
 
     }
+
+
+    public class TouriestSpotsCreatedate : TouriestSpots
+    {
+
+        public TouriestSpotsCreatedate()
+        {
+            created_at = DateTime.UtcNow;
+        }
+
+
+
+
+    }
+
+    public class TouriestSpotsUpdatedat : TouriestSpots
+    {
+
+        public TouriestSpotsUpdatedat()
+        {
+            created_at = DateTime.UtcNow;
+        }
+
+
+
+
+    }
 }

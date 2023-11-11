@@ -45,4 +45,31 @@ namespace KernelTravelGuides.Models
         public IFormFile main_image { get; set; }
 
     }
+
+
+    public class CountryCreatedate : Country
+    {
+
+        public CountryCreatedate()
+        {
+            created_at = DateTime.UtcNow;
+        }
+
+
+
+
+    }
+
+    public class CountryUpdatedat : Country
+    {
+
+        public CountryUpdatedat()
+        {
+            created_at = DateTime.UtcNow;
+        }
+
+
+
+
+    }
 }

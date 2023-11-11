@@ -43,4 +43,31 @@ namespace KernelTravelGuides.Models
         public IFormFile main_image { get; set; }
 
     }
+
+
+    public class RestaurantCreatedate : Restaurants
+    {
+
+        public RestaurantCreatedate()
+        {
+            created_at = DateTime.UtcNow;
+        }
+
+
+
+
+    }
+
+    public class RestaurantUpdatedat : Restaurants
+    {
+
+        public RestaurantUpdatedat()
+        {
+            created_at = DateTime.UtcNow;
+        }
+
+
+
+
+    }
 }

@@ -1,0 +1,78 @@
+﻿@model KernelTravelGuides.Models.TouriestSpots
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>TouriestSpots</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.t_spot_name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.t_spot_name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.t_spot_locaion)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.t_spot_locaion)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.t_spot_desc)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.t_spot_desc)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.t_spot_rating)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.t_spot_rating)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.t_spot_img1)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.t_spot_img1)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.t_spot_img2)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.t_spot_img2)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.t_spot_img3)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.t_spot_img3)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.t_spot_status)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.t_spot_status)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.created_at)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.created_at)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.updated_at)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.updated_at)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.t_spot_id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

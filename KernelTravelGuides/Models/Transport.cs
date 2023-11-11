@@ -46,4 +46,29 @@ namespace KernelTravelGuides.Models
         public DateTime updated_at { get; set; }
 
     }
+
+
+    public class TransportCreatedate : Transport
+    {
+
+        public TransportCreatedate()
+        {
+            created_at = DateTime.UtcNow;
+        }
+
+
+    }
+
+    public class TransportUpdatedat : Transport
+    {
+
+        public TransportUpdatedat()
+        {
+            created_at = DateTime.UtcNow;
+        }
+
+
+
+
+    }
 }
