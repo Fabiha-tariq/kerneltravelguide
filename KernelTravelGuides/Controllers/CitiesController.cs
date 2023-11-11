@@ -7,16 +7,19 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using KernelTravelGuides.Data;
 using KernelTravelGuides.Models;
+using Microsoft.Extensions.Hosting;
 
 namespace KernelTravelGuides.Controllers
 {
     public class CitiesController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly IWebHostEnvironment _hostEnvironment;
 
-        public CitiesController(ApplicationDbContext context)
+        public CitiesController(ApplicationDbContext context, IWebHostEnvironment hostEnvironment)
         {
             _context = context;
+            this._hostEnvironment = hostEnvironment;
         }
 
         // GET: Cities
@@ -56,14 +59,25 @@ namespace KernelTravelGuides.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("city_id,city_name,city_image,city_status,created_at,updated_at")] City city)
+        public async Task<IActionResult> Create([Bind("city_id,city_name,main_image,city_status,created_at,updated_at")] City city)
         {
-            if (ModelState.IsValid)
+            string wwwRootPath = _hostEnvironment.WebRootPath;
+            string filename = Path.GetFileNameWithoutExtension(city.main_image.FileName);
+            string extension = Path.GetExtension(city.main_image.FileName);
+            city.city_image = filename = filename + DateTime.Now.ToString("yymmssfff") + extension;
+            string path = Path.Combine(wwwRootPath + "/images/cityimg", filename);
+            using (var filestream = new FileStream(path, FileMode.Create))
             {
-                _context.Add(city);
+                city.main_image.CopyToAsync(filestream);
+            }
+
+            DateTime created_at = DateTime.UtcNow;
+
+
+            _context.Add(city);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
-            }
+          
             return View(city);
         }
 
