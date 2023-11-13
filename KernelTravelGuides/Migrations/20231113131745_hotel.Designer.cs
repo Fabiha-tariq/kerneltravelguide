@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace KernelTravelGuides.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20231113080239_travelcateory")]
-    partial class travelcateory
+    [Migration("20231113131745_hotel")]
+    partial class hotel
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

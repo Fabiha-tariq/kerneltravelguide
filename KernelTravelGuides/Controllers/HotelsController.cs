@@ -23,6 +23,7 @@ namespace KernelTravelGuides.Controllers
         // GET: Hotels
         public async Task<IActionResult> Index()
         {
+            
               return _context.Hotels != null ? 
                           View(await _context.Hotels.ToListAsync()) :
                           Problem("Entity set 'ApplicationDbContext.Hotels'  is null.");
@@ -59,6 +60,7 @@ namespace KernelTravelGuides.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("hotel_id,hotel_name,hotel_rating,hotel_average,hotel_image,hotel_status,created_at")] Hotel hotel)
         {
+          
             DateTime created_at = DateTime.UtcNow;
 
             _context.Add(hotel);

@@ -33,6 +33,26 @@
                 <input asp-for="packages_img" class="form-control" />
                 <span asp-validation-for="packages_img" class="text-danger"></span>
             </div>
+            <div class="form-group">
+                <label asp-for="resorts_id" class="control-label"></label>
+                <select asp-for="resorts_id" class="form-control" asp-items="ViewBag.resorts_id"></select>
+                <span asp-validation-for="resorts_id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="tra_category_id" class="control-label"></label>
+                <select asp-for="tra_category_id" class="form-control" asp-items="ViewBag.tra_category_id"></select>
+                <span asp-validation-for="tra_category_id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="t_spot_id" class="control-label"></label>
+                <select asp-for="t_spot_id" class="form-control" asp-items="ViewBag.t_spot_id"></select>
+                <span asp-validation-for="t_spot_id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="transport_id" class="control-label"></label>
+                <select asp-for="transport_id" class="form-control" asp-items="ViewBag.transport_id"></select>
+                <span asp-validation-for="transport_id" class="text-danger"></span>
+            </div>
             <div class="form-group form-check">
                 <label class="form-check-label">
                     <input class="form-check-input" asp-for="packages_status" /> @Html.DisplayNameFor(model => model.packages_status)

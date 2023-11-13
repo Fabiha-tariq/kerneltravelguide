@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace KernelTravelGuides.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20231109201422_important")]
-    partial class important
+    [Migration("20231113123817_packages")]
+    partial class packages
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -120,9 +120,6 @@ namespace KernelTravelGuides.Migrations
 
                     b.Property<bool>("hotel_status")
                         .HasColumnType("bit");
-
-                    b.Property<DateTime>("updated_at")
-                        .HasColumnType("datetime2");
 
                     b.HasKey("hotel_id");
 
@@ -260,8 +257,17 @@ namespace KernelTravelGuides.Migrations
                     b.Property<DateTime>("created_at")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("resort_image_id")
-                        .HasColumnType("int");
+                    b.Property<string>("resorts_img1")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("resorts_img2")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("resorts_img3")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("resorts_location")
                         .IsRequired()
@@ -279,32 +285,7 @@ namespace KernelTravelGuides.Migrations
 
                     b.HasKey("resorts_id");
 
-                    b.HasIndex("resort_image_id");
-
                     b.ToTable("Resorts");
-                });
-
-            modelBuilder.Entity("KernelTravelGuides.Models.ResortsImage", b =>
-                {
-                    b.Property<int>("resort_image_id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("resort_image_id"), 1L, 1);
-
-                    b.Property<DateTime>("created_at")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("resort_image_name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("updated_at")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("resort_image_id");
-
-                    b.ToTable("ResortsImages");
                 });
 
             modelBuilder.Entity("KernelTravelGuides.Models.Restaurants", b =>
@@ -357,8 +338,17 @@ namespace KernelTravelGuides.Migrations
                         .HasMaxLength(8000)
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("t_spot_image_id")
-                        .HasColumnType("int");
+                    b.Property<string>("t_spot_img1")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("t_spot_img2")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("t_spot_img3")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("t_spot_locaion")
                         .IsRequired()
@@ -379,32 +369,7 @@ namespace KernelTravelGuides.Migrations
 
                     b.HasKey("t_spot_id");
 
-                    b.HasIndex("t_spot_image_id");
-
                     b.ToTable("TouriestSpots");
-                });
-
-            modelBuilder.Entity("KernelTravelGuides.Models.TouriestSpotsImages", b =>
-                {
-                    b.Property<int>("t_spot_image_id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("t_spot_image_id"), 1L, 1);
-
-                    b.Property<DateTime>("created_at")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("t_spot_image_name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("updated_at")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("t_spot_image_id");
-
-                    b.ToTable("TouriestSpotsImages");
                 });
 
             modelBuilder.Entity("KernelTravelGuides.Models.Transport", b =>
@@ -468,9 +433,8 @@ namespace KernelTravelGuides.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("tra_category_status")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<bool>("tra_category_status")
+                        .HasColumnType("bit");
 
                     b.Property<DateTime>("updated_at")
                         .HasColumnType("datetime2");
@@ -513,28 +477,6 @@ namespace KernelTravelGuides.Migrations
                     b.Navigation("tra_category");
 
                     b.Navigation("transport");
-                });
-
-            modelBuilder.Entity("KernelTravelGuides.Models.Resorts", b =>
-                {
-                    b.HasOne("KernelTravelGuides.Models.ResortsImage", "Image")
-                        .WithMany()
-                        .HasForeignKey("resort_image_id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Image");
-                });
-
-            modelBuilder.Entity("KernelTravelGuides.Models.TouriestSpots", b =>
-                {
-                    b.HasOne("KernelTravelGuides.Models.TouriestSpotsImages", "t_spot_image")
-                        .WithMany()
-                        .HasForeignKey("t_spot_image_id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("t_spot_image");
                 });
 #pragma warning restore 612, 618
         }

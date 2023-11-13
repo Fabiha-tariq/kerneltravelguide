@@ -27,15 +27,19 @@ namespace KernelTravelGuides.Models
         public string packages_img { get; set; }
 
 
+        public int resorts_id { get; set; }
         [ForeignKey("resorts_id")]
         public Resorts resorts { get; set; }
 
+        public int tra_category_id { get; set; }
         [ForeignKey("tra_category_id")]
         public TravelCategory tra_category { get; set; }
 
+        public int t_spot_id { get; set; }
         [ForeignKey("t_spot_id")]
         public TouriestSpots t_spot { get; set; }
 
+        public int transport_id { get; set; }
         [ForeignKey("transport_id")]
         public Transport transport { get; set; }
 

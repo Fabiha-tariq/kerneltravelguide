@@ -10,7 +10,7 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create" enctype="multipart/form-data">
+        <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="packages_name" class="control-label"></label>
@@ -28,16 +28,32 @@
                 <span asp-validation-for="packages_or_price" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="main_image" class="control-label"></label>
+                <label asp-for="packages_img" class="control-label"></label>
                 <input asp-for="packages_img" class="form-control" />
                 <span asp-validation-for="packages_img" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="resorts_id" class="control-label"></label>
+                <select asp-for="resorts_id" class ="form-control" asp-items="ViewBag.resorts_id"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="tra_category_id" class="control-label"></label>
+                <select asp-for="tra_category_id" class ="form-control" asp-items="ViewBag.tra_category_id"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="t_spot_id" class="control-label"></label>
+                <select asp-for="t_spot_id" class ="form-control" asp-items="ViewBag.t_spot_id"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="transport_id" class="control-label"></label>
+                <select asp-for="transport_id" class ="form-control" asp-items="ViewBag.transport_id"></select>
             </div>
             <div class="form-group form-check">
                 <label class="form-check-label">
                     <input class="form-check-input" asp-for="packages_status" /> @Html.DisplayNameFor(model => model.packages_status)
                 </label>
             </div>
-          @*  <div class="form-group">
+            <div class="form-group">
                 <label asp-for="created_at" class="control-label"></label>
                 <input asp-for="created_at" class="form-control" />
                 <span asp-validation-for="created_at" class="text-danger"></span>
@@ -46,7 +62,7 @@
                 <label asp-for="updated_at" class="control-label"></label>
                 <input asp-for="updated_at" class="form-control" />
                 <span asp-validation-for="updated_at" class="text-danger"></span>
-            </div>*@
+            </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>

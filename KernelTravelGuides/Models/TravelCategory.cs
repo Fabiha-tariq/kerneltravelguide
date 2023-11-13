@@ -16,7 +16,7 @@ namespace KernelTravelGuides.Models
         [MaxLength(8000)]
         [Required]
         [Display(Name = "Travel Category Description")]
-        public string tra_category_desc { get; set; }
+        public string tra_category_desc { get ; set; }
 
 
         [Required]

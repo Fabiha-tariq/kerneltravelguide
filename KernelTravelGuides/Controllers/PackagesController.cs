@@ -14,20 +14,16 @@ namespace KernelTravelGuides.Controllers
     {
         private readonly ApplicationDbContext _context;
 
-        private readonly IWebHostEnvironment _hostEnvironment;
-
-        public PackagesController(ApplicationDbContext context, IWebHostEnvironment hostEnvironment)
+        public PackagesController(ApplicationDbContext context)
         {
             _context = context;
-            this._hostEnvironment = hostEnvironment;
         }
 
         // GET: Packages
         public async Task<IActionResult> Index()
         {
-              return _context.Packages != null ? 
-                          View(await _context.Packages.ToListAsync()) :
-                          Problem("Entity set 'ApplicationDbContext.Packages'  is null.");
+            var applicationDbContext = _context.Packages.Include(p => p.resorts).Include(p => p.t_spot).Include(p => p.tra_category).Include(p => p.transport);
+            return View(await applicationDbContext.ToListAsync());
         }
 
         // GET: Packages/Details/5
@@ -39,6 +35,10 @@ namespace KernelTravelGuides.Controllers
             }
 
             var packages = await _context.Packages
+                .Include(p => p.resorts)
+                .Include(p => p.t_spot)
+                .Include(p => p.tra_category)
+                .Include(p => p.transport)
                 .FirstOrDefaultAsync(m => m.packages_id == id);
             if (packages == null)
             {
@@ -51,6 +51,10 @@ namespace KernelTravelGuides.Controllers
         // GET: Packages/Create
         public IActionResult Create()
         {
+            ViewData["resorts_id"] = new SelectList(_context.Resorts, "resorts_id", "resorts_img1");
+            ViewData["t_spot_id"] = new SelectList(_context.TouriestSpots, "t_spot_id", "t_spot_desc");
+            ViewData["tra_category_id"] = new SelectList(_context.TravelCategories, "tra_category_id", "tra_category_desc");
+            ViewData["transport_id"] = new SelectList(_context.Transports, "transport_id", "transport_desc");
             return View();
         }
 
@@ -59,24 +63,18 @@ namespace KernelTravelGuides.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("packages_id,packages_name,packages_desc,packages_or_price,main_image,packages_status,created_at,updated_at")] Packages packages)
+        public async Task<IActionResult> Create([Bind("packages_id,packages_name,packages_desc,packages_or_price,packages_img,resorts_id,tra_category_id,t_spot_id,transport_id,packages_status,created_at,updated_at")] Packages packages)
         {
-            string wwwRootPath = _hostEnvironment.WebRootPath;
-            string filename = Path.GetFileNameWithoutExtension(packages.main_image.FileName);
-            string extension = Path.GetExtension(packages.main_image.FileName);
-            packages.packages_img = filename = filename + DateTime.Now.ToString("yymmssfff") + extension;
-            string path = Path.Combine(wwwRootPath + "/images/packageimg", filename);
-            using (var filestream = new FileStream(path, FileMode.Create))
+            if (ModelState.IsValid)
             {
-                packages.main_image.CopyToAsync(filestream);
-            }
-
-            DateTime created_at = DateTime.UtcNow;
-
-            _context.Add(packages);
+                _context.Add(packages);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
-         
+            }
+            ViewData["resorts_id"] = new SelectList(_context.Resorts, "resorts_id", "resorts_img1", packages.resorts_id);
+            ViewData["t_spot_id"] = new SelectList(_context.TouriestSpots, "t_spot_id", "t_spot_desc", packages.t_spot_id);
+            ViewData["tra_category_id"] = new SelectList(_context.TravelCategories, "tra_category_id", "tra_category_desc", packages.tra_category_id);
+            ViewData["transport_id"] = new SelectList(_context.Transports, "transport_id", "transport_desc", packages.transport_id);
             return View(packages);
         }
 
@@ -93,6 +91,10 @@ namespace KernelTravelGuides.Controllers
             {
                 return NotFound();
             }
+            ViewData["resorts_id"] = new SelectList(_context.Resorts, "resorts_id", "resorts_img1", packages.resorts_id);
+            ViewData["t_spot_id"] = new SelectList(_context.TouriestSpots, "t_spot_id", "t_spot_desc", packages.t_spot_id);
+            ViewData["tra_category_id"] = new SelectList(_context.TravelCategories, "tra_category_id", "tra_category_desc", packages.tra_category_id);
+            ViewData["transport_id"] = new SelectList(_context.Transports, "transport_id", "transport_desc", packages.transport_id);
             return View(packages);
         }
 
@@ -101,7 +103,7 @@ namespace KernelTravelGuides.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("packages_id,packages_name,packages_desc,packages_or_price,packages_img,packages_status,created_at,updated_at")] Packages packages)
+        public async Task<IActionResult> Edit(int id, [Bind("packages_id,packages_name,packages_desc,packages_or_price,packages_img,resorts_id,tra_category_id,t_spot_id,transport_id,packages_status,created_at,updated_at")] Packages packages)
         {
             if (id != packages.packages_id)
             {
@@ -128,6 +130,10 @@ namespace KernelTravelGuides.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["resorts_id"] = new SelectList(_context.Resorts, "resorts_id", "resorts_img1", packages.resorts_id);
+            ViewData["t_spot_id"] = new SelectList(_context.TouriestSpots, "t_spot_id", "t_spot_desc", packages.t_spot_id);
+            ViewData["tra_category_id"] = new SelectList(_context.TravelCategories, "tra_category_id", "tra_category_desc", packages.tra_category_id);
+            ViewData["transport_id"] = new SelectList(_context.Transports, "transport_id", "transport_desc", packages.transport_id);
             return View(packages);
         }
 
@@ -140,6 +146,10 @@ namespace KernelTravelGuides.Controllers
             }
 
             var packages = await _context.Packages
+                .Include(p => p.resorts)
+                .Include(p => p.t_spot)
+                .Include(p => p.tra_category)
+                .Include(p => p.transport)
                 .FirstOrDefaultAsync(m => m.packages_id == id);
             if (packages == null)
             {

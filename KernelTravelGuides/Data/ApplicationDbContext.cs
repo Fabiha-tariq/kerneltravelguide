@@ -17,7 +17,6 @@ namespace KernelTravelGuides.Data
         public DbSet<TravelCategory> TravelCategories { get; set; }
         public DbSet<Resorts> Resorts { get; set; }
         public DbSet<Messages> Messages { get; set; }
-        public DbSet<Packages> Packages { get; set; }
 
         public DbSet<Restaurants> Restaurants { get; set; }
 
@@ -25,5 +24,6 @@ namespace KernelTravelGuides.Data
         public DbSet<Transport> Transports { get; set; }
         public DbSet<TouriestSpots> TouriestSpots { get; set; }
 
+        public DbSet<Packages> Packages { get; set; }
     }
 }

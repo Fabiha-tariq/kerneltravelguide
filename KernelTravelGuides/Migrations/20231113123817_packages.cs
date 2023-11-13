@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace KernelTravelGuides.Migrations
 {
-    public partial class important : Migration
+    public partial class packages : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -27,6 +27,25 @@ namespace KernelTravelGuides.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Countries",
+                columns: table => new
+                {
+                    country_id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    country_name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    country_code = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    country_image = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    country_currency = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    status = table.Column<bool>(type: "bit", nullable: false),
+                    created_at = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    updated_at = table.Column<DateTime>(type: "datetime2", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Countries", x => x.country_id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Hotels",
                 columns: table => new
                 {
@@ -37,8 +56,7 @@ namespace KernelTravelGuides.Migrations
                     hotel_average = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     hotel_image = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     hotel_status = table.Column<bool>(type: "bit", nullable: false),
-                    created_at = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    updated_at = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    created_at = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -80,18 +98,23 @@ namespace KernelTravelGuides.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "ResortsImages",
+                name: "Resorts",
                 columns: table => new
                 {
-                    resort_image_id = table.Column<int>(type: "int", nullable: false)
+                    resorts_id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    resort_image_name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    resorts_name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    resorts_location = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    resorts_img1 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    resorts_img2 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    resorts_img3 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    resorts_status = table.Column<bool>(type: "bit", nullable: false),
                     created_at = table.Column<DateTime>(type: "datetime2", nullable: false),
                     updated_at = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ResortsImages", x => x.resort_image_id);
+                    table.PrimaryKey("PK_Resorts", x => x.resorts_id);
                 });
 
             migrationBuilder.CreateTable(
@@ -113,18 +136,25 @@ namespace KernelTravelGuides.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "TouriestSpotsImages",
+                name: "TouriestSpots",
                 columns: table => new
                 {
-                    t_spot_image_id = table.Column<int>(type: "int", nullable: false)
+                    t_spot_id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    t_spot_image_name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    t_spot_name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    t_spot_locaion = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    t_spot_desc = table.Column<string>(type: "nvarchar(max)", maxLength: 8000, nullable: false),
+                    t_spot_rating = table.Column<int>(type: "int", nullable: false),
+                    t_spot_img1 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    t_spot_img2 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    t_spot_img3 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    t_spot_status = table.Column<bool>(type: "bit", nullable: false),
                     created_at = table.Column<DateTime>(type: "datetime2", nullable: false),
                     updated_at = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_TouriestSpotsImages", x => x.t_spot_image_id);
+                    table.PrimaryKey("PK_TouriestSpots", x => x.t_spot_id);
                 });
 
             migrationBuilder.CreateTable(
@@ -155,63 +185,13 @@ namespace KernelTravelGuides.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     tra_category_name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     tra_category_desc = table.Column<string>(type: "nvarchar(max)", maxLength: 8000, nullable: false),
-                    tra_category_status = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    tra_category_status = table.Column<bool>(type: "bit", nullable: false),
                     created_at = table.Column<DateTime>(type: "datetime2", nullable: false),
                     updated_at = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_TravelCategories", x => x.tra_category_id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Resorts",
-                columns: table => new
-                {
-                    resorts_id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    resorts_name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    resorts_location = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    resorts_status = table.Column<bool>(type: "bit", nullable: false),
-                    created_at = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    updated_at = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    resort_image_id = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Resorts", x => x.resorts_id);
-                    table.ForeignKey(
-                        name: "FK_Resorts_ResortsImages_resort_image_id",
-                        column: x => x.resort_image_id,
-                        principalTable: "ResortsImages",
-                        principalColumn: "resort_image_id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "TouriestSpots",
-                columns: table => new
-                {
-                    t_spot_id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    t_spot_name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    t_spot_locaion = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    t_spot_desc = table.Column<string>(type: "nvarchar(max)", maxLength: 8000, nullable: false),
-                    t_spot_rating = table.Column<int>(type: "int", nullable: false),
-                    t_spot_image_id = table.Column<int>(type: "int", nullable: false),
-                    t_spot_status = table.Column<bool>(type: "bit", nullable: false),
-                    created_at = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    updated_at = table.Column<DateTime>(type: "datetime2", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_TouriestSpots", x => x.t_spot_id);
-                    table.ForeignKey(
-                        name: "FK_TouriestSpots_TouriestSpotsImages_t_spot_image_id",
-                        column: x => x.t_spot_image_id,
-                        principalTable: "TouriestSpotsImages",
-                        principalColumn: "t_spot_image_id",
-                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -280,22 +260,15 @@ namespace KernelTravelGuides.Migrations
                 name: "IX_Packages_transport_id",
                 table: "Packages",
                 column: "transport_id");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Resorts_resort_image_id",
-                table: "Resorts",
-                column: "resort_image_id");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_TouriestSpots_t_spot_image_id",
-                table: "TouriestSpots",
-                column: "t_spot_image_id");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
                 name: "Cities");
+
+            migrationBuilder.DropTable(
+                name: "Countries");
 
             migrationBuilder.DropTable(
                 name: "Hotels");
@@ -323,12 +296,6 @@ namespace KernelTravelGuides.Migrations
 
             migrationBuilder.DropTable(
                 name: "TravelCategories");
-
-            migrationBuilder.DropTable(
-                name: "ResortsImages");
-
-            migrationBuilder.DropTable(
-                name: "TouriestSpotsImages");
         }
     }
 }
