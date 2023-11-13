@@ -14,9 +14,12 @@ namespace KernelTravelGuides.Controllers
     {
         private readonly ApplicationDbContext _context;
 
-        public PackagesController(ApplicationDbContext context)
+        private readonly IWebHostEnvironment _hostEnvironment;
+
+        public PackagesController(ApplicationDbContext context, IWebHostEnvironment hostEnvironment)
         {
             _context = context;
+            this._hostEnvironment = hostEnvironment;
         }
 
         // GET: Packages
@@ -56,14 +59,24 @@ namespace KernelTravelGuides.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("packages_id,packages_name,packages_desc,packages_or_price,packages_img,packages_status,created_at,updated_at")] Packages packages)
+        public async Task<IActionResult> Create([Bind("packages_id,packages_name,packages_desc,packages_or_price,main_image,packages_status,created_at,updated_at")] Packages packages)
         {
-            if (ModelState.IsValid)
+            string wwwRootPath = _hostEnvironment.WebRootPath;
+            string filename = Path.GetFileNameWithoutExtension(packages.main_image.FileName);
+            string extension = Path.GetExtension(packages.main_image.FileName);
+            packages.packages_img = filename = filename + DateTime.Now.ToString("yymmssfff") + extension;
+            string path = Path.Combine(wwwRootPath + "/images/packageimg", filename);
+            using (var filestream = new FileStream(path, FileMode.Create))
             {
-                _context.Add(packages);
+                packages.main_image.CopyToAsync(filestream);
+            }
+
+            DateTime created_at = DateTime.UtcNow;
+
+            _context.Add(packages);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
-            }
+         
             return View(packages);
         }
 

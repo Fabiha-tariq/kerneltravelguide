@@ -19,6 +19,12 @@
   <ItemGroup>
     <Folder Include="wwwroot\images\countryimg\" />
     <Folder Include="wwwroot\images\cityimg\" />
+    <Folder Include="wwwroot\images\hotelimg\" />
+    <Folder Include="wwwroot\images\touriestspotsimg\" />
+    <Folder Include="wwwroot\images\restaurantimg\" />
+    <Folder Include="wwwroot\images\resortimg\" />
+    <Folder Include="wwwroot\images\provinceimg\" />
+    <Folder Include="wwwroot\images\packageimg\" />
   </ItemGroup>
 
 </Project>

@@ -21,7 +21,7 @@ namespace KernelTravelGuides.Models
 
         [Required]
         [Display(Name = "Travel Category Status")]
-        public string tra_category_status { get; set; }
+        public bool tra_category_status { get; set; }
 
 
         [DataType(DataType.DateTime)]
@@ -34,9 +34,7 @@ namespace KernelTravelGuides.Models
         [Display(Name = "Travel Category Updated Time")]
         public DateTime updated_at { get; set; }
 
-        [NotMapped]
-        public IFormFile main_image { get; set; }
-
+      
     }
 
 

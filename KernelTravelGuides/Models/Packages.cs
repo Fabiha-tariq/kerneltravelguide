@@ -19,7 +19,7 @@ namespace KernelTravelGuides.Models
         public string packages_desc { get; set; }
 
         [Required]
-        [Display(Name = "Packages Orignal Price")]
+        [Display(Name = "Packages Price")]
         public int packages_or_price { get; set; }
 
         [Required]

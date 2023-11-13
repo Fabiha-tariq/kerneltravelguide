@@ -96,9 +96,7 @@ namespace KernelTravelGuides.Controllers
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
-            {
-                try
+              try
                 {
                     _context.Update(hotel);
                     await _context.SaveChangesAsync();
@@ -115,7 +113,7 @@ namespace KernelTravelGuides.Controllers
                     }
                 }
                 return RedirectToAction(nameof(Index));
-            }
+          
             return View(hotel);
         }
 

@@ -13,12 +13,32 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\Fabiha\\source\\repos\\KernelTravelGuides\\KernelTravelGuides\\wwwroot\\images\\cityimg\\CARwithpostbox235035735.png",
+      "PackagePath": "staticwebassets\\images\\cityimg\\CARwithpostbox235035735.png"
+    },
+    {
+      "Id": "C:\\Users\\Fabiha\\source\\repos\\KernelTravelGuides\\KernelTravelGuides\\wwwroot\\images\\cityimg\\WhatsApp Image 2023-11-08 at 19.44.13_4898ca86233253433.jpg",
+      "PackagePath": "staticwebassets\\images\\cityimg\\WhatsApp Image 2023-11-08 at 19.44.13_4898ca86233253433.jpg"
+    },
+    {
       "Id": "C:\\Users\\Fabiha\\source\\repos\\KernelTravelGuides\\KernelTravelGuides\\wwwroot\\images\\countryimg\\Untitled233941154.png",
       "PackagePath": "staticwebassets\\images\\countryimg\\Untitled233941154.png"
     },
     {
       "Id": "C:\\Users\\Fabiha\\source\\repos\\KernelTravelGuides\\KernelTravelGuides\\wwwroot\\images\\countryimg\\WhatsApp Image 2023-11-08 at 19.44.13_4898ca86234238816.jpg",
       "PackagePath": "staticwebassets\\images\\countryimg\\WhatsApp Image 2023-11-08 at 19.44.13_4898ca86234238816.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Fabiha\\source\\repos\\KernelTravelGuides\\KernelTravelGuides\\wwwroot\\images\\resortimg\\BOAT232908458.png",
+      "PackagePath": "staticwebassets\\images\\resortimg\\BOAT232908458.png"
+    },
+    {
+      "Id": "C:\\Users\\Fabiha\\source\\repos\\KernelTravelGuides\\KernelTravelGuides\\wwwroot\\images\\resortimg\\CARwithpostbox232908411.png",
+      "PackagePath": "staticwebassets\\images\\resortimg\\CARwithpostbox232908411.png"
+    },
+    {
+      "Id": "C:\\Users\\Fabiha\\source\\repos\\KernelTravelGuides\\KernelTravelGuides\\wwwroot\\images\\resortimg\\MARYAM232908302.png",
+      "PackagePath": "staticwebassets\\images\\resortimg\\MARYAM232908302.png"
     },
     {
       "Id": "C:\\Users\\Fabiha\\source\\repos\\KernelTravelGuides\\KernelTravelGuides\\wwwroot\\js\\site.js",

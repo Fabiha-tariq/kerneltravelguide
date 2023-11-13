@@ -58,12 +58,11 @@ namespace KernelTravelGuides.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("messages_id,messages_user_name,messages_desc,messages_status,messages_content,created_at")] Messages messages)
         {
-            if (ModelState.IsValid)
-            {
+            
                 _context.Add(messages);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
-            }
+          
             return View(messages);
         }
 

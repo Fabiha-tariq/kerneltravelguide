@@ -10,7 +10,7 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create">
+        <form asp-action="Create" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="resorts_name" class="control-label"></label>
@@ -23,26 +23,26 @@
                 <span asp-validation-for="resorts_location" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="resorts_img1" class="control-label"></label>
-                <input asp-for="resorts_img1" class="form-control" />
-                <span asp-validation-for="resorts_img1" class="text-danger"></span>
+                <label asp-for="main_image1" class="control-label"></label>
+                <input asp-for="main_image1" class="form-control" accept="/images/resortimg/*" />
+                <span asp-validation-for="main_image1" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="resorts_img2" class="control-label"></label>
-                <input asp-for="resorts_img2" class="form-control" />
-                <span asp-validation-for="resorts_img2" class="text-danger"></span>
+                <label asp-for="main_image2" class="control-label"></label>
+                <input asp-for="main_image2" class="form-control" accept="/images/resortimg/*" />
+                <span asp-validation-for="main_image2" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="resorts_img3" class="control-label"></label>
-                <input asp-for="resorts_img3" class="form-control" />
-                <span asp-validation-for="resorts_img3" class="text-danger"></span>
+                <label asp-for="main_image3" class="control-label"></label>
+                <input asp-for="main_image3" class="form-control" accept="/images/resortimg/*" />
+                <span asp-validation-for="main_image3" class="text-danger"></span>
             </div>
             <div class="form-group form-check">
                 <label class="form-check-label">
                     <input class="form-check-input" asp-for="resorts_status" /> @Html.DisplayNameFor(model => model.resorts_status)
                 </label>
             </div>
-            <div class="form-group">
+        @*    <div class="form-group">
                 <label asp-for="created_at" class="control-label"></label>
                 <input asp-for="created_at" class="form-control" />
                 <span asp-validation-for="created_at" class="text-danger"></span>
@@ -51,7 +51,7 @@
                 <label asp-for="updated_at" class="control-label"></label>
                 <input asp-for="updated_at" class="form-control" />
                 <span asp-validation-for="updated_at" class="text-danger"></span>
-            </div>
+            </div>*@
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>

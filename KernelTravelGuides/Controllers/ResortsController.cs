@@ -7,16 +7,19 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using KernelTravelGuides.Data;
 using KernelTravelGuides.Models;
+using Microsoft.Extensions.Hosting;
 
 namespace KernelTravelGuides.Controllers
 {
     public class ResortsController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly IWebHostEnvironment _hostEnvironment;
 
-        public ResortsController(ApplicationDbContext context)
+        public ResortsController(ApplicationDbContext context, IWebHostEnvironment hostEnvironment)
         {
             _context = context;
+            this._hostEnvironment = hostEnvironment;
         }
 
         // GET: Resorts
@@ -56,14 +59,49 @@ namespace KernelTravelGuides.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("resorts_id,resorts_name,resorts_location,resorts_img1,resorts_img2,resorts_img3,resorts_status,created_at,updated_at")] Resorts resorts)
+        public async Task<IActionResult> Create([Bind("resorts_id,resorts_name,resorts_location,main_image1,main_image2,main_image3,resorts_status,created_at,updated_at")] Resorts resorts)
         {
-            if (ModelState.IsValid)
+            // Img 1
+            string wwwRootPath = _hostEnvironment.WebRootPath;
+            string filename = Path.GetFileNameWithoutExtension(resorts.main_image1.FileName);
+            string extension = Path.GetExtension(resorts.main_image1.FileName);
+            resorts.resorts_img1 = filename = filename + DateTime.Now.ToString("yymmssfff") + extension;
+            string path = Path.Combine(wwwRootPath + "/images/resortimg", filename);
+            using (var filestream = new FileStream(path, FileMode.Create))
             {
-                _context.Add(resorts);
+                resorts.main_image1.CopyToAsync(filestream);
+            }
+
+            // Img 2
+            string wwwRootPath2 = _hostEnvironment.WebRootPath;
+            string filename2 = Path.GetFileNameWithoutExtension(resorts.main_image2.FileName);
+            string extension2 = Path.GetExtension(resorts.main_image2.FileName);
+            resorts.resorts_img2 = filename2 = filename2 + DateTime.Now.ToString("yymmssfff") + extension2;
+            string path2 = Path.Combine(wwwRootPath2 + "/images/resortimg", filename2);
+            using (var filestream2 = new FileStream(path2, FileMode.Create))
+            {
+                resorts.main_image2.CopyToAsync(filestream2);
+            }
+
+            // Img 3
+            string wwwRootPath3 = _hostEnvironment.WebRootPath;
+            string filename3 = Path.GetFileNameWithoutExtension(resorts.main_image3.FileName);
+            string extension3 = Path.GetExtension(resorts.main_image3.FileName);
+            resorts.resorts_img3 = filename3 = filename3 + DateTime.Now.ToString("yymmssfff") + extension3;
+            string path3 = Path.Combine(wwwRootPath3 + "/images/resortimg", filename3);
+            using (var filestream3 = new FileStream(path3, FileMode.Create))
+            {
+                resorts.main_image3.CopyToAsync(filestream3);
+            }
+
+
+            DateTime created_at = DateTime.UtcNow;
+
+            _context.Add(resorts);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
-            }
+         
+
             return View(resorts);
         }
 
