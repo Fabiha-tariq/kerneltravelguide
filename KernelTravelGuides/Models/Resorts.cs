@@ -37,13 +37,7 @@ namespace KernelTravelGuides.Models
 
         [DataType(DataType.DateTime)]
         [Display(Name = "Resorts Created Time")]
-        public DateTime created_at { get; set; }
-
-
-
-        [DataType(DataType.DateTime)]
-        [Display(Name = "Resorts Updated Time")]
-        public DateTime updated_at { get; set; }
+        public DateTime created_at { get; set; } = DateTime.Now;
 
         [NotMapped]
         public IFormFile main_image1 { get; set; }
@@ -57,30 +51,6 @@ namespace KernelTravelGuides.Models
     }
 
 
-    public class ResortCreatedate : Resorts
-    {
-
-        public ResortCreatedate()
-        {
-            created_at = DateTime.UtcNow;
-        }
-
-
-
-
-    }
-
-    public class ResortUpdatedat : Resorts
-    {
-
-        public ResortUpdatedat()
-        {
-            created_at = DateTime.UtcNow;
-        }
-
-
-
-
-    }
+  
 }
 

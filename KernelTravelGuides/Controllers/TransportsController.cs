@@ -56,7 +56,7 @@ namespace KernelTravelGuides.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("transport_id,transport_name,transport_number,transport_price,transport_rating,transport_desc,transport_status,created_at,updated_at")] Transport transport)
+        public async Task<IActionResult> Create([Bind("transport_id,transport_name,transport_number,transport_price,transport_rating,transport_desc,transport_status,created_at")] Transport transport)
         {
             if (ModelState.IsValid)
             {
@@ -88,7 +88,7 @@ namespace KernelTravelGuides.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("transport_id,transport_name,transport_number,transport_price,transport_rating,transport_desc,transport_status,created_at,updated_at")] Transport transport)
+        public async Task<IActionResult> Edit(int id, [Bind("transport_id,transport_name,transport_number,transport_price,transport_rating,transport_desc,transport_status,created_at")] Transport transport)
         {
             if (id != transport.transport_id)
             {

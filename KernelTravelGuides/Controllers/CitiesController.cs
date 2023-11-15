@@ -59,7 +59,7 @@ namespace KernelTravelGuides.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("city_id,city_name,main_image,city_status,created_at,updated_at")] City city)
+        public async Task<IActionResult> Create([Bind("city_id,city_name,main_image,city_status,created_at")] City city)
         {
             string wwwRootPath = _hostEnvironment.WebRootPath;
             string filename = Path.GetFileNameWithoutExtension(city.main_image.FileName);
@@ -102,7 +102,7 @@ namespace KernelTravelGuides.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("city_id,city_name,city_image,city_status,created_at,updated_at")] City city)
+        public async Task<IActionResult> Edit(int id, [Bind("city_id,city_name,city_image,city_status,created_at")] City city)
         {
             if (id != city.city_id)
             {

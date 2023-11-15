@@ -51,13 +51,7 @@ namespace KernelTravelGuides.Models
 
         [DataType(DataType.DateTime)]
         [Display(Name = "Packages Created Time")]
-        public DateTime created_at { get; set; }
-
-
-
-        [DataType(DataType.DateTime)]
-        [Display(Name = "Packages Updated Time")]
-        public DateTime updated_at { get; set; }
+        public DateTime created_at { get; set; } = DateTime.Now;
 
 
         [NotMapped]
@@ -65,30 +59,4 @@ namespace KernelTravelGuides.Models
 
     }
 
-
-    public class PackageCreatedate : Packages
-    {
-
-        public PackageCreatedate()
-        {
-            created_at = DateTime.UtcNow;
-        }
-
-
-
-
-    }
-
-    public class PackageUpdatedat : Packages
-    {
-
-        public PackageUpdatedat()
-        {
-            created_at = DateTime.UtcNow;
-        }
-
-
-
-
-    }
 }

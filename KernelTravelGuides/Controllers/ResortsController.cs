@@ -59,7 +59,7 @@ namespace KernelTravelGuides.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("resorts_id,resorts_name,resorts_location,main_image1,main_image2,main_image3,resorts_status,created_at,updated_at")] Resorts resorts)
+        public async Task<IActionResult> Create([Bind("resorts_id,resorts_name,resorts_location,main_image1,main_image2,main_image3,resorts_status,created_at")] Resorts resorts)
         {
             // Img 1
             string wwwRootPath = _hostEnvironment.WebRootPath;
@@ -126,7 +126,7 @@ namespace KernelTravelGuides.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("resorts_id,resorts_name,resorts_location,resorts_img1,resorts_img2,resorts_img3,resorts_status,created_at,updated_at")] Resorts resorts)
+        public async Task<IActionResult> Edit(int id, [Bind("resorts_id,resorts_name,resorts_location,resorts_img1,resorts_img2,resorts_img3,resorts_status,created_at")] Resorts resorts)
         {
             if (id != resorts.resorts_id)
             {

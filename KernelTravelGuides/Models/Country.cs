@@ -33,13 +33,8 @@ namespace KernelTravelGuides.Models
         [Required]
         [DataType(DataType.DateTime)]
         [Display(Name = "Country Created Time")]
-        public DateTime created_at { get; set; }
+        public DateTime created_at { get; set; } = DateTime.Now;
 
-
-        [Required]
-        [DataType(DataType.DateTime)]
-        [Display(Name = "Country Updated Time")]
-        public DateTime updated_at { get; set; }
 
         [NotMapped]
         public IFormFile main_image { get; set; }
@@ -47,29 +42,5 @@ namespace KernelTravelGuides.Models
     }
 
 
-    public class CountryCreatedate : Country
-    {
-
-        public CountryCreatedate()
-        {
-            created_at = DateTime.UtcNow;
-        }
-
-
-
-
-    }
-
-    public class CountryUpdatedat : Country
-    {
-
-        public CountryUpdatedat()
-        {
-            created_at = DateTime.UtcNow;
-        }
-
-
-
-
-    }
+   
 }

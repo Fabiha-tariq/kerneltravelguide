@@ -56,7 +56,7 @@ namespace KernelTravelGuides.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("restaurants_id,restaurants_name,restaurants_location,restaurants_image,restaurants_status,created_at,updated_at")] Restaurants restaurants)
+        public async Task<IActionResult> Create([Bind("restaurants_id,restaurants_name,restaurants_location,restaurants_image,restaurants_status,created_at")] Restaurants restaurants)
         {
             if (ModelState.IsValid)
             {
@@ -88,7 +88,7 @@ namespace KernelTravelGuides.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("restaurants_id,restaurants_name,restaurants_location,restaurants_image,restaurants_status,created_at,updated_at")] Restaurants restaurants)
+        public async Task<IActionResult> Edit(int id, [Bind("restaurants_id,restaurants_name,restaurants_location,restaurants_image,restaurants_status,created_at")] Restaurants restaurants)
         {
             if (id != restaurants.restaurants_id)
             {

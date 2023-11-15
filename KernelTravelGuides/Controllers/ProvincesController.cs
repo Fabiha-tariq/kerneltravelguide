@@ -56,7 +56,7 @@ namespace KernelTravelGuides.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("province_id,province_name,province_image,province_status,created_at,updated_at")] Province province)
+        public async Task<IActionResult> Create([Bind("province_id,province_name,province_image,province_status,created_at")] Province province)
         {
             if (ModelState.IsValid)
             {
@@ -88,7 +88,7 @@ namespace KernelTravelGuides.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("province_id,province_name,province_image,province_status,created_at,updated_at")] Province province)
+        public async Task<IActionResult> Edit(int id, [Bind("province_id,province_name,province_image,province_status,created_at")] Province province)
         {
             if (id != province.province_id)
             {

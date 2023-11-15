@@ -61,7 +61,7 @@ namespace KernelTravelGuides.Controllers
         public async Task<IActionResult> Create([Bind("hotel_id,hotel_name,hotel_rating,hotel_average,hotel_image,hotel_status,created_at")] Hotel hotel)
         {
           
-            DateTime created_at = DateTime.UtcNow;
+          
 
             _context.Add(hotel);
                 await _context.SaveChangesAsync();

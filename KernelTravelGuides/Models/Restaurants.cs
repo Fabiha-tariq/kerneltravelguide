@@ -31,43 +31,11 @@ namespace KernelTravelGuides.Models
 
         [DataType(DataType.DateTime)]
         [Display(Name = "Restaurants Created Time")]
-        public DateTime created_at { get; set; }
-
-
-
-        [DataType(DataType.DateTime)]
-        [Display(Name = "Restaurants Updated Time")]
-        public DateTime updated_at { get; set; }
+        public DateTime created_at { get; set; } = DateTime.Now;
 
         [NotMapped]
         public IFormFile main_image { get; set; }
 
-    }
-
-
-    public class RestaurantCreatedate : Restaurants
-    {
-
-        public RestaurantCreatedate()
-        {
-            created_at = DateTime.UtcNow;
-        }
-
-
-
-
-    }
-
-    public class RestaurantUpdatedat : Restaurants
-    {
-
-        public RestaurantUpdatedat()
-        {
-            created_at = DateTime.UtcNow;
-        }
-
-
-
-
+    
     }
 }

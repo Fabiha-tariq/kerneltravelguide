@@ -37,38 +37,10 @@ namespace KernelTravelGuides.Models
 
         [DataType(DataType.DateTime)]
         [Display(Name = "Transport Created Time")]
-        public DateTime created_at { get; set; }
-
-
-
-        [DataType(DataType.DateTime)]
-        [Display(Name = "Transport Updated Time")]
-        public DateTime updated_at { get; set; }
+        public DateTime created_at { get; set; } = DateTime.Now;
 
     }
 
 
-    public class TransportCreatedate : Transport
-    {
-
-        public TransportCreatedate()
-        {
-            created_at = DateTime.UtcNow;
-        }
-
-
-    }
-
-    public class TransportUpdatedat : Transport
-    {
-
-        public TransportUpdatedat()
-        {
-            created_at = DateTime.UtcNow;
-        }
-
-
-
-
-    }
+   
 }

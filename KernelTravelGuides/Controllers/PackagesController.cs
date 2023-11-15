@@ -63,7 +63,7 @@ namespace KernelTravelGuides.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("packages_id,packages_name,packages_desc,packages_or_price,packages_img,resorts_id,tra_category_id,t_spot_id,transport_id,packages_status,created_at,updated_at")] Packages packages)
+        public async Task<IActionResult> Create([Bind("packages_id,packages_name,packages_desc,packages_or_price,packages_img,resorts_id,tra_category_id,t_spot_id,transport_id,packages_status,created_at")] Packages packages)
         {
             if (ModelState.IsValid)
             {
@@ -103,7 +103,7 @@ namespace KernelTravelGuides.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("packages_id,packages_name,packages_desc,packages_or_price,packages_img,resorts_id,tra_category_id,t_spot_id,transport_id,packages_status,created_at,updated_at")] Packages packages)
+        public async Task<IActionResult> Edit(int id, [Bind("packages_id,packages_name,packages_desc,packages_or_price,packages_img,resorts_id,tra_category_id,t_spot_id,transport_id,packages_status,created_at")] Packages packages)
         {
             if (id != packages.packages_id)
             {

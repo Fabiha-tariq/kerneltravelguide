@@ -26,42 +26,14 @@ namespace KernelTravelGuides.Models
 
         [DataType(DataType.DateTime)]
         [Display(Name = "City Created Time")]
-        public DateTime created_at { get; set; }
+        public DateTime created_at { get; set; } = DateTime.Now;
 
 
-      
-        [DataType(DataType.DateTime)]
-        [Display(Name = "City Updated Time")]
-        public DateTime updated_at { get; set; }
 
         [NotMapped]
         public IFormFile main_image { get; set; }
 
-        public class CityCreatedate : City
-        {
-
-            public CityCreatedate()
-            {
-                created_at = DateTime.UtcNow;
-            }
-
-           
-
-
-        }
-
-        public class CityUpdatedat : City
-        {
-
-            public CityUpdatedat()
-            {
-                created_at = DateTime.UtcNow;
-            }
-
-
-
-
-        }
-
+       
+     
     }
 }

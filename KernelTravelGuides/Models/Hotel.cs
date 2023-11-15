@@ -32,26 +32,13 @@ namespace KernelTravelGuides.Models
 
         [DataType(DataType.DateTime)]
         [Display(Name = "Hotel Created Time")]
-        [DisplayFormat(ApplyFormatInEditMode = true , DataFormatString = "{0:yyyy-MM-dd HH:MM}")]
-        public DateTime created_at { get; set; }
+        public DateTime created_at { get; set; } = DateTime.Now;
 
 
         [NotMapped]
         public IFormFile main_image { get; set; }
 
     }
-
-
-    public class HotelCreatedate : Hotel
-    {
-
-       public HotelCreatedate() {
-            created_at = DateTime.UtcNow;
-        }
-
-
-    }
-
 
 
   

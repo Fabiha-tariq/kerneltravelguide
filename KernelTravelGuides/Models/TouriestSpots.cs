@@ -47,13 +47,7 @@ namespace KernelTravelGuides.Models
 
         [DataType(DataType.DateTime)]
         [Display(Name = "Touriest Spots Created Time")]
-        public DateTime created_at { get; set; }
-
-
-
-        [DataType(DataType.DateTime)]
-        [Display(Name = "Touriest Spots Updated Time")]
-        public DateTime updated_at { get; set; }
+        public DateTime created_at { get; set; } = DateTime.Now;
 
         [NotMapped]
         public IFormFile main_image1 { get; set; }
@@ -64,32 +58,7 @@ namespace KernelTravelGuides.Models
         [NotMapped]
         public IFormFile main_image3 { get; set; }
 
-    }
-
-
-    public class TouriestSpotsCreatedate : TouriestSpots
-    {
-
-        public TouriestSpotsCreatedate()
-        {
-            created_at = DateTime.UtcNow;
-        }
-
-
-
-
-    }
-
-    public class TouriestSpotsUpdatedat : TouriestSpots
-    {
-
-        public TouriestSpotsUpdatedat()
-        {
-            created_at = DateTime.UtcNow;
-        }
-
-
-
+    
 
     }
 }

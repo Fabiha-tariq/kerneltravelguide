@@ -26,45 +26,15 @@ namespace KernelTravelGuides.Models
 
             [DataType(DataType.DateTime)]
             [Display(Name = "Province Created Time")]
-            public DateTime created_at { get; set; }
+        public DateTime created_at { get; set; } = DateTime.Now;
 
-
-
-            [DataType(DataType.DateTime)]
-            [Display(Name = "Province Updated Time")]
-            public DateTime updated_at { get; set; }
-
-            [NotMapped]
+        [NotMapped]
             public IFormFile main_image { get; set; }
 
         
     }
 
 
-    public class ProvinceCreatedate : Province
-    {
-
-        public ProvinceCreatedate()
-        {
-            created_at = DateTime.UtcNow;
-        }
-
-
-
-
-    }
-
-    public class ProvinceUpdatedat : Province
-    {
-
-        public ProvinceUpdatedat()
-        {
-            created_at = DateTime.UtcNow;
-        }
-
-
-
-
-    }
+   
 }
 

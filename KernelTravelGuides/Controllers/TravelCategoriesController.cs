@@ -56,7 +56,7 @@ namespace KernelTravelGuides.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("tra_category_id,tra_category_name,tra_category_desc,tra_category_status,created_at,updated_at")] TravelCategory travelCategory)
+        public async Task<IActionResult> Create([Bind("tra_category_id,tra_category_name,tra_category_desc,tra_category_status,created_at")] TravelCategory travelCategory)
         {
             
                 _context.Add(travelCategory);
@@ -87,7 +87,7 @@ namespace KernelTravelGuides.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("tra_category_id,tra_category_name,tra_category_desc,tra_category_status,created_at,updated_at")] TravelCategory travelCategory)
+        public async Task<IActionResult> Edit(int id, [Bind("tra_category_id,tra_category_name,tra_category_desc,tra_category_status,created_at")] TravelCategory travelCategory)
         {
             if (id != travelCategory.tra_category_id)
             {
