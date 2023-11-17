@@ -51,14 +51,14 @@ namespace KernelTravelGuides.Controllers
         // GET: Packages/Create
         public IActionResult Create()
         {
-            ViewData["resorts_id"] = new SelectList(_context.Resorts, "resorts_id", "resorts_img1");
-            ViewData["t_spot_id"] = new SelectList(_context.TouriestSpots, "t_spot_id", "t_spot_desc");
-            ViewData["tra_category_id"] = new SelectList(_context.TravelCategories, "tra_category_id", "tra_category_desc");
-            ViewData["transport_id"] = new SelectList(_context.Transports, "transport_id", "transport_desc");
+            ViewData["resorts_id"] = new SelectList(_context.Resorts, "resorts_id", "resorts_name");
+            ViewData["t_spot_id"] = new SelectList(_context.TouriestSpots, "t_spot_id", "t_spot_name");
+            ViewData["tra_category_id"] = new SelectList(_context.TravelCategories, "tra_category_id", "tra_category_name");
+            ViewData["transport_id"] = new SelectList(_context.Transports, "transport_id", "transport_name");
             return View();
         }
 
-        // POST: Packages/Create
+        // POST: Packages/Createy
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]

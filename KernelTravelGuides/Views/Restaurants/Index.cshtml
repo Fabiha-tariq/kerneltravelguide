@@ -41,10 +41,21 @@
                 @Html.DisplayFor(modelItem => item.restaurants_location)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.restaurants_image)
+                    <a href="@("images/restaurantimg/" + item.restaurants_image)" target="_blank">
+                        <img src="@("~/images/restaurantimg/" + item.restaurants_image)" asp-append-version="true" width="44px" />
+                    </a>
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.restaurants_status)
+                @*@Html.DisplayFor(modelItem => item.restaurants_status)*@
+                    @if (item.restaurants_status)
+                    {
+                        <span class="btn btn-success">Active</span>
+                    }
+                    else
+                    {
+                        <span class="btn btn-danger">Unactive</span>
+
+                    }
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.created_at)

@@ -47,14 +47,20 @@
                 @Html.DisplayFor(modelItem => item.resorts_location)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.resorts_img1)
+                    @*<a href="@("images/resortimg/" + item.resorts_img1)" target="_blank">*@
+                        <img src="@("~/images/resortimg/" + item.resorts_img1)" asp-append-version="true" width="44px" />
+                   @*</a>*@
+            </td>
+            <td>  
+                @*<a href="@("images/resortimg/" + item.resorts_img2)" target="_blank">*@
+                        <img src="@("~/images/resortimg/" + item.resorts_img2)" asp-append-version="true" width="44px" />
+                  @*</a>*@
+            </td>
+            <td>
 
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.resorts_img2)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.resorts_img3)
+                    @*<a href="@("images/resortimg/" + item.resorts_img3)" target="_blank">*@
+                        <img src="@("~/images/resortimg/" + item.resorts_img3)" asp-append-version="true" width="44px" />
+                   @*</a>*@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.resorts_status)

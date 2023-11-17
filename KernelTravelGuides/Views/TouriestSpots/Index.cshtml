@@ -15,12 +15,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.t_spot_name)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.t_spot_locaion)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.t_spot_desc)
-            </th>
+            
             <th>
                 @Html.DisplayNameFor(model => model.t_spot_rating)
             </th>
@@ -49,23 +44,27 @@
             <td>
                 @Html.DisplayFor(modelItem => item.t_spot_name)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.t_spot_locaion)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.t_spot_desc)
-            </td>
+
             <td>
                 @Html.DisplayFor(modelItem => item.t_spot_rating)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.t_spot_img1)
+               @* @Html.DisplayFor(modelItem => item.t_spot_img1)*@
+                    <a href="@("images/touriestspotsimg/" + item.t_spot_img1)" target="_blank">
+                        <img src="@("~/images/touriestspotsimg/" + item.t_spot_img1)" asp-append-version="true" width="44px" />
+                    </a>
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.t_spot_img2)
+               @* @Html.DisplayFor(modelItem => item.t_spot_img2)*@
+                    <a href="@("images/touriestspotsimg/" + item.t_spot_img2)" target="_blank">
+                        <img src="@("~/images/touriestspotsimg/" + item.t_spot_img2)" asp-append-version="true" width="44px" />
+                    </a>
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.t_spot_img3)
+              @*  @Html.DisplayFor(modelItem => item.t_spot_img3)*@
+                    <a href="@("images/touriestspotsimg/" + item.t_spot_img3)" target="_blank">
+                        <img src="@("~/images/touriestspotsimg/" + item.t_spot_img3)" asp-append-version="true" width="44px" />
+                    </a>
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.t_spot_status)

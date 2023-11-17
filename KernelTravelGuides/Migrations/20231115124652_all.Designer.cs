@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace KernelTravelGuides.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20231113123817_packages")]
-    partial class packages
+    [Migration("20231115124652_all")]
+    partial class all
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -44,9 +44,6 @@ namespace KernelTravelGuides.Migrations
                         .HasColumnType("bit");
 
                     b.Property<DateTime>("created_at")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("updated_at")
                         .HasColumnType("datetime2");
 
                     b.HasKey("city_id");
@@ -83,9 +80,6 @@ namespace KernelTravelGuides.Migrations
 
                     b.Property<bool>("status")
                         .HasColumnType("bit");
-
-                    b.Property<DateTime>("updated_at")
-                        .HasColumnType("datetime2");
 
                     b.HasKey("country_id");
 
@@ -200,9 +194,6 @@ namespace KernelTravelGuides.Migrations
                     b.Property<int>("transport_id")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("updated_at")
-                        .HasColumnType("datetime2");
-
                     b.HasKey("packages_id");
 
                     b.HasIndex("resorts_id");
@@ -237,9 +228,6 @@ namespace KernelTravelGuides.Migrations
 
                     b.Property<bool>("province_status")
                         .HasColumnType("bit");
-
-                    b.Property<DateTime>("updated_at")
-                        .HasColumnType("datetime2");
 
                     b.HasKey("province_id");
 
@@ -280,9 +268,6 @@ namespace KernelTravelGuides.Migrations
                     b.Property<bool>("resorts_status")
                         .HasColumnType("bit");
 
-                    b.Property<DateTime>("updated_at")
-                        .HasColumnType("datetime2");
-
                     b.HasKey("resorts_id");
 
                     b.ToTable("Resorts");
@@ -313,9 +298,6 @@ namespace KernelTravelGuides.Migrations
 
                     b.Property<bool>("restaurants_status")
                         .HasColumnType("bit");
-
-                    b.Property<DateTime>("updated_at")
-                        .HasColumnType("datetime2");
 
                     b.HasKey("restaurants_id");
 
@@ -364,9 +346,6 @@ namespace KernelTravelGuides.Migrations
                     b.Property<bool>("t_spot_status")
                         .HasColumnType("bit");
 
-                    b.Property<DateTime>("updated_at")
-                        .HasColumnType("datetime2");
-
                     b.HasKey("t_spot_id");
 
                     b.ToTable("TouriestSpots");
@@ -405,9 +384,6 @@ namespace KernelTravelGuides.Migrations
                     b.Property<bool>("transport_status")
                         .HasColumnType("bit");
 
-                    b.Property<DateTime>("updated_at")
-                        .HasColumnType("datetime2");
-
                     b.HasKey("transport_id");
 
                     b.ToTable("Transports");
@@ -435,9 +411,6 @@ namespace KernelTravelGuides.Migrations
 
                     b.Property<bool>("tra_category_status")
                         .HasColumnType("bit");
-
-                    b.Property<DateTime>("updated_at")
-                        .HasColumnType("datetime2");
 
                     b.HasKey("tra_category_id");
 

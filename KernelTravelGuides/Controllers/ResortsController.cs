@@ -95,8 +95,6 @@ namespace KernelTravelGuides.Controllers
             }
 
 
-            DateTime created_at = DateTime.UtcNow;
-
             _context.Add(resorts);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

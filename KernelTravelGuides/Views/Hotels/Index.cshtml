@@ -46,7 +46,9 @@
                 @Html.DisplayFor(modelItem => item.hotel_average)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.hotel_image)
+                    <a href="@("images/hotelimg/" + item.hotel_image)" target="_blank">
+                        <img src="@("~/images/hotelimg/" + item.hotel_image)" asp-append-version="true" width="44px" />
+                    </a>
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.hotel_status)

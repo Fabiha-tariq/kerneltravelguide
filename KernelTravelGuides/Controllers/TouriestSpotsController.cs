@@ -7,16 +7,20 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using KernelTravelGuides.Data;
 using KernelTravelGuides.Models;
+using Microsoft.Extensions.Hosting;
+
 
 namespace KernelTravelGuides.Controllers
 {
     public class TouriestSpotsController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly IWebHostEnvironment _hostEnvironment;
 
-        public TouriestSpotsController(ApplicationDbContext context)
+        public TouriestSpotsController(ApplicationDbContext context, IWebHostEnvironment hostEnvironment)
         {
             _context = context;
+            this._hostEnvironment = hostEnvironment;
         }
 
         // GET: TouriestSpots
@@ -56,14 +60,45 @@ namespace KernelTravelGuides.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("t_spot_id,t_spot_name,t_spot_locaion,t_spot_desc,t_spot_rating,t_spot_img1,t_spot_img2,t_spot_img3,t_spot_status,created_at")] TouriestSpots touriestSpots)
+        public async Task<IActionResult> Create([Bind("t_spot_id,t_spot_name,t_spot_locaion,t_spot_desc,t_spot_rating,main_image1,main_image2,main_image3,t_spot_status,created_at")] TouriestSpots touriestSpots)
         {
-            if (ModelState.IsValid)
+            // Img 1
+            string wwwRootPath = _hostEnvironment.WebRootPath;
+            string filename = Path.GetFileNameWithoutExtension(touriestSpots.main_image1.FileName);
+            string extension = Path.GetExtension(touriestSpots.main_image1.FileName);
+            touriestSpots.t_spot_img1 = filename = filename + extension;
+            string path = Path.Combine(wwwRootPath + "/images/touriestspotsimg", filename);
+            using (var filestream = new FileStream(path, FileMode.Create))
             {
-                _context.Add(touriestSpots);
+                touriestSpots.main_image1.CopyToAsync(filestream);
+            }
+
+            // Img 2
+            string wwwRootPath2 = _hostEnvironment.WebRootPath;
+            string filename2 = Path.GetFileNameWithoutExtension(touriestSpots.main_image2.FileName);
+            string extension2 = Path.GetExtension(touriestSpots.main_image2.FileName);
+            touriestSpots.t_spot_img2 = filename2 = filename2 + extension2;
+            string path2 = Path.Combine(wwwRootPath2 + "/images/touriestspotsimg", filename2);
+            using (var filestream2 = new FileStream(path2, FileMode.Create))
+            {
+                touriestSpots.main_image2.CopyToAsync(filestream2);
+            }
+
+            // Img 3
+            string wwwRootPath3 = _hostEnvironment.WebRootPath;
+            string filename3 = Path.GetFileNameWithoutExtension(touriestSpots.main_image3.FileName);
+            string extension3 = Path.GetExtension(touriestSpots.main_image3.FileName);
+            touriestSpots.t_spot_img3 = filename3 = filename3 + extension3;
+            string path3 = Path.Combine(wwwRootPath3 + "/images/touriestspotsimg", filename3);
+            using (var filestream3 = new FileStream(path3, FileMode.Create))
+            {
+                touriestSpots.main_image3.CopyToAsync(filestream3);
+            }
+
+            _context.Add(touriestSpots);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
-            }
+            
             return View(touriestSpots);
         }
 

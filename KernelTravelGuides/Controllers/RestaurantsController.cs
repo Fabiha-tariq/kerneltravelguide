@@ -7,16 +7,19 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using KernelTravelGuides.Data;
 using KernelTravelGuides.Models;
+using Microsoft.Extensions.Hosting;
 
 namespace KernelTravelGuides.Controllers
 {
     public class RestaurantsController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly IWebHostEnvironment _hostEnvironment;
 
-        public RestaurantsController(ApplicationDbContext context)
+        public RestaurantsController(ApplicationDbContext context, IWebHostEnvironment hostEnvironment)
         {
             _context = context;
+            this._hostEnvironment = hostEnvironment;
         }
 
         // GET: Restaurants
@@ -56,14 +59,23 @@ namespace KernelTravelGuides.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("restaurants_id,restaurants_name,restaurants_location,restaurants_image,restaurants_status,created_at")] Restaurants restaurants)
+        public async Task<IActionResult> Create([Bind("restaurants_id,restaurants_name,restaurants_location,main_image,restaurants_status,created_at")] Restaurants restaurants)
         {
-            if (ModelState.IsValid)
+            string wwwRootPath = _hostEnvironment.WebRootPath;
+            string filename = Path.GetFileNameWithoutExtension(restaurants.main_image.FileName);
+            string extension = Path.GetExtension(restaurants.main_image.FileName);
+            restaurants.restaurants_image = filename = filename + DateTime.Now.ToString("yymmssff") + extension;
+            string path = Path.Combine(wwwRootPath + "/images/restaurantimg", filename);
+            using (var filestream = new FileStream(path, FileMode.Create))
             {
-                _context.Add(restaurants);
+                restaurants.main_image.CopyToAsync(filestream);
+            }
+
+
+            _context.Add(restaurants);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
-            }
+          
             return View(restaurants);
         }
 

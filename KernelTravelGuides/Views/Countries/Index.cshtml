@@ -44,7 +44,9 @@
                 @Html.DisplayFor(modelItem => item.country_code)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.country_image)
+                    <a href="@("images/countryimg/" + item.country_image)" target="_blank">
+                        <img src="@("~/images/countryimg/" + item.country_image)" asp-append-version="true" width="44px" />
+                    </a>
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.country_currency)

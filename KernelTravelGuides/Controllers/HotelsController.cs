@@ -7,17 +7,19 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using KernelTravelGuides.Data;
 using KernelTravelGuides.Models;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
-
+using Microsoft.Extensions.Hosting;
 namespace KernelTravelGuides.Controllers
 {
     public class HotelsController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly IWebHostEnvironment _hostEnvironment;
 
-        public HotelsController(ApplicationDbContext context)
+
+        public HotelsController(ApplicationDbContext context, IWebHostEnvironment hostEnvironment)
         {
             _context = context;
+            this._hostEnvironment = hostEnvironment;
         }
 
         // GET: Hotels
@@ -58,10 +60,19 @@ namespace KernelTravelGuides.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("hotel_id,hotel_name,hotel_rating,hotel_average,hotel_image,hotel_status,created_at")] Hotel hotel)
+        public async Task<IActionResult> Create([Bind("hotel_id,hotel_name,hotel_rating,hotel_average,main_image,hotel_status,created_at")] Hotel hotel)
         {
-          
-          
+            string wwwRootPath = _hostEnvironment.WebRootPath;
+            string filename = Path.GetFileNameWithoutExtension(hotel.main_image.FileName);
+            string extension = Path.GetExtension(hotel.main_image.FileName);
+            hotel.hotel_image = filename = filename + DateTime.Now.ToString("yymmssfff") + extension;
+            string path = Path.Combine(wwwRootPath + "/images/hotelimg", filename);
+            using (var filestream = new FileStream(path, FileMode.Create))
+            {
+                hotel.main_image.CopyToAsync(filestream);
+            }
+
+
 
             _context.Add(hotel);
                 await _context.SaveChangesAsync();

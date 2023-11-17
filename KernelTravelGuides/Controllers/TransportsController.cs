@@ -58,12 +58,12 @@ namespace KernelTravelGuides.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("transport_id,transport_name,transport_number,transport_price,transport_rating,transport_desc,transport_status,created_at")] Transport transport)
         {
-            if (ModelState.IsValid)
-            {
+
+            
                 _context.Add(transport);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
-            }
+            
             return View(transport);
         }
 

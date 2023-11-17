@@ -71,8 +71,7 @@ namespace KernelTravelGuides.Controllers
                 city.main_image.CopyToAsync(filestream);
             }
 
-            DateTime created_at = DateTime.UtcNow;
-
+            
 
             _context.Add(city);
                 await _context.SaveChangesAsync();
@@ -155,6 +154,13 @@ namespace KernelTravelGuides.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
+            var img = await _context.Cities.FindAsync(id);
+            var image = Path.Combine(_hostEnvironment.WebRootPath, "images/cityimg", img.city_image);
+            if (System.IO.File.Exists(image))
+            {
+                System.IO.File.Delete(image);
+            }
+
             if (_context.Cities == null)
             {
                 return Problem("Entity set 'ApplicationDbContext.Cities'  is null.");

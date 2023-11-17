@@ -29,7 +29,15 @@
             </div>
             <div class="form-group">
                 <label asp-for="transport_rating" class="control-label"></label>
-                <input asp-for="transport_rating" class="form-control" />
+                <select asp-for="transport_rating" class="form-control" />
+                <option selected disabled>Choose Rating </option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+
+                </select>
                 <span asp-validation-for="transport_rating" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -42,11 +50,11 @@
                     <input class="form-check-input" asp-for="transport_status" /> @Html.DisplayNameFor(model => model.transport_status)
                 </label>
             </div>
-            <div class="form-group">
+           @* <div class="form-group">
                 <label asp-for="created_at" class="control-label"></label>
                 <input asp-for="created_at" class="form-control" />
                 <span asp-validation-for="created_at" class="text-danger"></span>
-            </div>
+            </div>*@
 
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />

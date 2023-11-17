@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace KernelTravelGuides.Migrations
 {
-    public partial class packages : Migration
+    public partial class all : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -18,8 +18,7 @@ namespace KernelTravelGuides.Migrations
                     city_name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     city_image = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     city_status = table.Column<bool>(type: "bit", nullable: false),
-                    created_at = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    updated_at = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    created_at = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -37,8 +36,7 @@ namespace KernelTravelGuides.Migrations
                     country_image = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     country_currency = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     status = table.Column<bool>(type: "bit", nullable: false),
-                    created_at = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    updated_at = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    created_at = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -89,8 +87,7 @@ namespace KernelTravelGuides.Migrations
                     province_name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     province_image = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     province_status = table.Column<bool>(type: "bit", nullable: false),
-                    created_at = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    updated_at = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    created_at = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -109,8 +106,7 @@ namespace KernelTravelGuides.Migrations
                     resorts_img2 = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     resorts_img3 = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     resorts_status = table.Column<bool>(type: "bit", nullable: false),
-                    created_at = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    updated_at = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    created_at = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -127,8 +123,7 @@ namespace KernelTravelGuides.Migrations
                     restaurants_location = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     restaurants_image = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     restaurants_status = table.Column<bool>(type: "bit", nullable: false),
-                    created_at = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    updated_at = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    created_at = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -149,8 +144,7 @@ namespace KernelTravelGuides.Migrations
                     t_spot_img2 = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     t_spot_img3 = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     t_spot_status = table.Column<bool>(type: "bit", nullable: false),
-                    created_at = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    updated_at = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    created_at = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -169,8 +163,7 @@ namespace KernelTravelGuides.Migrations
                     transport_rating = table.Column<int>(type: "int", nullable: false),
                     transport_desc = table.Column<string>(type: "nvarchar(max)", maxLength: 8000, nullable: false),
                     transport_status = table.Column<bool>(type: "bit", nullable: false),
-                    created_at = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    updated_at = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    created_at = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -186,8 +179,7 @@ namespace KernelTravelGuides.Migrations
                     tra_category_name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     tra_category_desc = table.Column<string>(type: "nvarchar(max)", maxLength: 8000, nullable: false),
                     tra_category_status = table.Column<bool>(type: "bit", nullable: false),
-                    created_at = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    updated_at = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    created_at = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -209,8 +201,7 @@ namespace KernelTravelGuides.Migrations
                     t_spot_id = table.Column<int>(type: "int", nullable: false),
                     transport_id = table.Column<int>(type: "int", nullable: false),
                     packages_status = table.Column<bool>(type: "bit", nullable: false),
-                    created_at = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    updated_at = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    created_at = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
