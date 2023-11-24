@@ -7,16 +7,20 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using KernelTravelGuides.Data;
 using KernelTravelGuides.Models;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Hosting;
 
 namespace KernelTravelGuides.Controllers
 {
     public class PackagesController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly IWebHostEnvironment _hostEnvironment;
 
-        public PackagesController(ApplicationDbContext context)
+        public PackagesController(ApplicationDbContext context, IWebHostEnvironment hostEnvironment)
         {
             _context = context;
+            this._hostEnvironment = hostEnvironment;
         }
 
         // GET: Packages
@@ -63,18 +67,28 @@ namespace KernelTravelGuides.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("packages_id,packages_name,packages_desc,packages_or_price,packages_img,resorts_id,tra_category_id,t_spot_id,transport_id,packages_status,created_at")] Packages packages)
+        public async Task<IActionResult> Create([Bind("packages_id,packages_name,packages_desc,packages_or_price,main_image,resorts_id,tra_category_id,t_spot_id,transport_id,packages_status,created_at")] Packages packages)
         {
-            if (ModelState.IsValid)
+            string wwwRootPath = _hostEnvironment.WebRootPath;
+            string filename = Path.GetFileNameWithoutExtension(packages.main_image.FileName);
+            string extension = Path.GetExtension(packages.main_image.FileName);
+            packages.packages_img = filename = filename + DateTime.Now.ToString("yymmssfff") + extension;
+            string path = Path.Combine(wwwRootPath + "/images/packageimg", filename);
+            using (var filestream = new FileStream(path, FileMode.Create))
             {
-                _context.Add(packages);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                packages.main_image.CopyToAsync(filestream);
             }
+    
             ViewData["resorts_id"] = new SelectList(_context.Resorts, "resorts_id", "resorts_img1", packages.resorts_id);
             ViewData["t_spot_id"] = new SelectList(_context.TouriestSpots, "t_spot_id", "t_spot_desc", packages.t_spot_id);
             ViewData["tra_category_id"] = new SelectList(_context.TravelCategories, "tra_category_id", "tra_category_desc", packages.tra_category_id);
             ViewData["transport_id"] = new SelectList(_context.Transports, "transport_id", "transport_desc", packages.transport_id);
+          
+
+            _context.Add(packages);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+      
             return View(packages);
         }
 
@@ -140,6 +154,13 @@ namespace KernelTravelGuides.Controllers
         // GET: Packages/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
+            var img = await _context.Packages.FindAsync(id);
+            var image = Path.Combine(_hostEnvironment.WebRootPath, "images/packageimg", img.packages_img);
+            if (System.IO.File.Exists(image))
+            {
+                System.IO.File.Delete(image);
+            }
+
             if (id == null || _context.Packages == null)
             {
                 return NotFound();

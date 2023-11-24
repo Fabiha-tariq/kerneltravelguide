@@ -23,7 +23,6 @@
     <Folder Include="wwwroot\images\touriestspotsimg\" />
     <Folder Include="wwwroot\images\restaurantimg\" />
     <Folder Include="wwwroot\images\resortimg\" />
-    <Folder Include="wwwroot\images\provinceimg\" />
     <Folder Include="wwwroot\images\packageimg\" />
   </ItemGroup>
 

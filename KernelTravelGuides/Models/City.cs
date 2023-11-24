@@ -23,6 +23,10 @@ namespace KernelTravelGuides.Models
         [Display(Name = "Cty Status")]
         public bool city_status { get; set; }
 
+        public int country_id { get; set; }
+        [ForeignKey("country_id")]
+        public Country country { get; set; }
+
 
         [DataType(DataType.DateTime)]
         [Display(Name = "City Created Time")]

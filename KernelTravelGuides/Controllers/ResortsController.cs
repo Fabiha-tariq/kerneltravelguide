@@ -177,6 +177,30 @@ namespace KernelTravelGuides.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
+            // img 1
+            //var img = await _context.Resorts.FindAsync(id);
+            //var image = Path.Combine(_hostEnvironment.WebRootPath, "images/resortimg", img.resorts_img1);
+
+            //if (System.IO.File.Exists(image))
+            //{
+            //    System.IO.File.Delete(image);
+            //}
+            // img 2
+            //var image2 = Path.Combine(_hostEnvironment.WebRootPath, "images/resortimg", (await _context.Resorts.FindAsync(id)).resorts_img2);
+
+            //if (System.IO.File.Exists(image2))
+            //{
+            //    System.IO.File.Delete(image2);
+            //}
+            // img 3
+            //var img3 = await _context.Resorts.FindAsync(id);
+            //var image3 = Path.Combine(_hostEnvironment.WebRootPath, "images/resortimg", img3.resorts_img3);
+
+            //if (System.IO.File.Exists(image3))
+            //{
+            //    System.IO.File.Delete(image3);
+            //}
+
             if (_context.Resorts == null)
             {
                 return Problem("Entity set 'ApplicationDbContext.Resorts'  is null.");

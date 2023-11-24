@@ -53,6 +53,12 @@
             @Html.DisplayFor(model => model.t_spot_img3)
         </dd>
         <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.country)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.country.country_code)
+        </dd>
+        <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.t_spot_status)
         </dt>
         <dd class = "col-sm-10">
@@ -64,8 +70,6 @@
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.created_at)
         </dd>
-        
-        
     </dl>
 </div>
 <div>

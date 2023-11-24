@@ -12,7 +12,6 @@ namespace KernelTravelGuides.Data
 
         public DbSet<Country> Countries { get; set; }
         public DbSet<City> Cities { get; set; }
-        public DbSet<Province> Provinces { get; set; }
 
         public DbSet<TravelCategory> TravelCategories { get; set; }
         public DbSet<Resorts> Resorts { get; set; }

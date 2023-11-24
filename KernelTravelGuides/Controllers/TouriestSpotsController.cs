@@ -7,8 +7,6 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using KernelTravelGuides.Data;
 using KernelTravelGuides.Models;
-using Microsoft.Extensions.Hosting;
-
 
 namespace KernelTravelGuides.Controllers
 {
@@ -23,12 +21,12 @@ namespace KernelTravelGuides.Controllers
             this._hostEnvironment = hostEnvironment;
         }
 
+
         // GET: TouriestSpots
         public async Task<IActionResult> Index()
         {
-              return _context.TouriestSpots != null ? 
-                          View(await _context.TouriestSpots.ToListAsync()) :
-                          Problem("Entity set 'ApplicationDbContext.TouriestSpots'  is null.");
+            var applicationDbContext = _context.TouriestSpots.Include(t => t.country);
+            return View(await applicationDbContext.ToListAsync());
         }
 
         // GET: TouriestSpots/Details/5
@@ -40,6 +38,7 @@ namespace KernelTravelGuides.Controllers
             }
 
             var touriestSpots = await _context.TouriestSpots
+                .Include(t => t.country)
                 .FirstOrDefaultAsync(m => m.t_spot_id == id);
             if (touriestSpots == null)
             {
@@ -52,6 +51,7 @@ namespace KernelTravelGuides.Controllers
         // GET: TouriestSpots/Create
         public IActionResult Create()
         {
+            ViewData["country_id"] = new SelectList(_context.Countries, "country_id", "country_name");
             return View();
         }
 
@@ -60,7 +60,7 @@ namespace KernelTravelGuides.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("t_spot_id,t_spot_name,t_spot_locaion,t_spot_desc,t_spot_rating,main_image1,main_image2,main_image3,t_spot_status,created_at")] TouriestSpots touriestSpots)
+        public async Task<IActionResult> Create([Bind("t_spot_id,t_spot_name,t_spot_locaion,t_spot_desc,t_spot_rating,main_image1,main_image2,main_image3,country_id,t_spot_status,created_at")] TouriestSpots touriestSpots)
         {
             // Img 1
             string wwwRootPath = _hostEnvironment.WebRootPath;
@@ -95,10 +95,13 @@ namespace KernelTravelGuides.Controllers
                 touriestSpots.main_image3.CopyToAsync(filestream3);
             }
 
+
             _context.Add(touriestSpots);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
-            
+          
+
+            ViewData["country_id"] = new SelectList(_context.Countries, "country_id", "country_name", touriestSpots.country_id);
             return View(touriestSpots);
         }
 
@@ -115,6 +118,7 @@ namespace KernelTravelGuides.Controllers
             {
                 return NotFound();
             }
+            ViewData["country_id"] = new SelectList(_context.Countries, "country_id", "country_code", touriestSpots.country_id);
             return View(touriestSpots);
         }
 
@@ -123,7 +127,7 @@ namespace KernelTravelGuides.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("t_spot_id,t_spot_name,t_spot_locaion,t_spot_desc,t_spot_rating,t_spot_img1,t_spot_img2,t_spot_img3,t_spot_status,created_at")] TouriestSpots touriestSpots)
+        public async Task<IActionResult> Edit(int id, [Bind("t_spot_id,t_spot_name,t_spot_locaion,t_spot_desc,t_spot_rating,t_spot_img1,t_spot_img2,t_spot_img3,country_id,t_spot_status,created_at")] TouriestSpots touriestSpots)
         {
             if (id != touriestSpots.t_spot_id)
             {
@@ -150,6 +154,7 @@ namespace KernelTravelGuides.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["country_id"] = new SelectList(_context.Countries, "country_id", "country_code", touriestSpots.country_id);
             return View(touriestSpots);
         }
 
@@ -162,6 +167,7 @@ namespace KernelTravelGuides.Controllers
             }
 
             var touriestSpots = await _context.TouriestSpots
+                .Include(t => t.country)
                 .FirstOrDefaultAsync(m => m.t_spot_id == id);
             if (touriestSpots == null)
             {

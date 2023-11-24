@@ -22,9 +22,11 @@
                 @Html.DisplayNameFor(model => model.city_status)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.country)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.created_at)
             </th>
-           
             <th></th>
         </tr>
     </thead>
@@ -35,18 +37,17 @@
                 @Html.DisplayFor(modelItem => item.city_name)
             </td>
             <td>
-                @*@Html.DisplayFor(modelItem => item.city_image)*@
-                <a href="@("images/cityimg/" + item.city_image)" target="_blank">
-                        <img src="@("~/images/cityimg/" + item.city_image)" asp-append-version="true" width="44px" />
-                    </a>
+                @Html.DisplayFor(modelItem => item.city_image)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.city_status)
             </td>
             <td>
+                @Html.DisplayFor(modelItem => item.country.country_name)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.created_at)
             </td>
-           
             <td>
                 <a asp-action="Edit" asp-route-id="@item.city_id">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.city_id">Details</a> |

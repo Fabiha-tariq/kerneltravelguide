@@ -153,6 +153,13 @@ namespace KernelTravelGuides.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
+            var img = await _context.Hotels.FindAsync(id);
+            var image = Path.Combine(_hostEnvironment.WebRootPath, "images/hotelimg", img.hotel_image);
+            if (System.IO.File.Exists(image))
+            {
+                System.IO.File.Delete(image);
+            }
+
             if (_context.Hotels == null)
             {
                 return Problem("Entity set 'ApplicationDbContext.Hotels'  is null.");

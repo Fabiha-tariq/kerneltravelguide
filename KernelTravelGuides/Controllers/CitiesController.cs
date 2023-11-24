@@ -7,7 +7,6 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using KernelTravelGuides.Data;
 using KernelTravelGuides.Models;
-using Microsoft.Extensions.Hosting;
 
 namespace KernelTravelGuides.Controllers
 {
@@ -21,13 +20,11 @@ namespace KernelTravelGuides.Controllers
             _context = context;
             this._hostEnvironment = hostEnvironment;
         }
-
         // GET: Cities
         public async Task<IActionResult> Index()
         {
-              return _context.Cities != null ? 
-                          View(await _context.Cities.ToListAsync()) :
-                          Problem("Entity set 'ApplicationDbContext.Cities'  is null.");
+            var applicationDbContext = _context.Cities.Include(c => c.country);
+            return View(await applicationDbContext.ToListAsync());
         }
 
         // GET: Cities/Details/5
@@ -39,6 +36,7 @@ namespace KernelTravelGuides.Controllers
             }
 
             var city = await _context.Cities
+                .Include(c => c.country)
                 .FirstOrDefaultAsync(m => m.city_id == id);
             if (city == null)
             {
@@ -51,6 +49,7 @@ namespace KernelTravelGuides.Controllers
         // GET: Cities/Create
         public IActionResult Create()
         {
+            ViewData["country_id"] = new SelectList(_context.Countries, "country_id", "country_name");
             return View();
         }
 
@@ -59,7 +58,7 @@ namespace KernelTravelGuides.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("city_id,city_name,main_image,city_status,created_at")] City city)
+        public async Task<IActionResult> Create([Bind("city_id,city_name,main_image,city_status,country_id,created_at")] City city)
         {
             string wwwRootPath = _hostEnvironment.WebRootPath;
             string filename = Path.GetFileNameWithoutExtension(city.main_image.FileName);
@@ -71,12 +70,11 @@ namespace KernelTravelGuides.Controllers
                 city.main_image.CopyToAsync(filestream);
             }
 
-            
-
             _context.Add(city);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
-          
+            
+            ViewData["country_id"] = new SelectList(_context.Countries, "country_id", "country_code", city.country_id);
             return View(city);
         }
 
@@ -93,6 +91,7 @@ namespace KernelTravelGuides.Controllers
             {
                 return NotFound();
             }
+            ViewData["country_id"] = new SelectList(_context.Countries, "country_id", "country_code", city.country_id);
             return View(city);
         }
 
@@ -101,7 +100,7 @@ namespace KernelTravelGuides.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("city_id,city_name,city_image,city_status,created_at")] City city)
+        public async Task<IActionResult> Edit(int id, [Bind("city_id,city_name,city_image,city_status,country_id,created_at")] City city)
         {
             if (id != city.city_id)
             {
@@ -128,18 +127,23 @@ namespace KernelTravelGuides.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["country_id"] = new SelectList(_context.Countries, "country_id", "country_code", city.country_id);
             return View(city);
         }
 
         // GET: Cities/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
+
+           
+
             if (id == null || _context.Cities == null)
             {
                 return NotFound();
             }
 
             var city = await _context.Cities
+                .Include(c => c.country)
                 .FirstOrDefaultAsync(m => m.city_id == id);
             if (city == null)
             {
@@ -154,6 +158,7 @@ namespace KernelTravelGuides.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
+
             var img = await _context.Cities.FindAsync(id);
             var image = Path.Combine(_hostEnvironment.WebRootPath, "images/cityimg", img.city_image);
             if (System.IO.File.Exists(image))

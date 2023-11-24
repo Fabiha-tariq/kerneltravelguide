@@ -140,6 +140,7 @@ namespace KernelTravelGuides.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
+           
             if (_context.Messages == null)
             {
                 return Problem("Entity set 'ApplicationDbContext.Messages'  is null.");

@@ -39,10 +39,16 @@ namespace KernelTravelGuides.Models
         [Display(Name = "Touriest Spots Image 3")]
         public string t_spot_img3 { get; set; }
 
+        public int country_id { get; set; }
+        [ForeignKey("country_id")]
+        public Country country { get; set; }
+
 
         [Required]
         [Display(Name = "Touriest Spots Status")]
         public bool t_spot_status { get; set; }
+
+
 
 
         [DataType(DataType.DateTime)]
