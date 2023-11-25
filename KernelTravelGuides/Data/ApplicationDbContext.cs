@@ -1,9 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using KernelTravelGuides.Models;
 
 namespace KernelTravelGuides.Data
 {
-    public class ApplicationDbContext : DbContext
+    public class ApplicationDbContext : IdentityDbContext
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
@@ -24,5 +26,8 @@ namespace KernelTravelGuides.Data
         public DbSet<TouriestSpots> TouriestSpots { get; set; }
 
         public DbSet<Packages> Packages { get; set; }
+
+        public DbSet<ApplicationUser> ApplicationUser { get; set; }
+
     }
 }

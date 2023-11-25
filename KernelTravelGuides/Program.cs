@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using KernelTravelGuides.Data;
+using Microsoft.AspNetCore.Identity;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -8,6 +10,9 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<ApplicationDbContext>
 (Option => Option.UseSqlServer(builder.Configuration.GetConnectionString("dconnection")));
+
+builder.Services.AddDefaultIdentity<IdentityUser>().AddDefaultTokenProviders().AddRoles<IdentityRole>()
+    .AddEntityFrameworkStores<ApplicationDbContext>();
 
 var app = builder.Build();
 
@@ -23,6 +28,10 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+
+app.MapRazorPages();
+
+app.UseAuthentication(); ;
 
 app.UseAuthorization();
 
