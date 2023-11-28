@@ -1,92 +1,266 @@
-﻿<!DOCTYPE html>
+﻿
+
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - KernelTravelGuides</title>
+    <title>@ViewData["Title"] - Kernel Travel Guides</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+
+    <link rel="stylesheet" href="~/frontend/css/open-iconic-bootstrap.min.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/frontend/css/animate.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/frontend/css/owl.carousel.min.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/frontend/css/owl.theme.default.min.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/frontend/css/magnific-popup.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/frontend/css/aos.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/frontend/css/ionicons.min.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/frontend/css/bootstrap-datepicker.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/frontend/css/jquery.timepicker.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/frontend/css/flaticon.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/frontend/css/icomoon.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/frontend/css/style.css" asp-append-version="true">
     <link rel="stylesheet" href="~/KernelTravelGuides.styles.css" asp-append-version="true" />
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">KernelTravelGuides</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
 
-                          <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Cities" asp-action="Index">City</a>
-                        </li>
-
-                               <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Countries" asp-action="Index">County</a>
-                        </li>
-
-                                  <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Hotels" asp-action="Index">Hotels</a>
-                        </li>
-
-                                  <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Messages" asp-action="Index">Message</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Packages" asp-action="Index">Package</a>
-                        </li>
-
+     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+            <div class="container" >
+                  
                        
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Resorts" asp-action="Index">Resorts</a>
-                        </li>
+                            <a class="navbar-brand " href="index.html">Kernal<span>Travel Guide</span></a>
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="oi oi-menu"></span> Menu
+                            </button>
+                      
+              
+             
+                <div class="collapse navbar-collapse" id="ftco-nav">
+                    <ul class="navbar-nav ml-auto" >
+                      
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            if (User.IsInRole("Admin"))
+                            {
+                                <li class="nav-item" >
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Dashboard</a>
+                                </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Restaurants" asp-action="Index">Restaurant</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="TouriestSpots" asp-action="Index">Touriest Spots</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Transports" asp-action="Index">Transports</a>
-                        </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link text-dark" id="dropdownMenuButton2" data-bs-toggle="dropdown"
+                                       aria-expanded="false" asp-area="">Places</a>
 
 
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="TravelCategories" asp-action="Index">Travel Category</a>
-                        </li>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
+                                        <li class="nav-item dropdown-item">
+                                            <a class="nav-link text-dark" asp-area="" asp-controller="Cities" asp-action="Index">City</a>
+                                        </li>
 
-                        <li class="nav-item">
-                            <partial name="_LoginPartial" />
-                        </li>
+                                        <li class="nav-item dropdown-item">
+                                            <a class="nav-link text-dark" asp-area="" asp-controller="Countries" asp-action="Index">County</a>
+                                        </li>
+                                        <li class="nav-item dropdown-item">
+                                            <a class="nav-link text-dark" asp-area="" asp-controller="TouriestSpots" asp-action="Index">Touriest Spots</a>
+                                         </li>
+
+                                    </ul>
+                                </li>
+
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link text-dark" id="dropdownMenuButton3" data-bs-toggle="dropdown"
+                                       aria-expanded="false" asp-area="">Staying</a>
+
+
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton3">
+                                        <li class="nav-item dropdown-item">
+                                            <a class="nav-link text-dark" asp-area="" asp-controller="TravelCategories" asp-action="Index">Travel Category</a>
+                                        </li>
+                                        <li class="nav-item dropdown-item">
+                                            <a class="nav-link text-dark" asp-area="" asp-controller="Hotels" asp-action="Index">Hotels</a>
+                                        </li>
+
+                                        <li class="nav-item dropdown-item">
+                                            <a class="nav-link text-dark" asp-area="" asp-controller="Resorts" asp-action="Index">Resorts</a>
+                                        </li>
+
+                                        <li class="nav-item dropdown-item">
+                                            <a class="nav-link text-dark" asp-area="" asp-controller="Restaurants" asp-action="Index">Restaurant</a>
+                                        </li>
+
+                                        
+                                <li class="nav-item dropdown-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Transports" asp-action="Index">Transports</a>
+                                </li>
+
+                                    </ul>
+                                </li>
+
+                                 
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Messages" asp-action="Index">Message</a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Feedback" asp-action="Index">Feedback</a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Packages" asp-action="Index">Package</a>
+                                </li>
+
+                                <li class="nav-item dropdown navbar-right">
+                                    <a class="nav-link text-dark" id="dropdownMenuButton4" data-bs-toggle="dropdown"
+                                       aria-expanded="false" asp-area="">Account</a>
+
+
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton4">
+                                        <li class="nav-item dropdown-item">
+                                            <a class="nav-link text-dark" id="register" asp-area="Identity" asp-page="/Account/Register">Create New User</a>
+                                        </li>
+
+                                        <partial name="_LoginPartial" class="nav-link text-dark" />
+
+                                    </ul>
+                                </li>
+                            }
+                        }
+
+                        else
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="About">About Us</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Destination">Destination</a>
+                            </li>
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link text-dark" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+                                   aria-expanded="false" asp-area="">Information</a>
+                              
+
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                        <li><a class="dropdown-item" href="#">Action</a></li>
+                                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                    </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Contact">Contact Us</a>
+                            </li>
+
+
+                            <partial name="_LoginPartial"  />
+                        }
+
                     </ul>
                 </div>
             </div>
         </nav>
-    </header>
+  
     <div class="container">
-        <main role="main" class="pb-3">
+        <main role="main" class="pb-3 mt-5">
             @RenderBody()
         </main>
     </div>
-
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2023 - KernelTravelGuides - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+       <footer class="ftco-footer bg-bottom" style="background-image: url(frontend/images/footer-bg.jpg);">
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-4">
+              <h2 class="ftco-heading-2">Vacation</h2>
+              <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+              <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
+                <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+                <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+                <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-4 ml-md-5">
+              <h2 class="ftco-heading-2">Infromation</h2>
+              <ul class="list-unstyled">
+                <li><a href="#" class="py-2 d-block">Online Enquiry</a></li>
+                <li><a href="#" class="py-2 d-block">General Enquiries</a></li>
+                <li><a href="#" class="py-2 d-block">Booking Conditions</a></li>
+                <li><a href="#" class="py-2 d-block">Privacy and Policy</a></li>
+                <li><a href="#" class="py-2 d-block">Refund Policy</a></li>
+                <li><a href="#" class="py-2 d-block">Call Us</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md">
+             <div class="ftco-footer-widget mb-4">
+              <h2 class="ftco-heading-2">Experience</h2>
+              <ul class="list-unstyled">
+                <li><a href="#" class="py-2 d-block">Adventure</a></li>
+                <li><a href="#" class="py-2 d-block">Hotel and Restaurant</a></li>
+                <li><a href="#" class="py-2 d-block">Beach</a></li>
+                <li><a href="#" class="py-2 d-block">Nature</a></li>
+                <li><a href="#" class="py-2 d-block">Camping</a></li>
+                <li><a href="#" class="py-2 d-block">Party</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-4">
+            	<h2 class="ftco-heading-2">Have a Questions?</h2>
+            	<div class="block-23 mb-3">
+	              <ul>
+	                <li><span class="icon icon-map-marker"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
+	                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+2 392 3929 210</span></a></li>
+	                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@yourdomain.com</span></a></li>
+	              </ul>
+	            </div>
+            </div>
+          </div>
         </div>
+        <div class="row">
+          <div class="col-md-12 text-center">
+
+            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+  Copyright &copy;<script>document.write(new Date().getFullYear());</script>
+          </div>
+        </div>
+      </div>
     </footer>
+    
+  
+
+  <!-- loader -->
+  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+
+
+    
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+
+
+    <script src="~/frontend/js/jquery.min.js" asp-append-version="true"></script>
+    <script src="~/frontend/js/jquery-migrate-3.0.1.min.js" asp-append-version="true"></script>
+    <script src="~/frontend/js/popper.min.js" asp-append-version="true"></script>
+    <script src="~/frontend/js/bootstrap.min.js" asp-append-version="true"></script>
+    <script src="~/frontend/js/jquery.easing.1.3.js" asp-append-version="true"></script>
+    <script src="~/frontend/js/jquery.waypoints.min.js" asp-append-version="true"></script>
+    <script src="~/frontend/js/jquery.stellar.min.js" asp-append-version="true"></script>
+    <script src="~/frontend/js/owl.carousel.min.js" asp-append-version="true"></script>
+    <script src="~/frontend/js/jquery.magnific-popup.min.js" asp-append-version="true"></script>
+    <script src="~/frontend/js/aos.js" asp-append-version="true"></script>
+    <script src="~/frontend/js/jquery.animateNumber.min.js" asp-append-version="true"></script>
+    <script src="~/frontend/js/bootstrap-datepicker.js" asp-append-version="true"></script>
+    <script src="~/frontend/js/scrollax.min.js" asp-append-version="true"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&amp;sensor=false"></script>
+    <script src="~/frontend/js/google-map.js" asp-append-version="true"></script>
+    <script src="~/frontend/js/main.js" asp-append-version="true"></script>
+
+
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

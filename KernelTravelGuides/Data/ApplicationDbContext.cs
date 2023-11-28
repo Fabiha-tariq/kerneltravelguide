@@ -25,9 +25,14 @@ namespace KernelTravelGuides.Data
         public DbSet<Transport> Transports { get; set; }
         public DbSet<TouriestSpots> TouriestSpots { get; set; }
 
+
         public DbSet<Packages> Packages { get; set; }
 
         public DbSet<ApplicationUser> ApplicationUser { get; set; }
 
+        public DbSet<Feedback> Feedback { get; set; }
+
     }
+
+
 }

@@ -5,6 +5,8 @@ namespace KernelTravelGuides.Models
 {
     public class ApplicationUser : IdentityUser
     {
+        
+
         [Required]
         public string First_Name { get; set; }
 
@@ -14,7 +16,7 @@ namespace KernelTravelGuides.Models
         public string User_Name { get; set; }
 
         [Required]
-        public DateTime Age { get; set; }
+        public int Age { get; set; }
 
         [Required]
         public string Phone { get; set; }
