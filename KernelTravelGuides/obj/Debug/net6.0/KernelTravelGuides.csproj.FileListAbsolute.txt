@@ -255,3 +255,4 @@ C:\Users\Fabiha\source\repos\KernelTravelGuides\KernelTravelGuides\bin\Debug\net
 C:\Users\Fabiha\source\repos\KernelTravelGuides\KernelTravelGuides\bin\Debug\net6.0\Microsoft.Extensions.Identity.Core.dll
 C:\Users\Fabiha\source\repos\KernelTravelGuides\KernelTravelGuides\bin\Debug\net6.0\Microsoft.Extensions.Identity.Stores.dll
 C:\Users\Fabiha\source\repos\KernelTravelGuides\KernelTravelGuides\obj\Debug\net6.0\KernelTravelGuides.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Fabiha\source\repos\KernelTravelGuides\KernelTravelGuides\obj\Debug\net6.0\scopedcss\Views\Shared\_DashboardLayout.cshtml.rz.scp.css

@@ -8865,7 +8865,8 @@ textarea.form-control {
 .user-img {
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center center; }
+  background-position: center center; 
+}
 
 .bg-bottom {
   background-size: cover;

@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using KernelTravelGuides.Data;
 using KernelTravelGuides.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace KernelTravelGuides.Controllers
 {
@@ -20,6 +21,7 @@ namespace KernelTravelGuides.Controllers
         }
 
         // GET: Messages
+        [Authorize("Admin")]
         public async Task<IActionResult> Index()
         {
               return _context.Messages != null ? 
@@ -28,6 +30,7 @@ namespace KernelTravelGuides.Controllers
         }
 
         // GET: Messages/Details/5
+        [Authorize("Admin")]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.Messages == null)
@@ -67,6 +70,7 @@ namespace KernelTravelGuides.Controllers
         }
 
         // GET: Messages/Edit/5
+        [Authorize("Admin")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Messages == null)
@@ -82,6 +86,7 @@ namespace KernelTravelGuides.Controllers
             return View(messages);
         }
 
+        [Authorize("Admin")]
         // POST: Messages/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -116,7 +121,7 @@ namespace KernelTravelGuides.Controllers
             }
             return View(messages);
         }
-
+        [Authorize("Admin")]
         // GET: Messages/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {

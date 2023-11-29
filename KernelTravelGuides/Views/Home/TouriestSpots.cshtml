@@ -1,0 +1,81 @@
+﻿@model IEnumerable<KernelTravelGuides.Models.TouriestSpots>
+@{
+    ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="hero-wrap js-fullheight" style="background-image: url('frontend/images/image_5.jpg');" data-stellar-background-ratio="0.5">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center" data-scrollax-parent="true">
+            <div class="col-md-9 text text-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
+
+                <p class="caps" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Travel to the any corner of the world, without going around in circles</p>
+                <h1 data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Make Your Tour Amazing With Us</h1>
+
+            </div>
+        </div>
+    </div>
+</div>
+<br /><br /><br />
+<section class="ftco-section ftco-no-pt">
+    <div class="container">
+        <div class="row justify-content-center pb-4">
+            <div class="col-md-12 heading-section text-center ftco-animate">
+                <h2 class="mb-4">Tour Destination</h2>
+            </div>
+        </div>
+        <div class="row">
+            @foreach (var item in Model) {
+            <div class="col-md-4 ftco-animate">
+                <div class="project-wrap">
+                        <a asp-action="Details" asp-controller="TouriestSpots" asp-route-id="@item.t_spot_id" class="img">
+                                <img src="@("~/images/touriestspotsimg/" + item.t_spot_img2)" asp-append-version="false" style="background-size:cover; width: 100%; height: 270px;"  />
+                            </a>
+                    <div class="text p-4">
+                                <span class="price">
+                                    @if (item.t_spot_rating == 5)
+                                    {
+                                        <img src="~/frontend/images/png-clipart-star-star.png" asp-append-version="false" width="20px" />
+                                        <img src="~/frontend/images/png-clipart-star-star.png" asp-append-version="false" width="20px" />
+                                        <img src="~/frontend/images/png-clipart-star-star.png" asp-append-version="false" width="20px" />
+                                        <img src="~/frontend/images/png-clipart-star-star.png" asp-append-version="false" width="20px" />
+                                        <img src="~/frontend/images/png-clipart-star-star.png" asp-append-version="false" width="20px" />
+                                    } 
+                                    else if (item.t_spot_rating == 4) {
+                                    <img src="~/frontend/images/png-clipart-star-star.png" asp-append-version="false" width="20px" />
+                                    <img src="~/frontend/images/png-clipart-star-star.png" asp-append-version="false" width="20px" />
+                                    <img src="~/frontend/images/png-clipart-star-star.png" asp-append-version="false" width="20px" />
+                                    <img src="~/frontend/images/png-clipart-star-star.png" asp-append-version="false" width="20px" />
+                                    } 
+                                    else if (item.t_spot_rating == 3) {
+                                    <img src="~/frontend/images/png-clipart-star-star.png" asp-append-version="false" width="20px" />
+                                    <img src="~/frontend/images/png-clipart-star-star.png" asp-append-version="false" width="20px" />
+                                    <img src="~/frontend/images/png-clipart-star-star.png" asp-append-version="false" width="20px" />
+                                    } 
+                                    else if (item.t_spot_rating == 2) {
+                                    <img src="~/frontend/images/png-clipart-star-star.png" asp-append-version="false" width="20px" />
+                                    <img src="~/frontend/images/png-clipart-star-star.png" asp-append-version="false" width="20px" />
+                                    } 
+                                    else {
+                                    <img src="~/frontend/images/png-clipart-star-star.png" asp-append-version="false" width="20px" />
+                                    }
+
+                           </span>
+                            <h3><a href="#">@Html.DisplayFor(modelItem => item.t_spot_name)</a></h3>
+                            <p class="location">@Html.DisplayFor(modelItem => item.t_spot_locaion)</p>
+                        <ul>
+                                <li><span class="country"></span>  @Html.DisplayFor(modelItem => item.country.country_name)</li>
+                           
+                        </ul>
+                    </div>
+                         
+                </div>
+            </div>
+            }
+            
+        </div>
+    </div>
+</section>
+
+                            

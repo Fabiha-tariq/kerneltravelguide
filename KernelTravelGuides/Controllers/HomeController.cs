@@ -30,10 +30,48 @@ namespace KernelTravelGuides.Controllers
             return View();
         }
 
+       
+        public async Task<IActionResult> About()
+        {
+            var applicationDbContext2 = _context.Feedback;
+            return View(await applicationDbContext2.ToListAsync());
+         
+        }
         public IActionResult Privacy()
         {
             return View();
         }
+
+        public async Task<IActionResult> TouriestSpots()
+        {
+                var applicationDbContext = _context.TouriestSpots.Include(t => t.country);
+                return View(await applicationDbContext.ToListAsync());
+        }
+
+        public async Task<IActionResult> TravelInfo()
+            {
+                var applicationDbContext2 = _context.TravelCategories;
+                return View(await applicationDbContext2.ToListAsync());
+
+            }
+    
+
+        public IActionResult HotelInfo()
+        {
+            return View();
+        }
+
+        public IActionResult RestaurantInfo()
+        {
+            return View();
+        }
+
+        public IActionResult ResortInfo()
+        {
+            return View();
+        }
+
+      
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

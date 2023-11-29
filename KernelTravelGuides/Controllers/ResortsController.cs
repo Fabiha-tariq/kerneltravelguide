@@ -8,9 +8,11 @@ using Microsoft.EntityFrameworkCore;
 using KernelTravelGuides.Data;
 using KernelTravelGuides.Models;
 using Microsoft.Extensions.Hosting;
+using Microsoft.AspNetCore.Authorization;
 
 namespace KernelTravelGuides.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class ResortsController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -65,7 +67,7 @@ namespace KernelTravelGuides.Controllers
             string wwwRootPath = _hostEnvironment.WebRootPath;
             string filename = Path.GetFileNameWithoutExtension(resorts.main_image1.FileName);
             string extension = Path.GetExtension(resorts.main_image1.FileName);
-            resorts.resorts_img1 = filename = filename + DateTime.Now.ToString("yymmssfff") + extension;
+            resorts.resorts_img1 = filename = filename + extension;
             string path = Path.Combine(wwwRootPath + "/images/resortimg", filename);
             using (var filestream = new FileStream(path, FileMode.Create))
             {
@@ -76,7 +78,7 @@ namespace KernelTravelGuides.Controllers
             string wwwRootPath2 = _hostEnvironment.WebRootPath;
             string filename2 = Path.GetFileNameWithoutExtension(resorts.main_image2.FileName);
             string extension2 = Path.GetExtension(resorts.main_image2.FileName);
-            resorts.resorts_img2 = filename2 = filename2 + DateTime.Now.ToString("yymmssfff") + extension2;
+            resorts.resorts_img2 = filename2 = filename2 + extension2;
             string path2 = Path.Combine(wwwRootPath2 + "/images/resortimg", filename2);
             using (var filestream2 = new FileStream(path2, FileMode.Create))
             {
@@ -87,7 +89,7 @@ namespace KernelTravelGuides.Controllers
             string wwwRootPath3 = _hostEnvironment.WebRootPath;
             string filename3 = Path.GetFileNameWithoutExtension(resorts.main_image3.FileName);
             string extension3 = Path.GetExtension(resorts.main_image3.FileName);
-            resorts.resorts_img3 = filename3 = filename3 + DateTime.Now.ToString("yymmssfff") + extension3;
+            resorts.resorts_img3 = filename3 = filename3 + extension3;
             string path3 = Path.Combine(wwwRootPath3 + "/images/resortimg", filename3);
             using (var filestream3 = new FileStream(path3, FileMode.Create))
             {

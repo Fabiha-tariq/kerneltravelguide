@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace KernelTravelGuides.Controllers
 {
-    [Authorize]
+    [Authorize("Admin")]
     public class CitiesController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -65,7 +65,7 @@ namespace KernelTravelGuides.Controllers
             string wwwRootPath = _hostEnvironment.WebRootPath;
             string filename = Path.GetFileNameWithoutExtension(city.main_image.FileName);
             string extension = Path.GetExtension(city.main_image.FileName);
-            city.city_image = filename = filename + DateTime.Now.ToString("yymmssfff") + extension;
+            city.city_image = filename = filename + extension;
             string path = Path.Combine(wwwRootPath + "/images/cityimg", filename);
             using (var filestream = new FileStream(path, FileMode.Create))
             {

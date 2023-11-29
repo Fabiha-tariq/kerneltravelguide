@@ -8,9 +8,11 @@ using Microsoft.EntityFrameworkCore;
 using KernelTravelGuides.Data;
 using KernelTravelGuides.Models;
 using Microsoft.Extensions.Hosting;
+using Microsoft.AspNetCore.Authorization;
 
 namespace KernelTravelGuides.Controllers
 {
+    [Authorize("Admin")]
     public class RestaurantsController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -64,7 +66,7 @@ namespace KernelTravelGuides.Controllers
             string wwwRootPath = _hostEnvironment.WebRootPath;
             string filename = Path.GetFileNameWithoutExtension(restaurants.main_image.FileName);
             string extension = Path.GetExtension(restaurants.main_image.FileName);
-            restaurants.restaurants_image = filename = filename + DateTime.Now.ToString("yymmssff") + extension;
+            restaurants.restaurants_image = filename = filename + extension;
             string path = Path.Combine(wwwRootPath + "/images/restaurantimg", filename);
             using (var filestream = new FileStream(path, FileMode.Create))
             {

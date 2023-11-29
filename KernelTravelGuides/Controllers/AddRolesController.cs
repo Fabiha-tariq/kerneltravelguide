@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Identity;
 
 namespace KernelTravelGuides.Controllers
 {
+    [Authorize("Admin")]
     public class AddRolesController : Controller
     {
         private readonly RoleManager<IdentityRole> _roleManager;

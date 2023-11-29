@@ -8,8 +8,11 @@ using Microsoft.EntityFrameworkCore;
 using KernelTravelGuides.Data;
 using KernelTravelGuides.Models;
 using Microsoft.Extensions.Hosting;
+using Microsoft.AspNetCore.Authorization;
+
 namespace KernelTravelGuides.Controllers
 {
+    [Authorize("Admin")]
     public class HotelsController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -65,7 +68,7 @@ namespace KernelTravelGuides.Controllers
             string wwwRootPath = _hostEnvironment.WebRootPath;
             string filename = Path.GetFileNameWithoutExtension(hotel.main_image.FileName);
             string extension = Path.GetExtension(hotel.main_image.FileName);
-            hotel.hotel_image = filename = filename + DateTime.Now.ToString("yymmssfff") + extension;
+            hotel.hotel_image = filename = filename + extension;
             string path = Path.Combine(wwwRootPath + "/images/hotelimg", filename);
             using (var filestream = new FileStream(path, FileMode.Create))
             {

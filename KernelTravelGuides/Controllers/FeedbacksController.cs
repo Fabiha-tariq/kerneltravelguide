@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using KernelTravelGuides.Data;
 using KernelTravelGuides.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace KernelTravelGuides.Controllers
 {
@@ -20,6 +21,7 @@ namespace KernelTravelGuides.Controllers
         }
 
         // GET: Feedbacks
+     
         public async Task<IActionResult> Index()
         {
               return _context.Feedback != null ? 
@@ -28,6 +30,7 @@ namespace KernelTravelGuides.Controllers
         }
 
         // GET: Feedbacks/Details/5
+        [Authorize("Admin")]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.Feedback == null)
@@ -65,7 +68,7 @@ namespace KernelTravelGuides.Controllers
        
             return View(feedback);
         }
-
+        [Authorize("Admin")]
         // GET: Feedbacks/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
@@ -87,6 +90,7 @@ namespace KernelTravelGuides.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize("Admin")]
         public async Task<IActionResult> Edit(int id, [Bind("feedback_id,feedback_user_name,feedback_desc,created_at")] Feedback feedback)
         {
             if (id != feedback.feedback_id)
@@ -117,6 +121,7 @@ namespace KernelTravelGuides.Controllers
         }
 
         // GET: Feedbacks/Delete/5
+        [Authorize("Admin")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Feedback == null)

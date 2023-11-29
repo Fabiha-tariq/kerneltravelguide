@@ -9,9 +9,11 @@ using KernelTravelGuides.Data;
 using KernelTravelGuides.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Hosting;
+using Microsoft.AspNetCore.Authorization;
 
 namespace KernelTravelGuides.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class PackagesController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -72,7 +74,7 @@ namespace KernelTravelGuides.Controllers
             string wwwRootPath = _hostEnvironment.WebRootPath;
             string filename = Path.GetFileNameWithoutExtension(packages.main_image.FileName);
             string extension = Path.GetExtension(packages.main_image.FileName);
-            packages.packages_img = filename = filename + DateTime.Now.ToString("yymmssfff") + extension;
+            packages.packages_img = filename = filename + extension;
             string path = Path.Combine(wwwRootPath + "/images/packageimg", filename);
             using (var filestream = new FileStream(path, FileMode.Create))
             {

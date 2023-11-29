@@ -261,6 +261,10 @@
       "PackagePath": "staticwebassets\\frontend\\images\\place-4.jpg"
     },
     {
+      "Id": "C:\\Users\\Fabiha\\source\\repos\\KernelTravelGuides\\KernelTravelGuides\\wwwroot\\frontend\\images\\png-clipart-star-star.png",
+      "PackagePath": "staticwebassets\\frontend\\images\\png-clipart-star-star.png"
+    },
+    {
       "Id": "C:\\Users\\Fabiha\\source\\repos\\KernelTravelGuides\\KernelTravelGuides\\wwwroot\\frontend\\js\\aos.js",
       "PackagePath": "staticwebassets\\frontend\\js\\aos.js"
     },
@@ -327,6 +331,18 @@
     {
       "Id": "C:\\Users\\Fabiha\\source\\repos\\KernelTravelGuides\\KernelTravelGuides\\wwwroot\\images\\countryimg\\audio_1230050004.jpg",
       "PackagePath": "staticwebassets\\images\\countryimg\\audio_1230050004.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Fabiha\\source\\repos\\KernelTravelGuides\\KernelTravelGuides\\wwwroot\\images\\touriestspotsimg\\Jinnah_Mausoleum.jpeg",
+      "PackagePath": "staticwebassets\\images\\touriestspotsimg\\Jinnah_Mausoleum.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\Fabiha\\source\\repos\\KernelTravelGuides\\KernelTravelGuides\\wwwroot\\images\\touriestspotsimg\\stringio (1).jpg",
+      "PackagePath": "staticwebassets\\images\\touriestspotsimg\\stringio (1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Fabiha\\source\\repos\\KernelTravelGuides\\KernelTravelGuides\\wwwroot\\images\\touriestspotsimg\\stringio.jpg",
+      "PackagePath": "staticwebassets\\images\\touriestspotsimg\\stringio.jpg"
     },
     {
       "Id": "C:\\Users\\Fabiha\\source\\repos\\KernelTravelGuides\\KernelTravelGuides\\wwwroot\\lib\\bootstrap\\LICENSE",

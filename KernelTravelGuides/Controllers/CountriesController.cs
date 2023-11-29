@@ -8,9 +8,11 @@ using Microsoft.EntityFrameworkCore;
 using KernelTravelGuides.Data;
 using KernelTravelGuides.Models;
 using Microsoft.Extensions.Hosting;
+using Microsoft.AspNetCore.Authorization;
 
 namespace KernelTravelGuides.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class CountriesController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -64,7 +66,7 @@ namespace KernelTravelGuides.Controllers
             string wwwRootPath = _hostEnvironment.WebRootPath;
             string filename = Path.GetFileNameWithoutExtension(country.main_image.FileName);
             string extension = Path.GetExtension(country.main_image.FileName);
-            country.country_image = filename = filename + DateTime.Now.ToString("yymmssfff") + extension;
+            country.country_image = filename = filename + extension;
             string path = Path.Combine(wwwRootPath + "/images/countryimg", filename);
             using (var filestream = new FileStream(path, FileMode.Create))
             {
