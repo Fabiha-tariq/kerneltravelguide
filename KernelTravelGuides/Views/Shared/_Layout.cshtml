@@ -45,24 +45,24 @@
                             if (User.IsInRole("Admin"))
                             {
                                 <li class="nav-item" >
-                                    <a class="nav-link  " asp-area="" asp-controller="Home" asp-action="Index">Dashboard</a>
+                                    <a class="nav-link text-black " asp-area="" asp-controller="Home" asp-action="Index">Dashboard</a>
                                 </li>
 
                                 <li class="nav-item dropdown">
-                                    <a class="nav-link  " id="dropdownMenuButton2" data-bs-toggle="dropdown"
+                                    <a class="nav-link text-black " id="dropdownMenuButton2" data-bs-toggle="dropdown"
                                        aria-expanded="false" asp-area="">Places</a>
 
 
                                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
                                         <li class="nav-item dropdown-item">
-                                            <a class="nav-link  " asp-area="" asp-controller="Cities" asp-action="Index">City</a>
+                                        <a class="nav-link  text-black" asp-area="" asp-controller="Cities" asp-action="Index">City</a>
                                         </li>
 
                                         <li class="nav-item dropdown-item">
-                                            <a class="nav-link  " asp-area="" asp-controller="Countries" asp-action="Index">County</a>
+                                            <a class="nav-link text-black " asp-area="" asp-controller="Countries" asp-action="Index">County</a>
                                         </li>
                                         <li class="nav-item dropdown-item">
-                                            <a class="nav-link  " asp-area="" asp-controller="TouriestSpots" asp-action="Index">Touriest Spots</a>
+                                        <a class="nav-link text-black " asp-area="" asp-controller="TouriestSpots" asp-action="Index">Touriest Spots</a>
                                          </li>
 
                                     </ul>
@@ -75,23 +75,23 @@
 
                                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton3">
                                         <li class="nav-item dropdown-item">
-                                            <a class="nav-link  " asp-area="" asp-controller="TravelCategories" asp-action="Index">Travel Category</a>
+                                            <a class="nav-link text-black " asp-area="" asp-controller="TravelCategories" asp-action="Index">Travel Category</a>
                                         </li>
                                         <li class="nav-item dropdown-item">
-                                            <a class="nav-link  " asp-area="" asp-controller="Hotels" asp-action="Index">Hotels</a>
-                                        </li>
-
-                                        <li class="nav-item dropdown-item">
-                                            <a class="nav-link  " asp-area="" asp-controller="Resorts" asp-action="Index">Resorts</a>
+                                            <a class="nav-link text-black " asp-area="" asp-controller="Hotels" asp-action="Index">Hotels</a>
                                         </li>
 
                                         <li class="nav-item dropdown-item">
-                                            <a class="nav-link  " asp-area="" asp-controller="Restaurants" asp-action="Index">Restaurant</a>
+                                        <a class="nav-link text-black " asp-area="" asp-controller="Resorts" asp-action="Index">Resorts</a>
+                                        </li>
+
+                                        <li class="nav-item dropdown-item">
+                                        <a class="nav-link  text-black" asp-area="" asp-controller="Restaurants" asp-action="Index">Restaurant</a>
                                         </li>
 
                                         
                                 <li class="nav-item dropdown-item">
-                                    <a class="nav-link  " asp-area="" asp-controller="Transports" asp-action="Index">Transports</a>
+                                    <a class="nav-link text-black " asp-area="" asp-controller="Transports" asp-action="Index">Transports</a>
                                 </li>
 
                                     </ul>
@@ -99,25 +99,25 @@
 
                                  
                                 <li class="nav-item">
-                                    <a class="nav-link  " asp-area="" asp-controller="Messages" asp-action="Index">Message</a>
+                                <a class="nav-link  text-black" asp-area="" asp-controller="Messages" asp-action="Index">Message</a>
                                 </li>
 
                                 <li class="nav-item">
-                                    <a class="nav-link  " asp-area="" asp-controller="Feedbacks" asp-action="Index">Feedback</a>
+                                    <a class="nav-link  text-black" asp-area="" asp-controller="Feedbacks" asp-action="Index">Feedback</a>
                                 </li>
 
-                                <li class="nav-item">
-                                    <a class="nav-link  " asp-area="" asp-controller="Packages" asp-action="Index">Package</a>
+                            <li class="nav-item">
+                                    <a class="nav-link text-black " asp-area="" asp-controller="Packages" asp-action="Index">Package</a>
                                 </li>
 
                                 <li class="nav-item dropdown navbar-right">
-                                    <a class="nav-link  " id="dropdownMenuButton4" data-bs-toggle="dropdown"
+                                <a class="nav-link text-black " id="dropdownMenuButton4" data-bs-toggle="dropdown"
                                        aria-expanded="false" asp-area="">Account</a>
 
 
                                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton4">
                                         <li class="nav-item dropdown-item">
-                                            <a class="nav-link  " id="register" asp-area="Identity" asp-page="/Account/Register">Create New User</a>
+                                        <a class="nav-link  text-black" id="register" asp-area="Identity" asp-page="/Account/Register">Create New User</a>
                                         </li>
 
                                         <partial name="_LoginPartial" class="nav-link  " />
@@ -130,32 +130,32 @@
                         else
                         {
                             <li class="nav-item">
-                                <a class="nav-link  " asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                                <a class="nav-link  text-black" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link  " asp-area="" asp-controller="Home" asp-action="About">About Us</a>
+                            <a class="nav-link text-black " asp-area="" asp-controller="Home" asp-action="About">About Us</a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link  " asp-area="" asp-controller="Home" asp-action="Packages">Packages</a>
+                            <a class="nav-link text-black " asp-area="" asp-controller="Home" asp-action="Packages">Packages</a>
                             </li>
 
                             <li class="nav-item dropdown">
-                                <a class="nav-link  " id="dropdownMenuButton1" data-bs-toggle="dropdown"
+                            <a class="nav-link  text-black" id="dropdownMenuButton1" data-bs-toggle="dropdown"
                                    aria-expanded="false" asp-area="">More Info</a>
                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
 
-                                <li><a class="dropdown-item" asp-controller="Home" asp-action="TouriestSpots">Touriest Spots</a></li>
-                                <li><a class="dropdown-item" asp-controller="Home" asp-action="TravelInfo">Travel  Categories</a></li>
-                                <li><a class="dropdown-item" asp-controller="Home" asp-action="TransportInfo">Transport</a></li>
-                                <li><a class="dropdown-item" asp-controller="Home" asp-action="HotelInfo">Hotels</a></li>
-                                <li><a class="dropdown-item" asp-controller="Home" asp-action="RestaurantInfo">Restaurants</a></li>
-                                <li><a class="dropdown-item" asp-controller="Home" asp-action="ResortInfo">Resorts</a></li>
+                                <li><a class="dropdown-item text-black" asp-controller="Home" asp-action="TouriestSpots">Touriest Spots</a></li>
+                                <li><a class="dropdown-item text-black" asp-controller="Home" asp-action="TravelInfo">Travel  Categories</a></li>
+                                <li><a class="dropdown-item text-black" asp-controller="Home" asp-action="TransportInfo">Transport</a></li>
+                                <li><a class="dropdown-item text-black" asp-controller="Home" asp-action="HotelInfo">Hotels</a></li>
+                                <li><a class="dropdown-item text-black" asp-controller="Home" asp-action="RestaurantInfo">Restaurants</a></li>
+                                <li><a class="dropdown-item text-black" asp-controller="Home" asp-action="ResortInfo">Resorts</a></li>
 
                             </ul>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link  " asp-area="" asp-controller="Home" asp-action="Contact">Contact Us</a>
+                            <a class="nav-link  text-black" asp-area="" asp-controller="Home" asp-action="Contact">Contact Us</a>
                             </li>
 
 
