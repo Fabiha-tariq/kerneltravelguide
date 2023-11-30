@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="hero-wrap js-fullheight" style="background-image: url('frontend/images/image_5.jpg');" data-stellar-background-ratio="0.5">
+<div class="hero-wrap js-fullheight" style="background-image: url('https://khaleejmag.com/wp-content/uploads/2022/05/Traveling-the-World.jpg');" data-stellar-background-ratio="0.5">
     <div class="overlay"></div>
     <div class="container">
         <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center" data-scrollax-parent="true">
@@ -22,46 +22,25 @@
            <div class="col-md-12 order-md-last heading-section pl-md-5 ftco-animate">
             <h2 class="mb-4">It's time to start your adventure</h2>
                 <p>
-                    <b> Adventure Travel</b> Adventure travel is all about exploring new and exciting destinations, often in remote and challenging environments. It can involve activities such as hiking, backpacking, camping, white-water rafting, kayaking, rock climbing, and more. Adventure travel is a great way to push your limits, test your physical and mental strength, and experience the beauty of the natural world.
-                    hiker standing on top of a mountain, looking out over a vast landscapeOpens in a new window
-                    </p>
-
-                <p>
-                    <b>    Cultural Travel </b> Cultural travel is about immersing yourself in different cultures and learning about different ways of life. It can involve activities such as visiting museums, historical sites, and religious landmarks, as well as attending cultural events, trying local food, and interacting with locals. Cultural travel is a great way to broaden your horizons, gain a new appreciation for different cultures, and make lasting memories.
-                    group of people visiting a temple in AsiaOpens in a new window</p>
-
-                <p>
-                    <b>  Beach Travel </b> Beach travel is all about relaxing and enjoying the sun, sand, and surf. It can involve activities such as swimming, sunbathing, surfing, snorkeling, scuba diving, and building sandcastles. Beach travel is a great way to escape the stress of everyday life and reconnect with nature.
-                    person relaxing on a beachOpens in a new window
+                    Traveling is an enriching and transformative experience that opens doors to new cultures, perspectives, and ways of life. It's a journey of self-discovery, a chance to step out of our comfort zones and embrace the unfamiliar.
+                    <br />   <br />
+                    From the bustling streets of vibrant cities to the serene landscapes of untouched wilderness, the world is a vast canvas waiting to be explored. With each new destination, we discover new customs, traditions, and cuisines, expanding our understanding of human diversity.
+                    <br />   <br />
+                    Traveling allows us to connect with people from all walks of life, breaking down barriers and fostering empathy. We learn to appreciate different viewpoints, challenge our assumptions, and see the world through fresh eyes.
+                    <br />   <br />
+                    As we navigate through unfamiliar territories, we develop resilience, adaptability, and problem-solving skills. We learn to navigate language barriers, find our way around new places, and adapt to different customs.   <br />
+                    <br />   <br />
+                    Traveling is also a celebration of the natural world. We marvel at the majestic peaks of snow-capped mountains, the serene beauty of tranquil lakes, and the vibrant colors of exotic flora and fauna. We witness the power of nature, its raw beauty, and its delicate balance.
+                    <br />   <br />
+                    From the ancient ruins of forgotten civilizations to the cutting-edge architecture of modern cities, traveling allows us to connect with history and appreciate the creativity of human ingenuity. We learn about the past, shaping our understanding of the present and inspiring our vision for the future.
+                    <br />   <br />
+                    Traveling is not just about ticking off destinations on a map; it's about immersing ourselves in the sights, sounds, smells, and tastes of a place. It's about engaging with locals, learning their stories, and appreciating their unique perspectives.
+                    <br />   <br />
+                    It's about embracing the unexpected, the unplanned, and the serendipitous moments that make each journey truly memorable. It's about pushing our boundaries, stepping out of our comfort zones, and discovering hidden strengths within ourselves.
+                    <br />   <br />
+                    Traveling is a reminder that the world is a vast and diverse place, filled with endless possibilities and untold stories waiting to be discovered. It's an invitation to embrace the unknown, to open our hearts and minds to new experiences, and to connect with the world in all its richness and beauty.
                 </p>
-
-                <p>
-                    <b>   City Travel</b>  City travel is about exploring the sights, sounds, and culture of urban areas. It can involve activities such as visiting museums, art galleries, historical landmarks, and shopping, as well as attending cultural events, trying local food, and experiencing the nightlife. City travel is a great way to learn about different cultures, see amazing architecture, and experience the energy of a bustling city.
-                    person walking through a busy city streetOpens in a new window
-                    
-                </p>
-                <p>
-                    <b>   Family Travel</b>  Family travel is about creating memories and bonding with loved ones. It can involve activities such as visiting theme parks, zoos, aquariums, and museums, as well as going on camping trips, road trips, and beach vacations. Family travel is a great way to connect with your loved ones, create lasting memories, and teach your children about the world.
-                    family hiking in the woodsOpens in a new window
-                   
-                </p>
-
-                <p>
-                    <b>   Luxury Travel</b>  Luxury travel is about pampering yourself and experiencing the best that life has to offer. It can involve activities such as staying in luxury hotels, resorts, and villas, as well as dining at Michelin-starred restaurants, attending exclusive events, and hiring personal guides and chauffeurs. Luxury travel is a great way to treat yourself to a special experience and enjoy the finer things in life.
-                    person relaxing in a luxury hotel roomOpens in a new window
-                </p>
-
-                <p>
-                    <b>   Solo Travel </b> Solo travel is about experiencing the world on your own terms and at your own pace. It can be a great way to discover new things about yourself, gain independence, and make new friends. Solo travel is a great way to step outside your comfort zone, challenge yourself, and have an adventure of a lifetime.
-                    person backpacking aloneOpens in a new window
-                </p>
-
-                <p>
-                    <b>    Sustainable Travel</b>  Sustainable travel is about minimizing your impact on the environment and supporting local communities. It can involve activities such as staying in eco-friendly accommodations, eating locally sourced food, participating in conservation projects, and using public transportation. Sustainable travel is a great way to reduce your environmental footprint and make a positive impact on the world.
-                    person hiking through a sustainable forestOpens in a new window
-
-                </p>
-            <p><a href="#" class="btn btn-primary py-3 px-4">Search Destination</a></p>
+            <p><a href="#" class="btn btn-primary py-3 px-4 justify-content-end">Search Destination</a></p>
             </div>
           
         </div>
@@ -78,8 +57,8 @@
         <div class="row">
             @foreach (var item in Model)
             {
-                <div class="col-md-4 ftco-animate">
-                    <div class="project-wrap">
+                <div class="col-md-6 ftco-animate ">
+                    <div class="project-wrap border">
                         <a asp-action="Details" asp-controller="TravelCategory" asp-route-id="@item.tra_category_id" >
                       
                         <div class="text p-4">
@@ -96,4 +75,5 @@
         </div>
     </div>
 </section>
+
 

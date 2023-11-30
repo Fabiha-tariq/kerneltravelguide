@@ -1,0 +1,75 @@
+﻿@model IEnumerable<KernelTravelGuides.Models.Restaurants>
+@{
+    ViewData["Title"] = "Best Restaurants Informations";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="hero-wrap js-fullheight" style="background-image: url('https://gdb.rferl.org/8ed04198-5dbc-40f4-801b-44964531e28f_cx0_cy11_cw0_w1200_r1.jpg');" data-stellar-background-ratio="0.5">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center" data-scrollax-parent="true">
+            <div class="col-md-9 text text-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
+                <h1 data-scrollax="properties: { translateY: '30%', opacity: 9 }">Amazing Restaurants all over the World</h1>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="ftco-section services-section bg-light">
+    <div class="container">
+        <div class="row d-flex">
+            <div class="col-md-12 order-md-last heading-section pl-md-5 ftco-animate">
+                <h2 class="mb-4">Time For the Best Dinner</h2>
+                <p>
+                    Pakistan boasts a rich culinary heritage, with diverse flavors influenced by its varied regions and cultural influences. From the spicy delights of the north to the aromatic delicacies of the south, Pakistani cuisine offers a tantalizing adventure for food enthusiasts.
+                    <br />
+                    In the bustling streets of Karachi, the aroma of freshly grilled meat wafts through the air, enticing passersby to indulge in delectable street food like biryani, kebabs, and spicy curries. Lahore, the cultural heart of Pakistan, is renowned for its traditional Lahori dishes, such as Nihari and paye, slow-cooked stews that embody the city's culinary heritage.
+                    <br />
+                    Peshawar, nestled in the foothills of the Khyber Pakhtunkhwa province, introduces a distinct flavor profile with its Pashtun cuisine. Kabuli pulao, a fragrant rice dish infused with aromatic spices, is a local favorite, while chapli kebabs, succulent minced meat patties, tantalize taste buds.
+                    <br />
+                    Along the coastline of Sindh province, seafood takes center stage, with fresh fish and shellfish prepared in a variety of tantalizing ways. The aromatic flavors of Hinglaj, a coastal town, are renowned for their unique blend of spices and flavors, while Karachi's port city offers a vibrant fusion of seafood delicacies.
+                    <br />
+                    Pakistani cuisine extends beyond its regional diversity, encompassing influences from neighboring countries and historical trade routes. Mughal cuisine, with its rich gravies and delicate spices, has left an indelible mark, while Persian and Central Asian influences add layers of complexity and flavor.
+                    <br />
+                    From the humble street food stalls to the elegant fine-dining establishments, Pakistani restaurants offer a culinary journey that captures the essence of the country's diverse flavors and traditions. Whether you're seeking the fiery heat of Karachi's street food or the refined elegance of Lahore's traditional cuisine, Pakistan's culinary landscape promises a feast for the senses.
+                </p>
+                <p><a href="#" class="btn btn-primary py-3 px-4 justify-content-end">Search Destination</a></p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="ftco-section ftco-no-pt">
+    <div class="container">
+        <div class="row justify-content-center pb-4">
+            <div class="col-md-12 heading-section text-center ftco-animate">
+                <h2 class="mb-4">Restaurants</h2>
+            </div>
+        </div>
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-md-4 ftco-animate">
+                    <div class="project-wrap">
+                        <a asp-action="Details" asp-controller="Restaurants" asp-route-id="@item.restaurants_id" class="img">
+                            <img src="@("~/images/restaurantimg/" + item.restaurants_image)" asp-append-version="false" style="background-size:cover; width: 100%; height: 270px;" />
+                        </a>
+                        <div class="text p-4">
+
+                            <h3><a asp-action="Details" asp-controller="Restaurants" asp-route-id="@item.restaurants_id">@Html.DisplayFor(modelItem => item.restaurants_name)</a></h3>
+
+                            <ul>
+                                <p class="location">@Html.DisplayFor(modelItem => item.restaurants_location)</p>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+</section>
+

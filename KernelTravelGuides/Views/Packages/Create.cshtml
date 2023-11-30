@@ -10,7 +10,7 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create">
+        <form asp-action="Create" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="packages_name" class="control-label"></label>
@@ -29,8 +29,8 @@
             </div>
             <div class="form-group">
                 <label asp-for="packages_img" class="control-label"></label>
-                <input asp-for="packages_img" class="form-control" />
-                <span asp-validation-for="packages_img" class="text-danger"></span>
+                <input asp-for="main_image" class="form-control" accept="/images/packageimg/*"/>
+                <span asp-validation-for="main_image" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="resorts_id" class="control-label"></label>

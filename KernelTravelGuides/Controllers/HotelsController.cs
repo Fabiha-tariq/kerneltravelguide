@@ -12,7 +12,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace KernelTravelGuides.Controllers
 {
-    [Authorize("Admin")]
+    [Authorize(Roles="Admin")]
     public class HotelsController : Controller
     {
         private readonly ApplicationDbContext _context;

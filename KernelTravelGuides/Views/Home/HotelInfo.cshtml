@@ -1,0 +1,107 @@
+﻿@model IEnumerable<KernelTravelGuides.Models.Hotel>
+@{
+    ViewData["Title"] = "Best Hotel Informations";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="hero-wrap js-fullheight" style="background-image: url('https://flypakistan.pk/assets/img/blog/Chedi-Andermatt-suite.jpg');" data-stellar-background-ratio="0.5">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center" data-scrollax-parent="true">
+            <div class="col-md-9 text text-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
+                <h1 data-scrollax="properties: { translateY: '30%', opacity: 9 }">Best Hotels Around the World</h1>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="ftco-section services-section bg-light">
+    <div class="container">
+        <div class="row d-flex">
+            <div class="col-md-12 order-md-last heading-section pl-md-5 ftco-animate">
+                <h2 class="mb-4">It's time to start your adventure</h2>
+                <p>
+                    Hotels, havens of hospitality and comfort, stand as beacons of solace amidst the hustle and bustle of travel. From grand establishments brimming with elegance to cozy retreats exuding warmth, hotels cater to diverse preferences and budgets.
+                    <br />
+                    Within their welcoming walls, guests find respite from the world's demands. Crisp linens, plush pillows, and tranquil ambiance invite restful slumber, while well-appointed bathrooms offer a sanctuary of rejuvenation.
+                    <br />
+                    Beyond the confines of the room, hotels unfold a tapestry of amenities and services. Sparkling pools beckon for refreshing dips, while fitness centers provide invigorating workouts. Culinary delights await at in-house restaurants, tantalizing taste buds with a symphony of flavors.
+                    <br />
+                    For business travelers, hotels transform into hubs of productivity. Spacious workspaces, reliable Wi-Fi, and attentive staff ensure seamless connectivity and efficient workflows. Meetings and conferences find their ideal stage in well-equipped conference rooms and banquet halls.
+                    <br />
+                    Hotels also serve as social hubs, fostering connections and creating shared experiences. Lobby lounges buzz with conversations, while bars and cafes offer cozy havens for relaxation and camaraderie. Rooftop terraces provide panoramic vistas, while gardens and outdoor spaces offer tranquil escapes amidst urban landscapes.
+                    <br />
+                    Whether seeking a haven for relaxation, a base for exploration, or a stage for business endeavors, hotels cater to the diverse needs of travelers. They are more than just lodging; they are orchestrators of experiences, weaving together comfort, convenience, and a touch of magic.
+                </p>
+                <p><a href="#" class="btn btn-primary py-3 px-4 justify-content-end">Search Destination</a></p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="ftco-section ftco-no-pt">
+    <div class="container">
+        <div class="row justify-content-center pb-4">
+            <div class="col-md-12 heading-section text-center ftco-animate">
+                <h2 class="mb-4">Hotels</h2>
+            </div>
+        </div>
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-md-4 ftco-animate">
+                    <div class="project-wrap">
+                        <a asp-action="Details" asp-controller="Hotels" asp-route-id="@item.hotel_id" class="img">
+                            <img src="@("~/images/hotelimg/" + item.hotel_image)" asp-append-version="false" style="background-size:cover; width: 100%; height: 270px;" />
+                        </a>
+                        <div class="text p-4">
+                            <span class="price">
+                                @if (item.hotel_rating == 5)
+                                {
+                                    <img src="~/frontend/images/png-clipart-star-star.png" asp-append-version="false" width="20px" />
+                                    <img src="~/frontend/images/png-clipart-star-star.png" asp-append-version="false" width="20px" />
+                                    <img src="~/frontend/images/png-clipart-star-star.png" asp-append-version="false" width="20px" />
+                                    <img src="~/frontend/images/png-clipart-star-star.png" asp-append-version="false" width="20px" />
+                                    <img src="~/frontend/images/png-clipart-star-star.png" asp-append-version="false" width="20px" />
+                                }
+                                else if (item.hotel_rating == 4)
+                                {
+                                    <img src="~/frontend/images/png-clipart-star-star.png" asp-append-version="false" width="20px" />
+                                    <img src="~/frontend/images/png-clipart-star-star.png" asp-append-version="false" width="20px" />
+                                    <img src="~/frontend/images/png-clipart-star-star.png" asp-append-version="false" width="20px" />
+                                    <img src="~/frontend/images/png-clipart-star-star.png" asp-append-version="false" width="20px" />
+                                }
+                                else if (item.hotel_rating == 3)
+                                {
+                                    <img src="~/frontend/images/png-clipart-star-star.png" asp-append-version="false" width="20px" />
+                                    <img src="~/frontend/images/png-clipart-star-star.png" asp-append-version="false" width="20px" />
+                                    <img src="~/frontend/images/png-clipart-star-star.png" asp-append-version="false" width="20px" />
+                                }
+                                else if (item.hotel_rating == 2)
+                                {
+                                    <img src="~/frontend/images/png-clipart-star-star.png" asp-append-version="false" width="20px" />
+                                    <img src="~/frontend/images/png-clipart-star-star.png" asp-append-version="false" width="20px" />
+                                }
+                                else
+                                {
+                                    <img src="~/frontend/images/png-clipart-star-star.png" asp-append-version="false" width="20px" />
+                                }
+
+                            </span>
+                            <h3><a asp-action="Details" asp-controller="Hotels" asp-route-id="@item.hotel_id">@Html.DisplayFor(modelItem => item.hotel_name)</a></h3>
+                           
+                            <ul>
+                           <p class="location">@Html.DisplayFor(modelItem => item.hotel_average)</p>
+                            </ul>
+                        </div>
+                       
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+</section>
+

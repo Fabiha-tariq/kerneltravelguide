@@ -333,8 +333,92 @@
       "PackagePath": "staticwebassets\\images\\countryimg\\audio_1230050004.jpg"
     },
     {
+      "Id": "C:\\Users\\Fabiha\\source\\repos\\KernelTravelGuides\\KernelTravelGuides\\wwwroot\\images\\hotelimg\\BeachLuxuryHotel.jpg",
+      "PackagePath": "staticwebassets\\images\\hotelimg\\BeachLuxuryHotel.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Fabiha\\source\\repos\\KernelTravelGuides\\KernelTravelGuides\\wwwroot\\images\\hotelimg\\RegentPlaza.jpg",
+      "PackagePath": "staticwebassets\\images\\hotelimg\\RegentPlaza.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Fabiha\\source\\repos\\KernelTravelGuides\\KernelTravelGuides\\wwwroot\\images\\packageimg\\CHITRALKALASH.jpg",
+      "PackagePath": "staticwebassets\\images\\packageimg\\CHITRALKALASH.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Fabiha\\source\\repos\\KernelTravelGuides\\KernelTravelGuides\\wwwroot\\images\\packageimg\\Shogran,Naran_Valley.jpg",
+      "PackagePath": "staticwebassets\\images\\packageimg\\Shogran,Naran_Valley.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Fabiha\\source\\repos\\KernelTravelGuides\\KernelTravelGuides\\wwwroot\\images\\resortimg\\Cordillera1Resort.jpg",
+      "PackagePath": "staticwebassets\\images\\resortimg\\Cordillera1Resort.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Fabiha\\source\\repos\\KernelTravelGuides\\KernelTravelGuides\\wwwroot\\images\\resortimg\\Cordillera2Resort.jpg",
+      "PackagePath": "staticwebassets\\images\\resortimg\\Cordillera2Resort.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Fabiha\\source\\repos\\KernelTravelGuides\\KernelTravelGuides\\wwwroot\\images\\resortimg\\CordilleraResort.jpg",
+      "PackagePath": "staticwebassets\\images\\resortimg\\CordilleraResort.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Fabiha\\source\\repos\\KernelTravelGuides\\KernelTravelGuides\\wwwroot\\images\\resortimg\\DreamworldResortHote.jpg",
+      "PackagePath": "staticwebassets\\images\\resortimg\\DreamworldResortHote.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Fabiha\\source\\repos\\KernelTravelGuides\\KernelTravelGuides\\wwwroot\\images\\resortimg\\GolfCourse.jpg",
+      "PackagePath": "staticwebassets\\images\\resortimg\\GolfCourse.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Fabiha\\source\\repos\\KernelTravelGuides\\KernelTravelGuides\\wwwroot\\images\\resortimg\\Peshawar.jpg",
+      "PackagePath": "staticwebassets\\images\\resortimg\\Peshawar.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Fabiha\\source\\repos\\KernelTravelGuides\\KernelTravelGuides\\wwwroot\\images\\resortimg\\Peshawar3Serena.jpg",
+      "PackagePath": "staticwebassets\\images\\resortimg\\Peshawar3Serena.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Fabiha\\source\\repos\\KernelTravelGuides\\KernelTravelGuides\\wwwroot\\images\\resortimg\\ResortGolfCourse.jpg",
+      "PackagePath": "staticwebassets\\images\\resortimg\\ResortGolfCourse.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Fabiha\\source\\repos\\KernelTravelGuides\\KernelTravelGuides\\wwwroot\\images\\resortimg\\SerenaHotel.jpg",
+      "PackagePath": "staticwebassets\\images\\resortimg\\SerenaHotel.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Fabiha\\source\\repos\\KernelTravelGuides\\KernelTravelGuides\\wwwroot\\images\\restaurantimg\\CafeAylanto.jpg",
+      "PackagePath": "staticwebassets\\images\\restaurantimg\\CafeAylanto.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Fabiha\\source\\repos\\KernelTravelGuides\\KernelTravelGuides\\wwwroot\\images\\restaurantimg\\HaveliRestaurant.jpg",
+      "PackagePath": "staticwebassets\\images\\restaurantimg\\HaveliRestaurant.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Fabiha\\source\\repos\\KernelTravelGuides\\KernelTravelGuides\\wwwroot\\images\\restaurantimg\\MonalLahore.jpg",
+      "PackagePath": "staticwebassets\\images\\restaurantimg\\MonalLahore.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Fabiha\\source\\repos\\KernelTravelGuides\\KernelTravelGuides\\wwwroot\\images\\touriestspotsimg\\Beautiful-places-in-Pakistan-Swat-Valley-KhwajaSaeedGetty-CanvaPro.jpg",
+      "PackagePath": "staticwebassets\\images\\touriestspotsimg\\Beautiful-places-in-Pakistan-Swat-Valley-KhwajaSaeedGetty-CanvaPro.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Fabiha\\source\\repos\\KernelTravelGuides\\KernelTravelGuides\\wwwroot\\images\\touriestspotsimg\\BoyunVillage.jpg",
+      "PackagePath": "staticwebassets\\images\\touriestspotsimg\\BoyunVillage.jpg"
+    },
+    {
       "Id": "C:\\Users\\Fabiha\\source\\repos\\KernelTravelGuides\\KernelTravelGuides\\wwwroot\\images\\touriestspotsimg\\Jinnah_Mausoleum.jpeg",
       "PackagePath": "staticwebassets\\images\\touriestspotsimg\\Jinnah_Mausoleum.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\Fabiha\\source\\repos\\KernelTravelGuides\\KernelTravelGuides\\wwwroot\\images\\touriestspotsimg\\PeaceTourism.jpg",
+      "PackagePath": "staticwebassets\\images\\touriestspotsimg\\PeaceTourism.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Fabiha\\source\\repos\\KernelTravelGuides\\KernelTravelGuides\\wwwroot\\images\\touriestspotsimg\\Plains_of_Boyun_Village,_Swat_Valley,_Pakistan.jpg",
+      "PackagePath": "staticwebassets\\images\\touriestspotsimg\\Plains_of_Boyun_Village,_Swat_Valley,_Pakistan.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Fabiha\\source\\repos\\KernelTravelGuides\\KernelTravelGuides\\wwwroot\\images\\touriestspotsimg\\SwatValley.jpg",
+      "PackagePath": "staticwebassets\\images\\touriestspotsimg\\SwatValley.jpg"
     },
     {
       "Id": "C:\\Users\\Fabiha\\source\\repos\\KernelTravelGuides\\KernelTravelGuides\\wwwroot\\images\\touriestspotsimg\\stringio (1).jpg",
@@ -343,6 +427,10 @@
     {
       "Id": "C:\\Users\\Fabiha\\source\\repos\\KernelTravelGuides\\KernelTravelGuides\\wwwroot\\images\\touriestspotsimg\\stringio.jpg",
       "PackagePath": "staticwebassets\\images\\touriestspotsimg\\stringio.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Fabiha\\source\\repos\\KernelTravelGuides\\KernelTravelGuides\\wwwroot\\images\\touriestspotsimg\\visitpkswatvalley.png",
+      "PackagePath": "staticwebassets\\images\\touriestspotsimg\\visitpkswatvalley.png"
     },
     {
       "Id": "C:\\Users\\Fabiha\\source\\repos\\KernelTravelGuides\\KernelTravelGuides\\wwwroot\\lib\\bootstrap\\LICENSE",

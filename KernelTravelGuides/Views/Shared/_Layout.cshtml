@@ -137,19 +137,22 @@
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link  " asp-area="" asp-controller="Home" asp-action="Destination">Destination</a>
+                                <a class="nav-link  " asp-area="" asp-controller="Home" asp-action="Packages">Packages</a>
                             </li>
 
                             <li class="nav-item dropdown">
                                 <a class="nav-link  " id="dropdownMenuButton1" data-bs-toggle="dropdown"
                                    aria-expanded="false" asp-area="">More Info</a>
-                              
+                               <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
 
-                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                 <li><a class="dropdown-item" asp-controller="Home" asp-action="TouriestSpots">Touriest Spots</a></li>
-                                <li><a class="dropdown-item" asp-controller="Home" asp-action="TravelInfo">Travel Information & Categories</a></li>
-                                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                    </ul>
+                                <li><a class="dropdown-item" asp-controller="Home" asp-action="TravelInfo">Travel  Categories</a></li>
+                                <li><a class="dropdown-item" asp-controller="Home" asp-action="TransportInfo">Transport</a></li>
+                                <li><a class="dropdown-item" asp-controller="Home" asp-action="HotelInfo">Hotels</a></li>
+                                <li><a class="dropdown-item" asp-controller="Home" asp-action="RestaurantInfo">Restaurants</a></li>
+                                <li><a class="dropdown-item" asp-controller="Home" asp-action="ResortInfo">Resorts</a></li>
+
+                            </ul>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link  " asp-area="" asp-controller="Home" asp-action="Contact">Contact Us</a>

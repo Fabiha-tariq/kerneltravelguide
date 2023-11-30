@@ -21,7 +21,7 @@ namespace KernelTravelGuides.Controllers
         }
 
         // GET: Messages
-        [Authorize("Admin")]
+        [Authorize(Roles="Admin")]
         public async Task<IActionResult> Index()
         {
               return _context.Messages != null ? 
@@ -30,7 +30,7 @@ namespace KernelTravelGuides.Controllers
         }
 
         // GET: Messages/Details/5
-        [Authorize("Admin")]
+        [Authorize(Roles="Admin")]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.Messages == null)

@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="hero-wrap js-fullheight" style="background-image: url('frontend/images/image_5.jpg');" data-stellar-background-ratio="0.5">
+<div class="hero-wrap js-fullheight" style="background-image: url('https://www.theventuretours.com/wp-content/uploads/2020/04/Boyun_Village__Swat_Pakistan.jpg');" data-stellar-background-ratio="0.5">
     <div class="overlay"></div>
     <div class="container">
         <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center" data-scrollax-parent="true">
@@ -30,7 +30,20 @@
             <div class="col-md-4 ftco-animate">
                 <div class="project-wrap">
                         <a asp-action="Details" asp-controller="TouriestSpots" asp-route-id="@item.t_spot_id" class="img">
-                                <img src="@("~/images/touriestspotsimg/" + item.t_spot_img2)" asp-append-version="false" style="background-size:cover; width: 100%; height: 270px;"  />
+                            <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <img src="@("~/images/touriestspotsimg/" + item.t_spot_img1)" class=" d-block" asp-append-version="false" style="background-size:cover; width: 100%; height: 270px;" />
+
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="@("~/images/touriestspotsimg/" + item.t_spot_img2)" class=" d-block" asp-append-version="false" style="background-size:cover; width: 100%; height: 270px;" />
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="@("~/images/touriestspotsimg/" + item.t_spot_img3)" class=" d-block" asp-append-version="false" style="background-size:cover; width: 100%; height: 270px;" />
+                                    </div>
+                                </div>
+                            </div>
                             </a>
                     <div class="text p-4">
                                 <span class="price">

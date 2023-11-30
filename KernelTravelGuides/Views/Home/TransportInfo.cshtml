@@ -1,0 +1,113 @@
+﻿@model IEnumerable<KernelTravelGuides.Models.Transport>
+@{
+    ViewData["Title"] = "Transporting ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="hero-wrap js-fullheight" style="background-image: url('https://khaleejmag.com/wp-content/uploads/2022/05/Traveling-the-World.jpg');" data-stellar-background-ratio="0.5">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center" data-scrollax-parent="true">
+            <div class="col-md-9 text text-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
+                <h1 data-scrollax="properties: { translateY: '30%', opacity: 9 }">Best Transport Facilities</h1>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="ftco-section services-section bg-light">
+    <div class="container">
+        <div class="row d-flex">
+            <div class="col-md-12 order-md-last heading-section pl-md-5 ftco-animate">
+                <h2 class="mb-4">Lets Start the Journey</h2>
+                <p>
+                    Traveling is an enriching and transformative experience that opens doors to new cultures, perspectives, and ways of life. It's a journey of self-discovery, a chance to step out of our comfort zones and embrace the unfamiliar.
+                    <br />   <br />
+                    From the bustling streets of vibrant cities to the serene landscapes of untouched wilderness, the world is a vast canvas waiting to be explored. With each new destination, we discover new customs, traditions, and cuisines, expanding our understanding of human diversity.
+                    <br />   <br />
+                    Traveling allows us to connect with people from all walks of life, breaking down barriers and fostering empathy. We learn to appreciate different viewpoints, challenge our assumptions, and see the world through fresh eyes.
+                    <br />   <br />
+                    As we navigate through unfamiliar territories, we develop resilience, adaptability, and problem-solving skills. We learn to navigate language barriers, find our way around new places, and adapt to different customs.   <br />
+                    <br />   <br />
+                    Traveling is also a celebration of the natural world. We marvel at the majestic peaks of snow-capped mountains, the serene beauty of tranquil lakes, and the vibrant colors of exotic flora and fauna. We witness the power of nature, its raw beauty, and its delicate balance.
+                    <br />   <br />
+                    From the ancient ruins of forgotten civilizations to the cutting-edge architecture of modern cities, traveling allows us to connect with history and appreciate the creativity of human ingenuity. We learn about the past, shaping our understanding of the present and inspiring our vision for the future.
+                    <br />   <br />
+                    Traveling is not just about ticking off destinations on a map; it's about immersing ourselves in the sights, sounds, smells, and tastes of a place. It's about engaging with locals, learning their stories, and appreciating their unique perspectives.
+                    <br />   <br />
+                    It's about embracing the unexpected, the unplanned, and the serendipitous moments that make each journey truly memorable. It's about pushing our boundaries, stepping out of our comfort zones, and discovering hidden strengths within ourselves.
+                    <br />   <br />
+                    Traveling is a reminder that the world is a vast and diverse place, filled with endless possibilities and untold stories waiting to be discovered. It's an invitation to embrace the unknown, to open our hearts and minds to new experiences, and to connect with the world in all its richness and beauty.
+                </p>
+                <p><a href="#" class="btn btn-primary py-3 px-4 justify-content-end">Search Destination</a></p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="ftco-section ftco-no-pt">
+    <div class="container">
+        <div class="row justify-content-center pb-4">
+            <div class="col-md-12 heading-section text-center ftco-animate">
+                <h2 class="mb-4">Transport</h2>
+            </div>
+        </div>
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-md-6 ftco-animate ">
+                    <div class="project-wrap border">
+
+
+                        <div class="text p-4">
+                            <span class="price">
+                                @if (item.transport_rating == 5)
+                                {
+                                    <img src="~/frontend/images/png-clipart-star-star.png" asp-append-version="false" width="20px" />
+                                    <img src="~/frontend/images/png-clipart-star-star.png" asp-append-version="false" width="20px" />
+                                    <img src="~/frontend/images/png-clipart-star-star.png" asp-append-version="false" width="20px" />
+                                    <img src="~/frontend/images/png-clipart-star-star.png" asp-append-version="false" width="20px" />
+                                    <img src="~/frontend/images/png-clipart-star-star.png" asp-append-version="false" width="20px" />
+                                }
+                                else if (item.transport_rating == 4)
+                                {
+                                    <img src="~/frontend/images/png-clipart-star-star.png" asp-append-version="false" width="20px" />
+                                    <img src="~/frontend/images/png-clipart-star-star.png" asp-append-version="false" width="20px" />
+                                    <img src="~/frontend/images/png-clipart-star-star.png" asp-append-version="false" width="20px" />
+                                    <img src="~/frontend/images/png-clipart-star-star.png" asp-append-version="false" width="20px" />
+                                }
+                                else if (item.transport_rating == 3)
+                                {
+                                    <img src="~/frontend/images/png-clipart-star-star.png" asp-append-version="false" width="20px" />
+                                    <img src="~/frontend/images/png-clipart-star-star.png" asp-append-version="false" width="20px" />
+                                    <img src="~/frontend/images/png-clipart-star-star.png" asp-append-version="false" width="20px" />
+                                }
+                                else if (item.transport_rating == 2)
+                                {
+                                    <img src="~/frontend/images/png-clipart-star-star.png" asp-append-version="false" width="20px" />
+                                    <img src="~/frontend/images/png-clipart-star-star.png" asp-append-version="false" width="20px" />
+                                }
+                                else
+                                {
+                                    <img src="~/frontend/images/png-clipart-star-star.png" asp-append-version="false" width="20px" />
+                                }
+
+                            </span>
+                            <h3><a href="#">@Html.DisplayFor(modelItem => item.transport_name)</a></h3>
+                            <p class="location">@Html.DisplayFor(modelItem => item.transport_price)</p>
+                            <ul>
+                                <li><span class="country"></span>  @Html.DisplayNameFor(model => model.transport_desc)</li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+</section>
+
+
