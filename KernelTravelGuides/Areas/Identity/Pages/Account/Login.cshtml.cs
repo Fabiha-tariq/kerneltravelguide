@@ -107,7 +107,7 @@ namespace KernelTravelGuides.Areas.Identity.Pages.Account
             {
                 if (User.IsInRole("Admin"))
                 {
-                    returnUrl ??= Url.Content("~/City/Index");
+                    returnUrl ??= Url.Content("~/Dashboard/Dashboard");
                 }
                 else
                 {
