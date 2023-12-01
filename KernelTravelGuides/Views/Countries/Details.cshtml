@@ -2,54 +2,77 @@
 
 @{
     ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
 }
 
-<h1>Details</h1>
+<h1>Country Details</h1>
+<div class="page-content-wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6">
 
-<div>
-    <h4>Country</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.country_name)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.country_name)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.country_code)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.country_code)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.country_image)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.country_image)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.country_currency)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.country_currency)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.status)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.status)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.created_at)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.created_at)
-        </dd>
-      
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.country_id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+                <div class="card">
+                    <div class="card-img">
+
+                        <img src="@("~/images/countryimg/" + Model.country_image)" asp-append-version="true" style="width: 100%;" />
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card">
+
+                    <div class="card-body">
+                        <h2 class="mt-0 header-title">More Info about    @Html.DisplayFor(model => model.country_name)</h2>
+
+                        <dl class="row">
+                            <dt class="col-sm-4">
+                                @Html.DisplayNameFor(model => model.country_name)
+                            </dt>
+                            <dd class="col-sm-8">
+                                @Html.DisplayFor(model => model.country_name)
+                            </dd>
+                            <dt class="col-sm-4">
+                                @Html.DisplayNameFor(model => model.country_code)
+                            </dt>
+                            <dd class="col-sm-8">
+                                @Html.DisplayFor(model => model.country_code)
+                            </dd>
+                           
+                            <dt class="col-sm-4">
+                                @Html.DisplayNameFor(model => model.country_currency)
+                            </dt>
+                            <dd class="col-sm-8">
+                                @Html.DisplayFor(model => model.country_currency)
+                            </dd>
+                            <dt class="col-sm-4">
+                                @Html.DisplayNameFor(model => model.status)
+                            </dt>
+                            <dd class="col-sm-8">
+                                @if (Model.status)
+                                {
+                                    <span class="btn btn-success">Active</span>
+                                }
+                                else
+                                {
+                                    <span class="btn btn-danger">Unactive</span>
+
+                                }
+                            </dd>
+                            <dt class="col-sm-4">
+                          
+
+                        </dl>
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+
+    </div>
+</div><!-- end col -->

@@ -5,7 +5,7 @@
      Layout = "~/Views/Shared/_DashboardLayout.cshtml";
 }
 
-<h1>Details</h1>
+<h1>City Details</h1>
 <div class="page-content-wrapper">
     <div class="container-fluid">
         <div class="row">
@@ -17,25 +17,28 @@
                         <img src="@("~/images/cityimg/" + Model.city_image)" asp-append-version="true" style="width: 100%;" />
                     
                     </div>
-                    <div class="col-md-6">
-                        <div class="card-body">
-                            <h4 class="mt-0 header-title">Add Hotels</h4>
+                    </div>
+            </div>
 
-                            <dl class="row">
-                            <dl class="row">
-                            <dl class="row">
-                                <dt class="col-sm-2">
-                                    @Html.DisplayNameFor(model => model.city_name)
-                                </dt>
-                                <dd class="col-sm-10">
-                                    @Html.DisplayFor(model => model.city_name)
-                                </dd>
-                              
-                                <dt class="col-sm-2">
-                                    @Html.DisplayNameFor(model => model.city_status)
-                                </dt>
-                                <dd class="col-sm-10">
-                                   
+                    <div class="col-md-6">
+                <div class="card">
+
+                    <div class="card-body">
+                        <h4 class="mt-0 header-title">More Info about    @Html.DisplayFor(model => model.city_name)</h4>
+
+                        <dl class="row">
+                                    <dt class="col-sm-4">
+                                        @Html.DisplayNameFor(model => model.city_name)
+                                    </dt>
+                                    <dd class="col-sm-8">
+                                        @Html.DisplayFor(model => model.city_name)
+                                    </dd>
+
+                                    <dt class="col-sm-4">
+                                        @Html.DisplayNameFor(model => model.city_status)
+                                    </dt>
+                                    <dd class="col-sm-8">
+
                                         @if (Model.city_status)
                                         {
                                             <span class="btn btn-success">Active</span>
@@ -45,18 +48,20 @@
                                             <span class="btn btn-danger">Unactive</span>
 
                                         }
-                                </dd>
-                                <dt class="col-sm-2">
-                                    @Html.DisplayNameFor(model => model.country)
-                                </dt>
-                                <dd class="col-sm-10">
-                                    @Html.DisplayFor(model => model.country.country_code)
-                                </dd>
-                         
-                            </dl>
+                                    </dd>
+                                    <dt class="col-sm-4">
+                                        @Html.DisplayNameFor(model => model.country)
+                                    </dt>
+                                    <dd class="col-sm-8">
+                                        @Html.DisplayFor(model => model.country.country_name)
+                                    </dd>
+
+                                </dl>
 
 
-                        </div>
+                    </div>
+                    </div>
+
                         </div>
                     </div>
                  
@@ -65,5 +70,4 @@
         </div>
     </div><!-- end col -->
 
-</div>
-</div>
+

@@ -103,23 +103,9 @@ namespace KernelTravelGuides.Areas.Identity.Pages.Account
 
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
         {
-            if (User.Identity.IsAuthenticated)
-            {
-                if (User.IsInRole("Admin"))
-                {
-                    returnUrl ??= Url.Content("~/Dashboard/Dashboard");
-                }
-                else
-                {
-                    returnUrl ??= Url.Content("~/");
-                }
-            }
-            else
-            {
-                // Return to login page if not authenticated
-                returnUrl ??= Url.Content("~/Identity/Account/Login");
-            }
+            returnUrl ??= Url.Content("~/");
 
+               
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
 
             if (ModelState.IsValid)

@@ -2,48 +2,66 @@
 
 @{
     ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
 }
 
-<h1>Details</h1>
 
-<div>
-    <h4>Restaurants</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.restaurants_name)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.restaurants_name)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.restaurants_location)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.restaurants_location)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.restaurants_image)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.restaurants_image)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.restaurants_status)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.restaurants_status)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.created_at)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.created_at)
-        </dd>
-       
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.restaurants_id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+    <h1>Restaurants Details</h1>
+    <div class="page-content-wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-6">
+
+                    <div class="card">
+                        <div class="card-img">
+                            <img src="@("~/images/restaurantimg/" + Model.restaurants_image)" class=" d-block" asp-append-version="false" style="background-size:cover; width: 100%; height: 270px;" />
+
+                                </div>
+                            </div>
+                        </div>
+              
+                <div class="col-md-6">
+                    <div class="card">
+
+                        <div class="card-body">
+                            <h2 class="mt-0 header-title">More Info about    @Html.DisplayFor(model => model.restaurants_name)</h2>
+
+                            <dl class="row">
+                                <dt class="col-sm-4">
+                                    @Html.DisplayNameFor(model => model.restaurants_name)
+                                </dt>
+                                <dd class="col-sm-8">
+                                    @Html.DisplayFor(model => model.restaurants_name)
+                                </dd>
+                                <dt class="col-sm-4">
+                                    @Html.DisplayNameFor(model => model.restaurants_location)
+                                </dt>
+                                <dd class="col-sm-8">
+                                    @Html.DisplayFor(model => model.restaurants_location)
+                                </dd>
+                                <dt class="col-sm-4">
+                                    @Html.DisplayNameFor(model => model.restaurants_status)
+                                </dt>
+                                <dd class="col-sm-8">
+                                    @if (Model.restaurants_status)
+                                    {
+                                        <span class="btn btn-success">Active</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="btn btn-danger">Unactive</span>
+
+                                    }
+                                </dd>
+                               
+                            </dl>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+
+        </div>
+    </div><!-- end col -->
