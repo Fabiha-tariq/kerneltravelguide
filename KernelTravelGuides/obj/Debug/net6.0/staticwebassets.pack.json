@@ -1241,8 +1241,16 @@
       "PackagePath": "staticwebassets\\images\\cityimg\\audio_2230109531.jpg"
     },
     {
+      "Id": "C:\\Users\\Fabiha\\source\\repos\\KernelTravelGuides\\KernelTravelGuides\\wwwroot\\images\\cityimg\\f22873e2a67b5b117ed46e053d605695.jpg",
+      "PackagePath": "staticwebassets\\images\\cityimg\\f22873e2a67b5b117ed46e053d605695.jpg"
+    },
+    {
       "Id": "C:\\Users\\Fabiha\\source\\repos\\KernelTravelGuides\\KernelTravelGuides\\wwwroot\\images\\countryimg\\audio_1230050004.jpg",
       "PackagePath": "staticwebassets\\images\\countryimg\\audio_1230050004.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Fabiha\\source\\repos\\KernelTravelGuides\\KernelTravelGuides\\wwwroot\\images\\countryimg\\destination-3.jpg",
+      "PackagePath": "staticwebassets\\images\\countryimg\\destination-3.jpg"
     },
     {
       "Id": "C:\\Users\\Fabiha\\source\\repos\\KernelTravelGuides\\KernelTravelGuides\\wwwroot\\images\\hotelimg\\BeachLuxuryHotel.jpg",

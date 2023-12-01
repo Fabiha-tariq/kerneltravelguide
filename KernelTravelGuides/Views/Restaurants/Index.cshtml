@@ -2,33 +2,37 @@
 
 @{
     ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
 }
 
-<h1>Index</h1>
+<h1>Restaurants</h1>
+<div class="page-content-wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="mt-0 header-title">All Restaurants</h4>
+
+                        <div class="table-responsive">
+                            <table class="table table-striped mb-0">
+                              
     <thead>
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.restaurants_name)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.restaurants_location)
-            </th>
+          
             <th>
                 @Html.DisplayNameFor(model => model.restaurants_image)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.restaurants_status)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.created_at)
-            </th>
+          
             
-            <th></th>
+            <th>Action</th>
         </tr>
     </thead>
     <tbody>
@@ -37,12 +41,10 @@
             <td>
                 @Html.DisplayFor(modelItem => item.restaurants_name)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.restaurants_location)
-            </td>
+         
             <td>
                     <a href="@("images/restaurantimg/" + item.restaurants_image)" target="_blank">
-                        <img src="@("~/images/restaurantimg/" + item.restaurants_image)" asp-append-version="true" width="44px" />
+                        <img src="@("~/images/restaurantimg/" + item.restaurants_image)" asp-append-version="true" width="64px" />
                     </a>
             </td>
             <td>
@@ -57,16 +59,37 @@
 
                     }
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.created_at)
-            </td>
+          
            
             <td>
-                <a asp-action="Edit" asp-route-id="@item.restaurants_id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.restaurants_id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.restaurants_id">Delete</a>
+                <button type="button" class="btn btn-sm btn-warning ">
+                                                    <a asp-action="Edit" asp-route-id="@item.restaurants_id" class="text-white ">
+                                                        <i class="fas fa-edit"></i>
+                                                    </a>
+                                                </button>
+
+                                                <button type="button" class="btn btn-sm btn-primary">
+                                                    <a asp-action="Detail" asp-route-id="@item.restaurants_id" class="text-white">
+                                                        <i class="ion-android-book"></i>
+                                                    </a>
+                                                </button>
+                                                <button type="button" class="btn btn-sm btn-danger">
+                                                    <a asp-action="Delete" asp-route-id="@item.restaurants_id" class="text-white ">
+                                                        <i class="fas fa-trash-alt"></i>
+                                                    </a>
+                                                </button>
             </td>
         </tr>
 }
     </tbody>
-</table>
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- end col -->
+
+        </div><!-- end row -->
+    </div>
+</div>
+

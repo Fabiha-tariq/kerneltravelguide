@@ -2,14 +2,22 @@
 
 @{
     ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
 }
 
-<h1>Index</h1>
+<h1>Hotels</h1>
+<div class="page-content-wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="mt-0 header-title">All Hotels</h4>
+
+                        <div class="table-responsive">
+                            <table class="table table-striped mb-0">
+                              
     <thead>
         <tr>
             <th>
@@ -27,10 +35,8 @@
             <th>
                 @Html.DisplayNameFor(model => model.hotel_status)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.created_at)
-            </th>
-            <th></th>
+          
+            <th>Action</th>
         </tr>
     </thead>
     <tbody>
@@ -40,28 +46,88 @@
                 @Html.DisplayFor(modelItem => item.hotel_name)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.hotel_rating)
+                @if (item.hotel_rating == 5)
+                                                {
+                                                    <img src="~/frontend/images/png-clipart-star-star.png" asp-append-version="false" width="20px" />
+                                                    <img src="~/frontend/images/png-clipart-star-star.png" asp-append-version="false" width="20px" />
+                                                    <img src="~/frontend/images/png-clipart-star-star.png" asp-append-version="false" width="20px" />
+                                                    <img src="~/frontend/images/png-clipart-star-star.png" asp-append-version="false" width="20px" />
+                                                    <img src="~/frontend/images/png-clipart-star-star.png" asp-append-version="false" width="20px" />
+                                                }
+                                                else if (item.hotel_rating == 4)
+                                                {
+                                                    <img src="~/frontend/images/png-clipart-star-star.png" asp-append-version="false" width="20px" />
+                                                    <img src="~/frontend/images/png-clipart-star-star.png" asp-append-version="false" width="20px" />
+                                                    <img src="~/frontend/images/png-clipart-star-star.png" asp-append-version="false" width="20px" />
+                                                    <img src="~/frontend/images/png-clipart-star-star.png" asp-append-version="false" width="20px" />
+                                                }
+                                                else if (item.hotel_rating == 3)
+                                                {
+                                                    <img src="~/frontend/images/png-clipart-star-star.png" asp-append-version="false" width="20px" />
+                                                    <img src="~/frontend/images/png-clipart-star-star.png" asp-append-version="false" width="20px" />
+                                                    <img src="~/frontend/images/png-clipart-star-star.png" asp-append-version="false" width="20px" />
+                                                }
+                                                else if (item.hotel_rating == 2)
+                                                {
+                                                    <img src="~/frontend/images/png-clipart-star-star.png" asp-append-version="false" width="20px" />
+                                                    <img src="~/frontend/images/png-clipart-star-star.png" asp-append-version="false" width="20px" />
+                                                }
+                                                else
+                                                {
+                                                    <img src="~/frontend/images/png-clipart-star-star.png" asp-append-version="false" width="20px" />
+                                                }
+
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.hotel_average)
             </td>
             <td>
                     <a href="@("images/hotelimg/" + item.hotel_image)" target="_blank">
-                        <img src="@("~/images/hotelimg/" + item.hotel_image)" asp-append-version="true" width="44px" />
+                        <img src="@("~/images/hotelimg/" + item.hotel_image)" asp-append-version="true" width="64px" />
                     </a>
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.hotel_status)
+               @if (item.hotel_status)
+                    {
+                        <span class="btn btn-success">Active</span>
+                    }
+                    else
+                    {
+                        <span class="btn btn-danger">Unactive</span>
+
+                    }
             </td>
+            
             <td>
-                @Html.DisplayFor(modelItem => item.created_at)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.hotel_id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.hotel_id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.hotel_id">Delete</a>
+                   <button type="button" class="btn btn-sm btn-warning ">
+                                                    <a asp-action="Edit" asp-route-id="@item.hotel_id" class="text-white ">
+                                                        <i class="fas fa-edit"></i>
+                                                    </a>
+                                                </button>
+
+                                                <button type="button" class="btn btn-sm btn-primary">
+                                                    <a asp-action="Detail" asp-route-id="@item.hotel_id" class="text-white">
+                                                        <i class="ion-android-book"></i>
+                                                    </a>
+                                                </button>
+                                                <button type="button" class="btn btn-sm btn-danger">
+                                                    <a asp-action="Delete" asp-route-id="@item.hotel_id" class="text-white ">
+                                                        <i class="fas fa-trash-alt"></i>
+                                                    </a>
+                                                </button>
             </td>
         </tr>
 }
     </tbody>
-</table>
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- end col -->
+
+        </div><!-- end row -->
+    </div>
+</div>
+
+

@@ -2,15 +2,23 @@
 
 @{
     ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
 }
 
-<h1>Index</h1>
+<h1>Countries</h1>
+<div class="page-content-wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="mt-0 header-title">All Citites</h4>
+
+                        <div class="table-responsive">
+                            <table class="table table-striped mb-0">
+
+                                <thead>
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.transport_name)
@@ -24,17 +32,13 @@
             <th>
                 @Html.DisplayNameFor(model => model.transport_rating)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.transport_desc)
-            </th>
+            
             <th>
                 @Html.DisplayNameFor(model => model.transport_status)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.created_at)
-            </th>
+            
          
-            <th></th>
+            <th>Action</th>
         </tr>
     </thead>
     <tbody>
@@ -47,27 +51,87 @@
                 @Html.DisplayFor(modelItem => item.transport_number)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.transport_price)
+               Rs/ @Html.DisplayFor(modelItem => item.transport_price)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.transport_rating)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.transport_desc)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.transport_status)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.created_at)
+                                                @if (item.transport_rating == 5)
+                                                {
+                                                    <img src="~/frontend/images/png-clipart-star-star.png" asp-append-version="false" width="20px" />
+                                                    <img src="~/frontend/images/png-clipart-star-star.png" asp-append-version="false" width="20px" />
+                                                    <img src="~/frontend/images/png-clipart-star-star.png" asp-append-version="false" width="20px" />
+                                                    <img src="~/frontend/images/png-clipart-star-star.png" asp-append-version="false" width="20px" />
+                                                    <img src="~/frontend/images/png-clipart-star-star.png" asp-append-version="false" width="20px" />
+                                                }
+                                                else if (item.transport_rating == 4)
+                                                {
+                                                    <img src="~/frontend/images/png-clipart-star-star.png" asp-append-version="false" width="20px" />
+                                                    <img src="~/frontend/images/png-clipart-star-star.png" asp-append-version="false" width="20px" />
+                                                    <img src="~/frontend/images/png-clipart-star-star.png" asp-append-version="false" width="20px" />
+                                                    <img src="~/frontend/images/png-clipart-star-star.png" asp-append-version="false" width="20px" />
+                                                }
+                                                else if (item.transport_rating == 3)
+                                                {
+                                                    <img src="~/frontend/images/png-clipart-star-star.png" asp-append-version="false" width="20px" />
+                                                    <img src="~/frontend/images/png-clipart-star-star.png" asp-append-version="false" width="20px" />
+                                                    <img src="~/frontend/images/png-clipart-star-star.png" asp-append-version="false" width="20px" />
+                                                }
+                                                else if (item.transport_rating == 2)
+                                                {
+                                                    <img src="~/frontend/images/png-clipart-star-star.png" asp-append-version="false" width="20px" />
+                                                    <img src="~/frontend/images/png-clipart-star-star.png" asp-append-version="false" width="20px" />
+                                                }
+                                                else
+                                                {
+                                                    <img src="~/frontend/images/png-clipart-star-star.png" asp-append-version="false" width="20px" />
+                                                }
+
             </td>
            
             <td>
-                <a asp-action="Edit" asp-route-id="@item.transport_id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.transport_id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.transport_id">Delete</a>
+                                                @if (item.transport_status)
+                                                {
+                                                    <span class="btn btn-success">Active</span>
+                                                }
+                                                else
+                                                {
+                                                    <span class="btn btn-danger">Unactive</span>
+
+                                                }
+            </td>
+       
+           
+            <td>
+            
+
+                                                <button type="button" class="btn btn-sm btn-warning ">
+                                                    <a asp-action="Edit" asp-route-id="@item.transport_id" class="text-white ">
+                                                        <i class="fas fa-edit"></i>
+                                                    </a>
+                                                </button>
+
+                                                <button type="button" class="btn btn-sm btn-primary">
+                                                    <a asp-action="Detail" asp-route-id="@item.transport_id" class="text-white">
+                                                        <i class="ion-android-book"></i>
+                                                    </a>
+                                                </button>
+                                                <button type="button" class="btn btn-sm btn-danger">
+                                                    <a asp-action="Delete" asp-route-id="@item.transport_id" class="text-white ">
+                                                        <i class="fas fa-trash-alt"></i>
+                                                    </a>
+                                                </button>
+
             </td>
         </tr>
 }
     </tbody>
-</table>
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- end col -->
+
+        </div><!-- end row -->
+    </div>
+</div>
+

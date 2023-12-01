@@ -2,95 +2,105 @@
 @model RegisterModel
 @{
     ViewData["Title"] = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>@ViewData["Title"]</h1>
 
-<div class="row">
-    <div class="col-md-4">
-        <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
-            <h2>Create a new account.</h2>
-            <hr />
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-floating">
-                <input asp-for="Input.First_Name" class="form-control" autocomplete="username" aria-required="true" />
-                <label asp-for="Input.First_Name"></label>
-                <span asp-validation-for="Input.First_Name" class="text-danger"></span>
-            </div>
-            <br />
-            <div class="form-floating">
-                <input asp-for="Input.Last_Name" class="form-control" autocomplete="username" aria-required="true" />
-                <label asp-for="Input.Last_Name"></label>
-                <span asp-validation-for="Input.Last_Name" class="text-danger"></span>
-            </div>
-            <br />
-            <div class="form-floating">
-                <input asp-for="Input.User_Name" class="form-control" autocomplete="username" aria-required="true" />
-                <label asp-for="Input.User_Name"></label>
-                <span asp-validation-for="Input.User_Name" class="text-danger"></span>
-            </div>
-            <br />
-            <div class="form-floating">
-                <input asp-for="Input.Age" class="form-control" autocomplete="age" aria-required="true" />
-                <label asp-for="Input.Age"></label>
-                <span asp-validation-for="Input.Age" class="text-danger"></span>
-            </div>
-            <br />
-            <div class="form-floating">
-                <input asp-for="Input.Phone" class="form-control" autocomplete="phone" aria-required="true" />
-                <label asp-for="Input.Phone"></label>
-                <span asp-validation-for="Input.Phone" class="text-danger"></span>
-            </div>
-            <br />
-            <div class="form-floating">
-                <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" />
-                <label asp-for="Input.Email"></label>
-                <span asp-validation-for="Input.Email" class="text-danger"></span>
-            </div>
-            <br />
-            <div class="form-floating">
-                <input asp-for="Input.Password" class="form-control" autocomplete="new-password" aria-required="true" />
-                <label asp-for="Input.Password"></label>
-                <span asp-validation-for="Input.Password" class="text-danger"></span>
-            </div>
-            <br />
-            <div class="form-floating">
-                <input asp-for="Input.ConfirmPassword" class="form-control" autocomplete="new-password" aria-required="true" />
-                <label asp-for="Input.ConfirmPassword"></label>
-                <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
-            </div>
-            <br />
-            <div class="form-floating">
-                @if (User.Identity.IsAuthenticated)
-                {
-                    if (User.IsInRole("Admin"))
-                    {
-                        <select asp-for="Input.Role" class="form-control" asp-items="@Model.Input.RoleList" aria-required="true">
-                        </select>
-                        <label asp-for="Input.Role"></label>
-                        <span asp-validation-for="Input.Role" class="text-danger"></span>
-                    }
-                }
-                else
-                {
-                     <select asp-for="Input.Role" class="form-control" style="display:none">
-                         <option value ="User">User</option>
-                     </select>
-                    <span asp-validation-for="Input.Role" class="text-danger"></span>
-                }
+<section class="ftco-section contact-section" >
+    <div class="container">
+        <div class="row block-9">
+        <div class="col-md-6">
+            <section>
+                    <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+                        <h2>Create a new account.</h2>
+                        <hr />
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="form-floating">
+                            <input asp-for="Input.First_Name" class="form-control" autocomplete="username" aria-required="true" />
+                            <label asp-for="Input.First_Name"></label>
+                            <span asp-validation-for="Input.First_Name" class="text-danger"></span>
+                        </div>
+                        <br />
+                        <div class="form-floating">
+                            <input asp-for="Input.Last_Name" class="form-control" autocomplete="username" aria-required="true" />
+                            <label asp-for="Input.Last_Name"></label>
+                            <span asp-validation-for="Input.Last_Name" class="text-danger"></span>
+                        </div>
+                        <br />
+                        <div class="form-floating">
+                            <input asp-for="Input.User_Name" class="form-control" autocomplete="username" aria-required="true" />
+                            <label asp-for="Input.User_Name"></label>
+                            <span asp-validation-for="Input.User_Name" class="text-danger"></span>
+                        </div>
+                        <br />
+                        <div class="form-floating">
+                            <input asp-for="Input.Age" class="form-control" autocomplete="age" aria-required="true" />
+                            <label asp-for="Input.Age"></label>
+                            <span asp-validation-for="Input.Age" class="text-danger"></span>
+                        </div>
+                        <br />
+                        <div class="form-floating">
+                            <input asp-for="Input.Phone" class="form-control" autocomplete="phone" aria-required="true" />
+                            <label asp-for="Input.Phone"></label>
+                            <span asp-validation-for="Input.Phone" class="text-danger"></span>
+                        </div>
+                        <br />
+                        <div class="form-floating">
+                            <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" />
+                            <label asp-for="Input.Email"></label>
+                            <span asp-validation-for="Input.Email" class="text-danger"></span>
+                        </div>
+                        <br />
+                        <div class="form-floating">
+                            <input asp-for="Input.Password" class="form-control" autocomplete="new-password" aria-required="true" />
+                            <label asp-for="Input.Password"></label>
+                            <span asp-validation-for="Input.Password" class="text-danger"></span>
+                        </div>
+                        <br />
+                        <div class="form-floating">
+                            <input asp-for="Input.ConfirmPassword" class="form-control" autocomplete="new-password" aria-required="true" />
+                            <label asp-for="Input.ConfirmPassword"></label>
+                            <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                        </div>
+                        <br />
+                        <div class="form-floating">
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                if (User.IsInRole("Admin"))
+                                {
+                                    <select asp-for="Input.Role" class="form-control" asp-items="@Model.Input.RoleList" aria-required="true">
+                                    </select>
+                                    <label asp-for="Input.Role"></label>
+                                    <span asp-validation-for="Input.Role" class="text-danger"></span>
+                                }
+                            }
+                            else
+                            {
+                                <select asp-for="Input.Role" class="form-control" style="display:none">
+                                    <option value="User">User</option>
+                                </select>
+                                <span asp-validation-for="Input.Role" class="text-danger"></span>
+                            }
 
-             @*   <select asp-for="Input.Role" class="form-control" asp-items="@Model.Input.RoleList" aria-required="true" >
-                    </select>
-                <label asp-for="Input.Role"></label>
-                <span asp-validation-for="Input.Role" class="text-danger"></span>*@
-            </div>
-            <br />
-            <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Register</button>
-        </form>
-    </div>
-    
+                            @*   <select asp-for="Input.Role" class="form-control" asp-items="@Model.Input.RoleList" aria-required="true" >
+                            </select>
+                            <label asp-for="Input.Role"></label>
+                            <span asp-validation-for="Input.Role" class="text-danger"></span>*@
+                        </div>
+                        <br />
+                        <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Register</button>
+                    </form>
+
+                </section>
+                </div>
+        <div class="col-md-6 col-md-offset-2">
+                <img src="https://avada.website/tour-operator/wp-content/uploads/sites/169/2022/06/maldives-tour.jpg" style="background-size: cover; position: absolute; width: 100%; height: 648px; margin-top: 65px; " />
+
+        </div>
 </div>
-
+</div>
+</section>
+     
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
 }

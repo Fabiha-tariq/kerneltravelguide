@@ -2,32 +2,38 @@
 
 @{
     ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
 }
 
-<h1>Create</h1>
+<h1>Touriest Sopts</h1>
+<div class="page-content-wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
 
-<h4>TouriestSpots</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="mt-0 header-title">Add Touriest Spots</h4>
+
         <form asp-action="Create" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
+                            <div class="row">
+                                <div class="form-group col-md-6">
                 <label asp-for="t_spot_name" class="control-label"></label>
                 <input asp-for="t_spot_name" class="form-control" />
                 <span asp-validation-for="t_spot_name" class="text-danger"></span>
             </div>
-            <div class="form-group">
+                                <div class="form-group col-md-6">
                 <label asp-for="t_spot_locaion" class="control-label"></label>
                 <input asp-for="t_spot_locaion" class="form-control" />
                 <span asp-validation-for="t_spot_locaion" class="text-danger"></span>
             </div>
-            <div class="form-group">
+                                <div class="form-group col-md-6">
                 <label asp-for="t_spot_desc" class="control-label"></label>
-                <input asp-for="t_spot_desc" class="form-control" />
+                                    <textarea asp-for="t_spot_desc" rows="7" cols="6" class="form-control" /></textarea>
                 <span asp-validation-for="t_spot_desc" class="text-danger"></span>
             </div>
-            <div class="form-group">
+                                <div class="form-group col-md-6">
                 <label asp-for="t_spot_rating" class="control-label"></label>
                 <select asp-for="t_spot_rating" class="form-control" />
                 <option selected disabled>Choose Rating </option>
@@ -40,7 +46,7 @@
                 </select>
                 <span asp-validation-for="t_spot_rating" class="text-danger"></span>
             </div>
-            <div class="form-group">
+                                <div class="form-group col-md-6">
                 <label class="control-label">Tour Spots Images</label>
                 <input asp-for="main_image1" class="form-control" accept="/images/touriestspotsimg/*" />
                 <span asp-validation-for="main_image1" class="text-danger"></span>
@@ -51,12 +57,12 @@
                 <input asp-for="main_image3" class="form-control" accept="/images/touriestspotsimg/*" />
                 <span asp-validation-for="main_image3" class="text-danger"></span>
             </div>
-            
-            <div class="form-group">
+
+                                <div class="form-group col-md-6">
                 <label asp-for="country_id" class="control-label"></label>
                 <select asp-for="country_id" class ="form-control" asp-items="ViewBag.country_id"></select>
             </div>
-            <div class="form-group form-check">
+                                <div class="form-group form-check  col-md-6">
                 <label class="form-check-label">
                     <input class="form-check-input" asp-for="t_spot_status" /> @Html.DisplayNameFor(model => model.t_spot_status)
                 </label>
@@ -66,15 +72,20 @@
                 <input asp-for="created_at" class="form-control" />
                 <span asp-validation-for="created_at" class="text-danger"></span>
             </div>*@
-            <div class="form-group">
+                                <div class="form-group  col-md-6">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
-        </form>
-    </div>
-</div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
+            </div>
+        </form>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div><!-- end col -->
+
 </div>
 
 @section Scripts {

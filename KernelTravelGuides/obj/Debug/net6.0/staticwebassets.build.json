@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Jg6O0I8p0fzyP8vdwXPDxcLY9+/R7yohy/KWHlu9e4s=",
+  "Hash": "no8VnL8knE2j58pYf0P1UTthpjjBWQ44Z/k56SznhD0=",
   "Source": "KernelTravelGuides",
   "BasePath": "_content/KernelTravelGuides",
   "Mode": "Default",
@@ -6324,6 +6324,23 @@
       "OriginalItemSpec": "wwwroot\\images\\cityimg\\audio_2230109531.jpg"
     },
     {
+      "Identity": "C:\\Users\\Fabiha\\source\\repos\\KernelTravelGuides\\KernelTravelGuides\\wwwroot\\images\\cityimg\\f22873e2a67b5b117ed46e053d605695.jpg",
+      "SourceId": "KernelTravelGuides",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Fabiha\\source\\repos\\KernelTravelGuides\\KernelTravelGuides\\wwwroot\\",
+      "BasePath": "_content/KernelTravelGuides",
+      "RelativePath": "images/cityimg/f22873e2a67b5b117ed46e053d605695.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\cityimg\\f22873e2a67b5b117ed46e053d605695.jpg"
+    },
+    {
       "Identity": "C:\\Users\\Fabiha\\source\\repos\\KernelTravelGuides\\KernelTravelGuides\\wwwroot\\images\\countryimg\\audio_1230050004.jpg",
       "SourceId": "KernelTravelGuides",
       "SourceType": "Discovered",
@@ -6339,6 +6356,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\countryimg\\audio_1230050004.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Fabiha\\source\\repos\\KernelTravelGuides\\KernelTravelGuides\\wwwroot\\images\\countryimg\\destination-3.jpg",
+      "SourceId": "KernelTravelGuides",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Fabiha\\source\\repos\\KernelTravelGuides\\KernelTravelGuides\\wwwroot\\",
+      "BasePath": "_content/KernelTravelGuides",
+      "RelativePath": "images/countryimg/destination-3.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\countryimg\\destination-3.jpg"
     },
     {
       "Identity": "C:\\Users\\Fabiha\\source\\repos\\KernelTravelGuides\\KernelTravelGuides\\wwwroot\\images\\hotelimg\\BeachLuxuryHotel.jpg",
