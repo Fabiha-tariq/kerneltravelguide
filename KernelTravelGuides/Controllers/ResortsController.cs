@@ -130,16 +130,48 @@ namespace KernelTravelGuides.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("resorts_id,resorts_name,resorts_location,resorts_img1,resorts_img2,resorts_img3,resorts_status,created_at")] Resorts resorts)
+        public async Task<IActionResult> Edit(int id, [Bind("resorts_id,resorts_name,resorts_location,main_image1,main_image2,main_image3,resorts_status,created_at")] Resorts resorts)
         {
+            // Img 1
+            string wwwRootPath = _hostEnvironment.WebRootPath;
+            string filename = Path.GetFileNameWithoutExtension(resorts.main_image1.FileName);
+            string extension = Path.GetExtension(resorts.main_image1.FileName);
+            resorts.resorts_img1 = filename = filename + extension;
+            string path = Path.Combine(wwwRootPath + "/images/resortimg", filename);
+            using (var filestream = new FileStream(path, FileMode.Create))
+            {
+                resorts.main_image1.CopyToAsync(filestream);
+            }
+
+            // Img 2
+            string wwwRootPath2 = _hostEnvironment.WebRootPath;
+            string filename2 = Path.GetFileNameWithoutExtension(resorts.main_image2.FileName);
+            string extension2 = Path.GetExtension(resorts.main_image2.FileName);
+            resorts.resorts_img2 = filename2 = filename2 + extension2;
+            string path2 = Path.Combine(wwwRootPath2 + "/images/resortimg", filename2);
+            using (var filestream2 = new FileStream(path2, FileMode.Create))
+            {
+                resorts.main_image2.CopyToAsync(filestream2);
+            }
+
+            // Img 3
+            string wwwRootPath3 = _hostEnvironment.WebRootPath;
+            string filename3 = Path.GetFileNameWithoutExtension(resorts.main_image3.FileName);
+            string extension3 = Path.GetExtension(resorts.main_image3.FileName);
+            resorts.resorts_img3 = filename3 = filename3 + extension3;
+            string path3 = Path.Combine(wwwRootPath3 + "/images/resortimg", filename3);
+            using (var filestream3 = new FileStream(path3, FileMode.Create))
+            {
+                resorts.main_image3.CopyToAsync(filestream3);
+            }
+
+
             if (id != resorts.resorts_id)
             {
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
-            {
-                try
+             try
                 {
                     _context.Update(resorts);
                     await _context.SaveChangesAsync();
@@ -156,7 +188,7 @@ namespace KernelTravelGuides.Controllers
                     }
                 }
                 return RedirectToAction(nameof(Index));
-            }
+         
             return View(resorts);
         }
 

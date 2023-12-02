@@ -1,6 +1,5 @@
 ﻿@model KernelTravelGuides.Models.Packages
 
-
 @{
     ViewData["Title"] = "Edit";
     Layout = "~/Views/Shared/_DashboardLayout.cshtml";
@@ -41,22 +40,22 @@
             </div>
                                 <div class="form-group col-md-6">
                 <label asp-for="resorts_id" class="control-label"></label>
-                <select asp-for="resorts_id" class="form-control" asp-items="ViewBag.resorts_name"></select>
+                <select asp-for="resorts_id" class="form-control" asp-items="ViewBag.resorts_id"></select>
                 <span asp-validation-for="resorts_id" class="text-danger"></span>
             </div>
                                 <div class="form-group  col-md-6">
                 <label asp-for="tra_category_id" class="control-label"></label>
-                <select asp-for="tra_category_id" class="form-control" asp-items="ViewBag.tra_category_name"></select>
+                <select asp-for="tra_category_id" class="form-control" asp-items="ViewBag.tra_category_id"></select>
                 <span asp-validation-for="tra_category_id" class="text-danger"></span>
             </div>
             <div class="form-group  col-md-6">
                 <label asp-for="t_spot_id" class="control-label"></label>
-                <select asp-for="t_spot_id" class="form-control" asp-items="ViewBag.t_spot_name"></select>
+                <select asp-for="t_spot_id" class="form-control" asp-items="ViewBag.t_spot_id"></select>
                 <span asp-validation-for="t_spot_id" class="text-danger"></span>
             </div>
                                 <div class="form-group col-md-6">
                 <label asp-for="transport_id" class="control-label"></label>
-                <select asp-for="transport_id" class="form-control" asp-items="ViewBag.transport_name"></select>
+                <select asp-for="transport_id" class="form-control" asp-items="ViewBag.transport_id"></select>
                 <span asp-validation-for="transport_id" class="text-danger"></span>
             </div>
                                 <div class="form-group form-check col-md-6">

@@ -123,7 +123,7 @@ namespace KernelTravelGuides.Controllers
             {
                 return NotFound();
             }
-            ViewData["country_id"] = new SelectList(_context.Countries, "country_id", "country_code", touriestSpots.country_id);
+            ViewData["country_id"] = new SelectList(_context.Countries, "country_id", "country_name", touriestSpots.country_id);
             return View(touriestSpots);
         }
 
@@ -133,15 +133,48 @@ namespace KernelTravelGuides.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> Edit(int id, [Bind("t_spot_id,t_spot_name,t_spot_locaion,t_spot_desc,t_spot_rating,t_spot_img1,t_spot_img2,t_spot_img3,country_id,t_spot_status,created_at")] TouriestSpots touriestSpots)
+        public async Task<IActionResult> Edit(int id, [Bind("t_spot_id,t_spot_name,t_spot_locaion,t_spot_desc,t_spot_rating,main_image1,main_image2,main_image3,country_id,t_spot_status,created_at")] TouriestSpots touriestSpots)
         {
+            // Img 1
+            string wwwRootPath = _hostEnvironment.WebRootPath;
+            string filename = Path.GetFileNameWithoutExtension(touriestSpots.main_image1.FileName);
+            string extension = Path.GetExtension(touriestSpots.main_image1.FileName);
+            touriestSpots.t_spot_img1 = filename = filename + extension;
+            string path = Path.Combine(wwwRootPath + "/images/touriestspotsimg", filename);
+            using (var filestream = new FileStream(path, FileMode.Create))
+            {
+                touriestSpots.main_image1.CopyToAsync(filestream);
+            }
+
+            // Img 2
+            string wwwRootPath2 = _hostEnvironment.WebRootPath;
+            string filename2 = Path.GetFileNameWithoutExtension(touriestSpots.main_image2.FileName);
+            string extension2 = Path.GetExtension(touriestSpots.main_image2.FileName);
+            touriestSpots.t_spot_img2 = filename2 = filename2 + extension2;
+            string path2 = Path.Combine(wwwRootPath2 + "/images/touriestspotsimg", filename2);
+            using (var filestream2 = new FileStream(path2, FileMode.Create))
+            {
+                touriestSpots.main_image2.CopyToAsync(filestream2);
+            }
+
+            // Img 3
+            string wwwRootPath3 = _hostEnvironment.WebRootPath;
+            string filename3 = Path.GetFileNameWithoutExtension(touriestSpots.main_image3.FileName);
+            string extension3 = Path.GetExtension(touriestSpots.main_image3.FileName);
+            touriestSpots.t_spot_img3 = filename3 = filename3 + extension3;
+            string path3 = Path.Combine(wwwRootPath3 + "/images/touriestspotsimg", filename3);
+            using (var filestream3 = new FileStream(path3, FileMode.Create))
+            {
+                touriestSpots.main_image3.CopyToAsync(filestream3);
+            }
+
+
             if (id != touriestSpots.t_spot_id)
             {
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
-            {
+            
                 try
                 {
                     _context.Update(touriestSpots);
@@ -159,8 +192,8 @@ namespace KernelTravelGuides.Controllers
                     }
                 }
                 return RedirectToAction(nameof(Index));
-            }
-            ViewData["country_id"] = new SelectList(_context.Countries, "country_id", "country_code", touriestSpots.country_id);
+         
+            ViewData["country_id"] = new SelectList(_context.Countries, "country_id", "country_name", touriestSpots.country_id);
             return View(touriestSpots);
         }
 

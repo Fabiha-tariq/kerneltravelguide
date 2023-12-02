@@ -112,10 +112,10 @@ namespace KernelTravelGuides.Controllers
             {
                 return NotFound();
             }
-            ViewData["resorts_id"] = new SelectList(_context.Resorts, "resorts_id", "resorts_img1", packages.resorts_id);
-            ViewData["t_spot_id"] = new SelectList(_context.TouriestSpots, "t_spot_id", "t_spot_desc", packages.t_spot_id);
-            ViewData["tra_category_id"] = new SelectList(_context.TravelCategories, "tra_category_id", "tra_category_desc", packages.tra_category_id);
-            ViewData["transport_id"] = new SelectList(_context.Transports, "transport_id", "transport_desc", packages.transport_id);
+            ViewData["resorts_id"] = new SelectList(_context.Resorts, "resorts_id", "resorts_name", packages.resorts_id);
+            ViewData["t_spot_id"] = new SelectList(_context.TouriestSpots, "t_spot_id", "t_spot_name", packages.t_spot_id);
+            ViewData["tra_category_id"] = new SelectList(_context.TravelCategories, "tra_category_id", "tra_category_name", packages.tra_category_id);
+            ViewData["transport_id"] = new SelectList(_context.Transports, "transport_id", "transport_name", packages.transport_id);
             return View(packages);
         }
 

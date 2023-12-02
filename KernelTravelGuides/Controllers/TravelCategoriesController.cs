@@ -97,8 +97,7 @@ namespace KernelTravelGuides.Controllers
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
-            {
+           
                 try
                 {
                     _context.Update(travelCategory);
@@ -114,7 +113,7 @@ namespace KernelTravelGuides.Controllers
                     {
                         throw;
                     }
-                }
+          
                 return RedirectToAction(nameof(Index));
             }
             return View(travelCategory);

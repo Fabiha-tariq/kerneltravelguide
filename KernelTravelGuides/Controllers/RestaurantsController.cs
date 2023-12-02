@@ -102,15 +102,25 @@ namespace KernelTravelGuides.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("restaurants_id,restaurants_name,restaurants_location,restaurants_image,restaurants_status,created_at")] Restaurants restaurants)
+        public async Task<IActionResult> Edit(int id, [Bind("restaurants_id,restaurants_name,restaurants_location,main_image,restaurants_status,created_at")] Restaurants restaurants)
         {
+
+            string wwwRootPath = _hostEnvironment.WebRootPath;
+            string filename = Path.GetFileNameWithoutExtension(restaurants.main_image.FileName);
+            string extension = Path.GetExtension(restaurants.main_image.FileName);
+            restaurants.restaurants_image = filename = filename + extension;
+            string path = Path.Combine(wwwRootPath + "/images/restaurantimg", filename);
+            using (var filestream = new FileStream(path, FileMode.Create))
+            {
+                restaurants.main_image.CopyToAsync(filestream);
+            }
+            
             if (id != restaurants.restaurants_id)
             {
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
-            {
+            
                 try
                 {
                     _context.Update(restaurants);
@@ -128,7 +138,7 @@ namespace KernelTravelGuides.Controllers
                     }
                 }
                 return RedirectToAction(nameof(Index));
-            }
+        
             return View(restaurants);
         }
 

@@ -1,15 +1,27 @@
 ﻿@model KernelTravelGuides.Models.Feedback
-
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Give Us Feedback";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Create</h1>
 
-<h4>Feedback</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
+<div class="hero-wrap js-fullheight" style="background-image: url('https://cdn.offtheatlas.com/wp-content/uploads/2021/10/17031121/arcadian-spruce-woods-resort.jpg.webp');" data-stellar-background-ratio="0.5">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center" data-scrollax-parent="true">
+            <div class="col-md-9 text text-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
+
+                <p class="caps" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Travel to the any corner of the world, without going around in circles</p>
+                <h1 data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Contact and Book Your Package Now</h1>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="ftco-section contact-section">
+    <div class="container">
+        <div class="row block-9">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
@@ -19,7 +31,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="feedback_desc" class="control-label"></label>
-                <input asp-for="feedback_desc" class="form-control" />
+                    <textarea rows="6" asp-for="feedback_desc" class="form-control" ></textarea>
                 <span asp-validation-for="feedback_desc" class="text-danger"></span>
             </div>
            @* <div class="form-group">
@@ -33,10 +45,7 @@
         </form>
     </div>
 </div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+</section>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
