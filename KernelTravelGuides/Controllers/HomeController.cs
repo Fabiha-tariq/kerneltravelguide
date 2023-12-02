@@ -7,7 +7,6 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using KernelTravelGuides.Data;
 using KernelTravelGuides.Models;
-using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
 namespace KernelTravelGuides.Controllers
@@ -102,6 +101,13 @@ namespace KernelTravelGuides.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+        public async Task<IActionResult> _IndexPackages()
+        {
+             var applicationDbContext = _context.Packages.Include(p => p.resorts).Include(p => p.t_spot).Include(p => p.tra_category).Include(p => p.transport);
+            return View(await applicationDbContext.ToListAsync());
+
         }
     }
 }

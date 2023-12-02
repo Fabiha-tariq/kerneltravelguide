@@ -1,0 +1,48 @@
+﻿@model IEnumerable<KernelTravelGuides.Models.Packages>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+
+
+<div class="hero-wrap js-fullheight" style="background-image: url('frontend/images/bg_2.jpg');" data-stellar-background-ratio="0.5">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center" data-scrollax-parent="true">
+            <div class="col-md-9 text text-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
+
+                <p class="caps" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Travel to the any corner of the world, without going around in circles</p>
+                <h1 data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Make Your Tour Amazing With Us</h1>
+
+            </div>
+        </div>
+    </div>
+</div>
+<section class="ftco-section">
+    <div class="container">
+        <div class="row justify-content-center pb-4">
+            <div class="col-md-12 heading-section text-center ftco-animate">
+                <h2 class="mb-4">Best Place Destination</h2>
+            </div>
+        </div>
+        <div class="row">
+            @foreach (var item in Model)
+            {
+
+                <div class="col-md-6 ftco-animate">
+                    <div class="project-destination">
+                        <a asp-action="PackageDetails" asp-controller="Packages" asp-route-id="@item.packages_id">
+                            <img src="@("~/images/packageimg/" + item.packages_img)" class="img" asp-append-version="false" style="background-size:cover; width: 100%;" />
+                            <div class="text">
+                                <h3 style="color: black;  margin-top: -325px">
+                                    @Html.DisplayFor(modelItem => item.packages_name)
+                                </h3>
+                                <p style="color: black;  margin-top: 180px"><a asp-action="PackageDetails" asp-controller="Packages" asp-route-id="@item.packages_id" class="btn btn-primary py-3 px-4 justify-content-end">More Info</a></p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+}

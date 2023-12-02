@@ -2,61 +2,108 @@
 
 @{
     ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
 }
 
-<h1>Details</h1>
+<h1>Transport Details</h1>
 
-<div>
-    <h4>Transport</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.transport_name)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.transport_name)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.transport_number)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.transport_number)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.transport_price)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.transport_price)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.transport_rating)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.transport_rating)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.transport_desc)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.transport_desc)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.transport_status)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.transport_status)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.created_at)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.created_at)
-        </dd>
-        
-        
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.transport_id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+
+
+<div class="page-content-wrapper">
+    <div class="container-fluid">
+        <div class="row">
+           
+            <div class="col-md-12">
+                <div class="card">
+
+                    <div class="card-body">
+                        <h2 class="mt-0 header-title">More Info about    @Html.DisplayFor(model => model.transport_name)</h2>
+
+                        <dl class="row">
+                            <dt class="col-sm-4">
+                                @Html.DisplayNameFor(model => model.transport_name)
+                            </dt>
+                            <dd class="col-sm-8">
+                                @Html.DisplayFor(model => model.transport_name)
+                            </dd>
+                            <dt class="col-sm-4">
+                                @Html.DisplayNameFor(model => model.transport_number)
+                            </dt>
+                            <dd class="col-sm-8">
+                                @Html.DisplayFor(model => model.transport_number)
+                            </dd>
+                            <dt class="col-sm-4">
+                                @Html.DisplayNameFor(model => model.transport_price)
+                            </dt>
+                            <dd class="col-sm-8">
+                                @Html.DisplayFor(model => model.transport_price)
+                            </dd>
+                            <dt class="col-sm-4">
+                                @Html.DisplayNameFor(model => model.transport_rating)
+                            </dt>
+                            <dd class="col-sm-8">
+
+                                @if (Model.transport_rating == 5)
+                                {
+                                    <img src="~/frontend/images/png-clipart-star-star.png" asp-append-version="false" width="20px" />
+                                    <img src="~/frontend/images/png-clipart-star-star.png" asp-append-version="false" width="20px" />
+                                    <img src="~/frontend/images/png-clipart-star-star.png" asp-append-version="false" width="20px" />
+                                    <img src="~/frontend/images/png-clipart-star-star.png" asp-append-version="false" width="20px" />
+                                    <img src="~/frontend/images/png-clipart-star-star.png" asp-append-version="false" width="20px" />
+                                }
+                                else if (Model.transport_rating == 4)
+                                {
+                                    <img src="~/frontend/images/png-clipart-star-star.png" asp-append-version="false" width="20px" />
+                                    <img src="~/frontend/images/png-clipart-star-star.png" asp-append-version="false" width="20px" />
+                                    <img src="~/frontend/images/png-clipart-star-star.png" asp-append-version="false" width="20px" />
+                                    <img src="~/frontend/images/png-clipart-star-star.png" asp-append-version="false" width="20px" />
+                                }
+                                else if (Model.transport_rating == 3)
+                                {
+                                    <img src="~/frontend/images/png-clipart-star-star.png" asp-append-version="false" width="20px" />
+                                    <img src="~/frontend/images/png-clipart-star-star.png" asp-append-version="false" width="20px" />
+                                    <img src="~/frontend/images/png-clipart-star-star.png" asp-append-version="false" width="20px" />
+                                }
+                                else if (Model.transport_rating == 2)
+                                {
+                                    <img src="~/frontend/images/png-clipart-star-star.png" asp-append-version="false" width="20px" />
+                                    <img src="~/frontend/images/png-clipart-star-star.png" asp-append-version="false" width="20px" />
+                                }
+                                else
+                                {
+                                    <img src="~/frontend/images/png-clipart-star-star.png" asp-append-version="false" width="20px" />
+                                }
+
+                            </dd>
+                            <dt class="col-sm-4">
+                                @Html.DisplayNameFor(model => model.transport_desc)
+                            </dt>
+                            <dd class="col-sm-8">
+                                @Html.DisplayFor(model => model.transport_desc)
+                            </dd>
+                            <dt class="col-sm-4">
+                                @Html.DisplayNameFor(model => model.transport_status)
+                            </dt>
+                            <dd class="col-sm-8">
+                                @if (Model.transport_status)
+                                {
+                                    <span class="btn btn-success">Active</span>
+                                }
+                                else
+                                {
+                                    <span class="btn btn-danger">Unactive</span>
+
+                                }
+                            </dd>
+
+                        </dl>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+
+    </div>
+</div><!-- end col -->
