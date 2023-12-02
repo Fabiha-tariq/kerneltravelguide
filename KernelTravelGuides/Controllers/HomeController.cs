@@ -45,6 +45,12 @@ namespace KernelTravelGuides.Controllers
                 var applicationDbContext = _context.TouriestSpots.Include(t => t.country);
                 return View(await applicationDbContext.ToListAsync());
         }
+
+        public async Task<IActionResult> _IndexHeaderPartial()
+        {
+            var applicationDbContext = _context.TouriestSpots.Include(t => t.country);
+            return View(await applicationDbContext.ToListAsync());
+        }
         public async Task<IActionResult> TravelInfo()
         {
                 var applicationDbContext2 = _context.TravelCategories;
@@ -72,25 +78,8 @@ namespace KernelTravelGuides.Controllers
             return View(await applicationDbContext3.ToListAsync());
         }
         
-        // get method for user contact us page
-        public IActionResult Contact()
-        {
-            return View();
-        }
-
-        // post method for user contact us form
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Contact([Bind("messages_id,messages_user_name,messages_desc,messages_status,messages_content,created_at")] Messages messages)
-        {
-
-            _context.Add(messages);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
-
-            return View(messages);
-        }
-
+       
+        
         public async Task<IActionResult> Feedback()
         {
             var applicationDbContext35 = _context.Feedback;
@@ -106,6 +95,19 @@ namespace KernelTravelGuides.Controllers
         public async Task<IActionResult> _IndexPackages()
         {
              var applicationDbContext = _context.Packages.Include(p => p.resorts).Include(p => p.t_spot).Include(p => p.tra_category).Include(p => p.transport);
+            return View(await applicationDbContext.ToListAsync());
+
+        }
+
+        public async Task<IActionResult> _IndexCountries()
+        {
+            var applicationDbContext35 = _context.Countries;
+            return View(await applicationDbContext35.ToListAsync());
+        }
+
+        public async Task<IActionResult> _IndexCities()
+        {
+            var applicationDbContext = _context.Cities.Include(c => c.country);
             return View(await applicationDbContext.ToListAsync());
 
         }

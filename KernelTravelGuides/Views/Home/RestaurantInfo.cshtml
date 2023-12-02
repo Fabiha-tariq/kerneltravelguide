@@ -53,12 +53,11 @@
             {
                 <div class="col-md-4 ftco-animate">
                     <div class="project-wrap">
-                        <a asp-action="Details" asp-controller="Restaurants" asp-route-id="@item.restaurants_id" class="img">
-                            <img src="@("~/images/restaurantimg/" + item.restaurants_image)" asp-append-version="false" style="background-size:cover; width: 100%; height: 270px;" />
-                        </a>
+                        <img src="@("~/images/restaurantimg/" + item.restaurants_image)" asp-append-version="false" style="background-size:cover; width: 100%; height: 270px;" />
+                     
                         <div class="text p-4">
 
-                            <h3><a asp-action="Details" asp-controller="Restaurants" asp-route-id="@item.restaurants_id">@Html.DisplayFor(modelItem => item.restaurants_name)</a></h3>
+                            <h3>@Html.DisplayFor(modelItem => item.restaurants_name)</h3>
 
                             <ul>
                                 <p class="location">@Html.DisplayFor(modelItem => item.restaurants_location)</p>

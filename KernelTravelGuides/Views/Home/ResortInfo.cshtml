@@ -50,7 +50,7 @@
             {
                 <div class="col-md-4 ftco-animate">
                     <div class="project-wrap">
-                        <a asp-action="Details" asp-controller="Resorts" asp-route-id="@item.resorts_id" class="img">
+                        <a asp-action="ResortDetails" asp-controller="Resorts" asp-route-id="@item.resorts_id class="img">
                             <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
                                 <div class="carousel-inner">
                                     <div class="carousel-item active">
@@ -73,6 +73,9 @@
                                 <li><span class="country"></span> @Html.DisplayFor(modelItem => item.resorts_location)</li>
 
                             </ul>
+
+                            <a asp-action="ResortDetails" asp-controller="Resorts" asp-route-id="@item.resorts_id" class="btn btn-primary py-3 px-4 justify-content-end">More Info</a>
+
                         </div>
 
                     </div>

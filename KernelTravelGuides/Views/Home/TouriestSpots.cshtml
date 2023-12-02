@@ -30,7 +30,7 @@
             @foreach (var item in Model) {
             <div class="col-md-4 ftco-animate">
                 <div class="project-wrap">
-                        <a asp-action="Details" asp-controller="TouriestSpots" asp-route-id="@item.t_spot_id" class="img">
+                        <a asp-action="TouriestSpotsDetails" asp-controller="TouriestSpots" asp-route-id="@item.t_spot_id" class="img">
                             <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
                                 <div class="carousel-inner">
                                     <div class="carousel-item active">
@@ -82,6 +82,9 @@
                                 <li><span class="country"></span>  @Html.DisplayFor(modelItem => item.country.country_name)</li>
                            
                         </ul>
+
+                            <a asp-action="TouriestSpotsDetails" asp-controller="TouriestSpots" asp-route-id="@item.t_spot_id" class="btn btn-primary py-3 px-4 justify-content-end">More Info</a>
+
                     </div>
                          
                 </div>

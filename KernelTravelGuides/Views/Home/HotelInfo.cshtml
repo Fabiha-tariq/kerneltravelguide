@@ -53,9 +53,8 @@
             {
                 <div class="col-md-4 ftco-animate">
                     <div class="project-wrap">
-                        <a asp-action="Details" asp-controller="Hotels" asp-route-id="@item.hotel_id" class="img">
-                            <img src="@("~/images/hotelimg/" + item.hotel_image)" asp-append-version="false" style="background-size:cover; width: 100%; height: 270px;" />
-                        </a>
+                        <img src="@("~/images/hotelimg/" + item.hotel_image)" asp-append-version="false" style="background-size:cover; width: 100%; height: 270px;" />
+                     
                         <div class="text p-4">
                             <span class="price">
                                 @if (item.hotel_rating == 5)
@@ -90,7 +89,7 @@
                                 }
 
                             </span>
-                            <h3><a asp-action="Details" asp-controller="Hotels" asp-route-id="@item.hotel_id">@Html.DisplayFor(modelItem => item.hotel_name)</a></h3>
+                            <h3>@Html.DisplayFor(modelItem => item.hotel_name)</h3>
                            
                             <ul>
                            <p class="location">@Html.DisplayFor(modelItem => item.hotel_average)</p>

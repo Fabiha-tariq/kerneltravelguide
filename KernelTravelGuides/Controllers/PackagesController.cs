@@ -13,7 +13,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace KernelTravelGuides.Controllers
 {
-    [Authorize(Roles = "Admin")]
+    
     public class PackagesController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -26,6 +26,7 @@ namespace KernelTravelGuides.Controllers
         }
 
         // GET: Packages
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Index()
         {
             var applicationDbContext = _context.Packages.Include(p => p.resorts).Include(p => p.t_spot).Include(p => p.tra_category).Include(p => p.transport);
@@ -33,6 +34,7 @@ namespace KernelTravelGuides.Controllers
         }
 
         // GET: Packages/Details/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.Packages == null)
@@ -55,6 +57,7 @@ namespace KernelTravelGuides.Controllers
         }
 
         // GET: Packages/Create
+        [Authorize(Roles = "Admin")]
         public IActionResult Create()
         {
             ViewData["resorts_id"] = new SelectList(_context.Resorts, "resorts_id", "resorts_name");
@@ -69,6 +72,7 @@ namespace KernelTravelGuides.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Create([Bind("packages_id,packages_name,packages_desc,packages_or_price,main_image,resorts_id,tra_category_id,t_spot_id,transport_id,packages_status,created_at")] Packages packages)
         {
             string wwwRootPath = _hostEnvironment.WebRootPath;
@@ -81,10 +85,10 @@ namespace KernelTravelGuides.Controllers
                 packages.main_image.CopyToAsync(filestream);
             }
     
-            ViewData["resorts_id"] = new SelectList(_context.Resorts, "resorts_id", "resorts_img1", packages.resorts_id);
-            ViewData["t_spot_id"] = new SelectList(_context.TouriestSpots, "t_spot_id", "t_spot_desc", packages.t_spot_id);
-            ViewData["tra_category_id"] = new SelectList(_context.TravelCategories, "tra_category_id", "tra_category_desc", packages.tra_category_id);
-            ViewData["transport_id"] = new SelectList(_context.Transports, "transport_id", "transport_desc", packages.transport_id);
+            ViewData["resorts_id"] = new SelectList(_context.Resorts, "resorts_id", "resorts_name", packages.resorts_id);
+            ViewData["t_spot_id"] = new SelectList(_context.TouriestSpots, "t_spot_id", "t_spot_name", packages.t_spot_id);
+            ViewData["tra_category_id"] = new SelectList(_context.TravelCategories, "tra_category_id", "tra_category_name", packages.tra_category_id);
+            ViewData["transport_id"] = new SelectList(_context.Transports, "transport_id", "transport_name", packages.transport_id);
           
 
             _context.Add(packages);
@@ -95,6 +99,7 @@ namespace KernelTravelGuides.Controllers
         }
 
         // GET: Packages/Edit/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Packages == null)
@@ -119,15 +124,24 @@ namespace KernelTravelGuides.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("packages_id,packages_name,packages_desc,packages_or_price,packages_img,resorts_id,tra_category_id,t_spot_id,transport_id,packages_status,created_at")] Packages packages)
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> Edit(int id, [Bind("packages_id,packages_name,packages_desc,packages_or_price,main_image,resorts_id,tra_category_id,t_spot_id,transport_id,packages_status,created_at")] Packages packages)
         {
+            string wwwRootPath = _hostEnvironment.WebRootPath;
+            string filename = Path.GetFileNameWithoutExtension(packages.main_image.FileName);
+            string extension = Path.GetExtension(packages.main_image.FileName);
+            packages.packages_img = filename = filename + extension;
+            string path = Path.Combine(wwwRootPath + "/images/packageimg", filename);
+            using (var filestream = new FileStream(path, FileMode.Create))
+            {
+                packages.main_image.CopyToAsync(filestream);
+            }
             if (id != packages.packages_id)
             {
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
-            {
+            
                 try
                 {
                     _context.Update(packages);
@@ -145,15 +159,16 @@ namespace KernelTravelGuides.Controllers
                     }
                 }
                 return RedirectToAction(nameof(Index));
-            }
-            ViewData["resorts_id"] = new SelectList(_context.Resorts, "resorts_id", "resorts_img1", packages.resorts_id);
-            ViewData["t_spot_id"] = new SelectList(_context.TouriestSpots, "t_spot_id", "t_spot_desc", packages.t_spot_id);
-            ViewData["tra_category_id"] = new SelectList(_context.TravelCategories, "tra_category_id", "tra_category_desc", packages.tra_category_id);
-            ViewData["transport_id"] = new SelectList(_context.Transports, "transport_id", "transport_desc", packages.transport_id);
+            
+            ViewData["resorts_id"] = new SelectList(_context.Resorts, "resorts_id", "resorts_name", packages.resorts_id);
+            ViewData["t_spot_id"] = new SelectList(_context.TouriestSpots, "t_spot_id", "t_spot_name", packages.t_spot_id);
+            ViewData["tra_category_id"] = new SelectList(_context.TravelCategories, "tra_category_id", "tra_category_name", packages.tra_category_id);
+            ViewData["transport_id"] = new SelectList(_context.Transports, "transport_id", "transport_name", packages.transport_id);
             return View(packages);
         }
 
         // GET: Packages/Delete/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int? id)
         {
             var img = await _context.Packages.FindAsync(id);
@@ -183,6 +198,7 @@ namespace KernelTravelGuides.Controllers
         }
 
         // POST: Packages/Delete/5
+        [Authorize(Roles = "Admin")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
@@ -205,5 +221,27 @@ namespace KernelTravelGuides.Controllers
         {
           return (_context.Packages?.Any(e => e.packages_id == id)).GetValueOrDefault();
         }
+
+        public async Task<IActionResult> PackageDetails(int? id)
+        {
+            if (id == null || _context.Packages == null)
+            {
+                return NotFound();
+            }
+
+            var packages = await _context.Packages
+                .Include(p => p.resorts)
+                .Include(p => p.t_spot)
+                .Include(p => p.tra_category)
+                .Include(p => p.transport)
+                .FirstOrDefaultAsync(m => m.packages_id == id);
+            if (packages == null)
+            {
+                return NotFound();
+            }
+
+            return View(packages);
+        }
+
     }
 }

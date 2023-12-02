@@ -105,8 +105,19 @@ namespace KernelTravelGuides.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("hotel_id,hotel_name,hotel_rating,hotel_average,hotel_image,hotel_status,created_at")] Hotel hotel)
+        public async Task<IActionResult> Edit(int id, [Bind("hotel_id,hotel_name,hotel_rating,hotel_average,main_image,hotel_status,created_at")] Hotel hotel)
         {
+            string wwwRootPath = _hostEnvironment.WebRootPath;
+            string filename = Path.GetFileNameWithoutExtension(hotel.main_image.FileName);
+            string extension = Path.GetExtension(hotel.main_image.FileName);
+            hotel.hotel_image = filename = filename + extension;
+            string path = Path.Combine(wwwRootPath + "/images/hotelimg", filename);
+            using (var filestream = new FileStream(path, FileMode.Create))
+            {
+                hotel.main_image.CopyToAsync(filestream);
+            }
+
+
             if (id != hotel.hotel_id)
             {
                 return NotFound();

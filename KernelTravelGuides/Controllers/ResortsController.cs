@@ -12,7 +12,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace KernelTravelGuides.Controllers
 {
-    [Authorize(Roles = "Admin")]
+
     public class ResortsController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -25,6 +25,7 @@ namespace KernelTravelGuides.Controllers
         }
 
         // GET: Resorts
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Index()
         {
               return _context.Resorts != null ? 
@@ -33,6 +34,7 @@ namespace KernelTravelGuides.Controllers
         }
 
         // GET: Resorts/Details/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.Resorts == null)
@@ -51,6 +53,7 @@ namespace KernelTravelGuides.Controllers
         }
 
         // GET: Resorts/Create
+        [Authorize(Roles = "Admin")]
         public IActionResult Create()
         {
             return View();
@@ -61,6 +64,7 @@ namespace KernelTravelGuides.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Create([Bind("resorts_id,resorts_name,resorts_location,main_image1,main_image2,main_image3,resorts_status,created_at")] Resorts resorts)
         {
             // Img 1
@@ -104,7 +108,7 @@ namespace KernelTravelGuides.Controllers
 
             return View(resorts);
         }
-
+        [Authorize(Roles = "Admin")]
         // GET: Resorts/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
@@ -120,7 +124,7 @@ namespace KernelTravelGuides.Controllers
             }
             return View(resorts);
         }
-
+        [Authorize(Roles = "Admin")]
         // POST: Resorts/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -157,6 +161,7 @@ namespace KernelTravelGuides.Controllers
         }
 
         // GET: Resorts/Delete/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Resorts == null)
@@ -176,32 +181,33 @@ namespace KernelTravelGuides.Controllers
 
         // POST: Resorts/Delete/5
         [HttpPost, ActionName("Delete")]
+        [Authorize(Roles = "Admin")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             // img 1
-            //var img = await _context.Resorts.FindAsync(id);
-            //var image = Path.Combine(_hostEnvironment.WebRootPath, "images/resortimg", img.resorts_img1);
+            var img = await _context.Resorts.FindAsync(id);
+            var image = Path.Combine(_hostEnvironment.WebRootPath, "images/resortimg", img.resorts_img1);
 
-            //if (System.IO.File.Exists(image))
-            //{
-            //    System.IO.File.Delete(image);
-            //}
+            if (System.IO.File.Exists(image))
+            {
+                System.IO.File.Delete(image);
+            }
             // img 2
-            //var image2 = Path.Combine(_hostEnvironment.WebRootPath, "images/resortimg", (await _context.Resorts.FindAsync(id)).resorts_img2);
+            var image2 = Path.Combine(_hostEnvironment.WebRootPath, "images/resortimg", (await _context.Resorts.FindAsync(id)).resorts_img2);
 
-            //if (System.IO.File.Exists(image2))
-            //{
-            //    System.IO.File.Delete(image2);
-            //}
+            if (System.IO.File.Exists(image2))
+            {
+                System.IO.File.Delete(image2);
+            }
             // img 3
-            //var img3 = await _context.Resorts.FindAsync(id);
-            //var image3 = Path.Combine(_hostEnvironment.WebRootPath, "images/resortimg", img3.resorts_img3);
+            var img3 = await _context.Resorts.FindAsync(id);
+            var image3 = Path.Combine(_hostEnvironment.WebRootPath, "images/resortimg", img3.resorts_img3);
 
-            //if (System.IO.File.Exists(image3))
-            //{
-            //    System.IO.File.Delete(image3);
-            //}
+            if (System.IO.File.Exists(image3))
+            {
+                System.IO.File.Delete(image3);
+            }
 
             if (_context.Resorts == null)
             {
@@ -220,6 +226,23 @@ namespace KernelTravelGuides.Controllers
         private bool ResortsExists(int id)
         {
           return (_context.Resorts?.Any(e => e.resorts_id == id)).GetValueOrDefault();
+        }
+
+        public async Task<IActionResult> ResortDetails(int? id)
+        {
+            if (id == null || _context.Resorts == null)
+            {
+                return NotFound();
+            }
+
+            var resorts = await _context.Resorts
+                .FirstOrDefaultAsync(m => m.resorts_id == id);
+            if (resorts == null)
+            {
+                return NotFound();
+            }
+
+            return View(resorts);
         }
     }
 }

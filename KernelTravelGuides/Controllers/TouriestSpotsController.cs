@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace KernelTravelGuides.Controllers
 {
-    [Authorize(Roles = "Admin")]
+  
     public class TouriestSpotsController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -23,7 +23,7 @@ namespace KernelTravelGuides.Controllers
             this._hostEnvironment = hostEnvironment;
         }
 
-
+        [Authorize(Roles = "Admin")]
         // GET: TouriestSpots
         public async Task<IActionResult> Index()
         {
@@ -32,6 +32,7 @@ namespace KernelTravelGuides.Controllers
         }
 
         // GET: TouriestSpots/Details/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.TouriestSpots == null)
@@ -49,7 +50,7 @@ namespace KernelTravelGuides.Controllers
 
             return View(touriestSpots);
         }
-
+        [Authorize(Roles = "Admin")]
         // GET: TouriestSpots/Create
         public IActionResult Create()
         {
@@ -61,6 +62,7 @@ namespace KernelTravelGuides.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("t_spot_id,t_spot_name,t_spot_locaion,t_spot_desc,t_spot_rating,main_image1,main_image2,main_image3,country_id,t_spot_status,created_at")] TouriestSpots touriestSpots)
         {
@@ -108,6 +110,7 @@ namespace KernelTravelGuides.Controllers
         }
 
         // GET: TouriestSpots/Edit/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.TouriestSpots == null)
@@ -129,6 +132,7 @@ namespace KernelTravelGuides.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(int id, [Bind("t_spot_id,t_spot_name,t_spot_locaion,t_spot_desc,t_spot_rating,t_spot_img1,t_spot_img2,t_spot_img3,country_id,t_spot_status,created_at")] TouriestSpots touriestSpots)
         {
             if (id != touriestSpots.t_spot_id)
@@ -161,6 +165,7 @@ namespace KernelTravelGuides.Controllers
         }
 
         // GET: TouriestSpots/Delete/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.TouriestSpots == null)
@@ -180,6 +185,7 @@ namespace KernelTravelGuides.Controllers
         }
 
         // POST: TouriestSpots/Delete/5
+        [Authorize(Roles = "Admin")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
@@ -202,5 +208,24 @@ namespace KernelTravelGuides.Controllers
         {
           return (_context.TouriestSpots?.Any(e => e.t_spot_id == id)).GetValueOrDefault();
         }
+
+        public async Task<IActionResult> TouriestSpotsDetails(int? id)
+        {
+            if (id == null || _context.TouriestSpots == null)
+            {
+                return NotFound();
+            }
+
+            var touriestSpots = await _context.TouriestSpots
+                .Include(t => t.country)
+                .FirstOrDefaultAsync(m => m.t_spot_id == id);
+            if (touriestSpots == null)
+            {
+                return NotFound();
+            }
+
+            return View(touriestSpots);
+        }
+
     }
 }

@@ -1,0 +1,38 @@
+﻿@model IEnumerable<KernelTravelGuides.Models.Packages>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+
+<section class="ftco-section">
+    <div class="container">
+        <div class="row justify-content-center pb-4">
+            <div class="col-md-12 heading-section text-center ftco-animate">
+                <h2 class="mb-4">Best Place Destination</h2>
+            </div>
+        </div>
+            <div class="row">
+                @foreach (var item in Model)
+                {
+                    <div class="col-md-6 ftco-animate">
+                        <div class="project-destination">
+                            <a class="package-link" asp-action="PackageDetails" asp-controller="Packages" asp-route-id="@item.packages_id">
+                                <img src="@("~/images/packageimg/" + item.packages_img)" class="img" asp-append-version="false" style="background-size:cover; width: 100%;" />
+
+                                <div class="text">
+                                    <h3 class="package-name" style="color: #000; margin-top: -325px">
+                                        @Html.DisplayFor(modelItem => item.packages_name)
+                                    </h3>
+
+                                    <div class="more-info-container">
+                                        <a class="btn btn-primary py-3 px-4" asp-action="PackageDetails" asp-controller="Packages" asp-route-id="@item.packages_id">More Info</a>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                }
+            </div>
+    </div>
+</section>

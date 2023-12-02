@@ -102,8 +102,18 @@ namespace KernelTravelGuides.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("country_id,country_name,country_code,country_image,country_currency,status,created_at")] Country country)
+        public async Task<IActionResult> Edit(int id, [Bind("country_id,country_name,country_code,main_image,country_currency,status,created_at")] Country country)
         {
+            string wwwRootPath = _hostEnvironment.WebRootPath;
+            string filename = Path.GetFileNameWithoutExtension(country.main_image.FileName);
+            string extension = Path.GetExtension(country.main_image.FileName);
+            country.country_image = filename = filename + extension;
+            string path = Path.Combine(wwwRootPath + "/images/countryimg", filename);
+            using (var filestream = new FileStream(path, FileMode.Create))
+            {
+                country.main_image.CopyToAsync(filestream);
+            }
+
             if (id != country.country_id)
             {
                 return NotFound();

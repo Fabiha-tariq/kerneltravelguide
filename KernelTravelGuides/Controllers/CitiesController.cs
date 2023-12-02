@@ -83,6 +83,7 @@ namespace KernelTravelGuides.Controllers
         // GET: Cities/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
+            
             if (id == null || _context.Cities == null)
             {
                 return NotFound();
@@ -102,16 +103,24 @@ namespace KernelTravelGuides.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("city_id,city_name,city_image,city_status,country_id,created_at")] City city)
+        public async Task<IActionResult> Edit(int id, [Bind("city_id,city_name,main_image,city_status,country_id,created_at")] City city)
         {
+            string wwwRootPath = _hostEnvironment.WebRootPath;
+            string filename = Path.GetFileNameWithoutExtension(city.main_image.FileName);
+            string extension = Path.GetExtension(city.main_image.FileName);
+            city.city_image = filename = filename + extension;
+            string path = Path.Combine(wwwRootPath + "/images/cityimg", filename);
+            using (var filestream = new FileStream(path, FileMode.Create))
+            {
+                city.main_image.CopyToAsync(filestream);
+            }
+
             if (id != city.city_id)
             {
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
-            {
-                try
+             try
                 {
                     _context.Update(city);
                     await _context.SaveChangesAsync();
@@ -128,7 +137,7 @@ namespace KernelTravelGuides.Controllers
                     }
                 }
                 return RedirectToAction(nameof(Index));
-            }
+          
             ViewData["country_id"] = new SelectList(_context.Countries, "country_id", "country_code", city.country_id);
             return View(city);
         }

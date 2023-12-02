@@ -1,0 +1,95 @@
+﻿@model KernelTravelGuides.Models.Packages
+
+@{
+    ViewData["Title"] = "Package Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="container mt-5">
+    <div class="page-content-wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <h1> Packages Details</h1>
+                <div class="col-md-12">
+
+                    <div class="card">
+                        <div class="card-img">
+                            <img src="@("~/images/packageimg/" + Model.packages_img)" class=" d-block" asp-append-version="false" style="background-size:cover; width: 100%; height: 470px;" />
+
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-12">
+                    <div class="card">
+
+                        <div class="card-body">
+                            <h2 class="mt-0 header-title">More Info about    @Html.DisplayFor(model => model.packages_name)</h2>
+
+                            <dl class="row">
+                                <dt class="col-sm-4">
+                                    @Html.DisplayNameFor(model => model.packages_name)
+                                </dt>
+                                <dd class="col-sm-8">
+                                    @Html.DisplayFor(model => model.packages_name)
+                                </dd>
+                                <dt class="col-sm-4">
+                                    @Html.DisplayNameFor(model => model.packages_desc)
+                                </dt>
+                                <dd class="col-sm-8">
+                                    @Html.DisplayFor(model => model.packages_desc)
+                                </dd>
+                                <dt class="col-sm-4">
+                                Available Resort
+                                </dt>
+                                <dd class="col-sm-8">
+                                    @Html.DisplayFor(model => model.resorts.resorts_name)
+                                </dd>
+
+                                <dt class="col-sm-4">
+                                    @Html.DisplayNameFor(model => model.packages_or_price)
+                                </dt>
+                                <dd class="col-sm-8">
+                                    @Html.DisplayFor(model => model.packages_or_price)
+                                </dd>
+
+                                <dt class="col-sm-4">
+                                  This is
+                                </dt>
+                                <dd class="col-sm-8">
+                                    @Html.DisplayFor(model => model.tra_category.tra_category_name)
+                                </dd>
+
+                                <dt class="col-sm-4">
+                                 You can also Enjoy
+                                </dt>
+                                <dd class="col-sm-8">
+                                    @Html.DisplayFor(model => model.t_spot.t_spot_name)
+                                </dd>
+
+                                <dt class="col-sm-4">
+                                   Available Transport
+                                </dt>
+                                <dd class="col-sm-8">
+                                    @Html.DisplayFor(model => model.transport.transport_name)
+                                </dd>
+
+                                
+
+                                <em> For Any Query and To Book Your Package Contact Us Now!! </em>
+                            </dl>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+
+        </div>
+    </div><!-- end col -->
+
+</div>

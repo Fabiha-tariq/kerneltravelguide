@@ -49,6 +49,7 @@ namespace KernelTravelGuides.Controllers
         }
 
         // GET: Messages/Create
+   
         public IActionResult Create()
         {
             return View();
@@ -59,14 +60,16 @@ namespace KernelTravelGuides.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("messages_id,messages_user_name,messages_desc,messages_status,messages_content,created_at")] Messages messages)
+        public async Task<IActionResult> Create([Bind("messages_id,messages_user_name,messages_desc,messages_content,created_at")] Messages messages)
         {
             
                 _context.Add(messages);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-          
-            return View(messages);
+            //return RedirectToAction(nameof(Index));
+
+            return RedirectToPage("~/");
+
+
         }
 
         // GET: Messages/Edit/5
@@ -92,7 +95,7 @@ namespace KernelTravelGuides.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("messages_id,messages_user_name,messages_desc,messages_status,messages_content,created_at")] Messages messages)
+        public async Task<IActionResult> Edit(int id, [Bind("messages_id,messages_user_name,messages_desc,messages_content,created_at")] Messages messages)
         {
             if (id != messages.messages_id)
             {

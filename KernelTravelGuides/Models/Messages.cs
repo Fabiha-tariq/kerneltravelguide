@@ -17,10 +17,7 @@ namespace KernelTravelGuides.Models
         [Display(Name = "Messages Description")]
         public string messages_desc { get; set; }
 
-        [Required]
-        [Display(Name = "Messages Status")]
-        public bool messages_status { get; set; }
-
+        
 
         [Required]
         [Display(Name = "Messages Content")]

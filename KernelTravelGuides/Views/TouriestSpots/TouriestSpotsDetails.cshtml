@@ -1,0 +1,122 @@
+﻿@model KernelTravelGuides.Models.TouriestSpots
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+<div class="container">
+<div class="page-content-wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <h1>Touriest Spots Details</h1>
+            <div class="col-md-12">
+
+                <div class="card">
+                    <div class="card-img">
+                        <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="@("~/images/touriestspotsimg/" + Model.t_spot_img1)" class=" d-block" asp-append-version="false" style="background-size:cover; width: 100%; height: 570px;" />
+
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="@("~/images/touriestspotsimg/" + Model.t_spot_img2)" class=" d-block" asp-append-version="false" style="background-size:cover; width: 100%; height: 570px;" />
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="@("~/images/touriestspotsimg/" + Model.t_spot_img3)" class=" d-block" asp-append-version="false" style="background-size:cover; width: 100%; height: 570px;" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+         
+            <div class="col-md-12">
+                <div class="card">
+
+                    <div class="card-body">
+                        <h2 class="mt-0 header-title">More Info about    @Html.DisplayFor(model => model.t_spot_name)</h2>
+
+                        <dl class="row">
+                            <dt class="col-sm-4">
+                                @Html.DisplayNameFor(model => model.t_spot_name)
+                            </dt>
+                            <dd class="col-sm-8">
+                                @Html.DisplayFor(model => model.t_spot_name)
+                            </dd>
+                            <dt class="col-sm-4">
+                                @Html.DisplayNameFor(model => model.t_spot_locaion)
+                            </dt>
+                            <dd class="col-sm-8">
+                                @Html.DisplayFor(model => model.t_spot_locaion)
+                            </dd>
+                            <dt class="col-sm-4">
+                                @Html.DisplayNameFor(model => model.t_spot_desc)
+                            </dt>
+                            <dd class="col-sm-8">
+                                @Html.DisplayFor(model => model.t_spot_desc)
+                            </dd>
+                            <dt class="col-sm-4">
+                                @Html.DisplayNameFor(model => model.t_spot_rating)
+                            </dt>
+                            <dd class="col-sm-8">
+                             
+                                @if (Model.t_spot_rating == 5)
+                                {
+                                    <img src="~/frontend/images/png-clipart-star-star.png" asp-append-version="false" width="20px" />
+                                    <img src="~/frontend/images/png-clipart-star-star.png" asp-append-version="false" width="20px" />
+                                    <img src="~/frontend/images/png-clipart-star-star.png" asp-append-version="false" width="20px" />
+                                    <img src="~/frontend/images/png-clipart-star-star.png" asp-append-version="false" width="20px" />
+                                    <img src="~/frontend/images/png-clipart-star-star.png" asp-append-version="false" width="20px" />
+                                }
+                                else if (Model.t_spot_rating == 4)
+                                {
+                                    <img src="~/frontend/images/png-clipart-star-star.png" asp-append-version="false" width="20px" />
+                                    <img src="~/frontend/images/png-clipart-star-star.png" asp-append-version="false" width="20px" />
+                                    <img src="~/frontend/images/png-clipart-star-star.png" asp-append-version="false" width="20px" />
+                                    <img src="~/frontend/images/png-clipart-star-star.png" asp-append-version="false" width="20px" />
+                                }
+                                else if (Model.t_spot_rating == 3)
+                                {
+                                    <img src="~/frontend/images/png-clipart-star-star.png" asp-append-version="false" width="20px" />
+                                    <img src="~/frontend/images/png-clipart-star-star.png" asp-append-version="false" width="20px" />
+                                    <img src="~/frontend/images/png-clipart-star-star.png" asp-append-version="false" width="20px" />
+                                }
+                                else if (Model.t_spot_rating == 2)
+                                {
+                                    <img src="~/frontend/images/png-clipart-star-star.png" asp-append-version="false" width="20px" />
+                                    <img src="~/frontend/images/png-clipart-star-star.png" asp-append-version="false" width="20px" />
+                                }
+                                else
+                                {
+                                    <img src="~/frontend/images/png-clipart-star-star.png" asp-append-version="false" width="20px" />
+                                }
+
+                        </dd>
+                        <dt class="col-sm-4">
+                            @Html.DisplayNameFor(model => model.country)
+                        </dt>
+                        <dd class="col-sm-8">
+                            @Html.DisplayFor(model => model.country.country_code)
+                        </dd>
+                            <dt class="col-sm-4">
+                            @Html.DisplayNameFor(model => model.t_spot_status)
+                            </dt>
+                       
+
+                        </dl>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+
+    </div>
+</div><!-- end col -->
+</div>

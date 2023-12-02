@@ -2,53 +2,64 @@
 
 @{
     ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
 }
 
-<h1>Edit</h1>
+<h1>City Edit</h1>
 
-<h4>City</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
+<div class="page-content-wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="mt-0 header-title">Edit City</h4>
+                        <form asp-action="Edit" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="city_id" />
-            <div class="form-group">
-                <label asp-for="city_name" class="control-label"></label>
-                <input asp-for="city_name" class="form-control" />
-                <span asp-validation-for="city_name" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="city_image" class="control-label"></label>
-                <input asp-for="city_image" class="form-control" />
-                <span asp-validation-for="city_image" class="text-danger"></span>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="city_status" /> @Html.DisplayNameFor(model => model.city_status)
-                </label>
-            </div>
-            <div class="form-group">
-                <label asp-for="country_id" class="control-label"></label>
-                <select asp-for="country_id" class="form-control" asp-items="ViewBag.country_id"></select>
-                <span asp-validation-for="country_id" class="text-danger"></span>
-            </div>
-            <div class="form-group">
+            <div class="row">
+                                <div class="form-group col-md-6">
+                                    <label asp-for="city_name" class="control-label"></label>
+                                    <input asp-for="city_name" class="form-control" />
+                                    <span asp-validation-for="city_name" class="text-danger"></span>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label asp-for="city_image" class="control-label"></label>
+                                    <input asp-for="main_image" class="form-control" accept="/images/cityimg/*"/>
+                                    <span asp-validation-for="main_image" class="text-danger"></span>
+                                </div> 
+                                <div class="form-group form-check  col-md-6">
+                                    <label class="form-check-label">
+                                        <input class="form-check-input" asp-for="city_status" /> @Html.DisplayNameFor(model => model.city_status)
+                                    </label>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label asp-for="country_id" class="control-label"></label>
+                                    <select asp-for="country_id" class="form-control" asp-items="ViewBag.country_id"></select>
+                                    <span asp-validation-for="country_id" class="text-danger"></span>
+                                </div>  
+                                @* <div class="form-group">
                 <label asp-for="created_at" class="control-label"></label>
                 <input asp-for="created_at" class="form-control" />
                 <span asp-validation-for="created_at" class="text-danger"></span>
-            </div>
-            <div class="form-group">
+            </div>*@
+                                <div class="form-group col-md-6">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>
+            </div>
+           
+           
+         
         </form>
-    </div>
-</div>
+                    </div>
+                </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+            </div>
+        </div>
+    </div><!-- end col -->
 
+</div><!-- end row -->
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }

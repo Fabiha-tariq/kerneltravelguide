@@ -240,20 +240,12 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmVlZGJhY2tzXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Fabiha/source/repos/KernelTravelGuides/KernelTravelGuides/Views/Feedbacks/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmVlZGJhY2tzXEVkaXQuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/Fabiha/source/repos/KernelTravelGuides/KernelTravelGuides/Views/Feedbacks/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmVlZGJhY2tzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Fabiha/source/repos/KernelTravelGuides/KernelTravelGuides/Views/Home/About.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBYm91dC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Fabiha/source/repos/KernelTravelGuides/KernelTravelGuides/Views/Home/Contact.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDb250YWN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Fabiha/source/repos/KernelTravelGuides/KernelTravelGuides/Views/Home/Feedback.cshtml]
@@ -296,18 +288,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxUcmF2ZWxJbmZvLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Fabiha/source/repos/KernelTravelGuides/KernelTravelGuides/Views/Home/_IndexCountries.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxfSW5kZXhDb3VudHJpZXMuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Fabiha/source/repos/KernelTravelGuides/KernelTravelGuides/Views/Home/_IndexHeaderPartial.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxfSW5kZXhIZWFkZXJQYXJ0aWFsLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Fabiha/source/repos/KernelTravelGuides/KernelTravelGuides/Views/Home/_IndexPackages.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxfSW5kZXhQYWNrYWdlcy5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/Fabiha/source/repos/KernelTravelGuides/KernelTravelGuides/Views/Hotels/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG90ZWxzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -340,10 +320,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVzc2FnZXNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Fabiha/source/repos/KernelTravelGuides/KernelTravelGuides/Views/Messages/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVzc2FnZXNcRWRpdC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/Fabiha/source/repos/KernelTravelGuides/KernelTravelGuides/Views/Messages/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVzc2FnZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -368,6 +344,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFja2FnZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Fabiha/source/repos/KernelTravelGuides/KernelTravelGuides/Views/Packages/PackageDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFja2FnZXNcUGFja2FnZURldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Fabiha/source/repos/KernelTravelGuides/KernelTravelGuides/Views/Resorts/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzb3J0c1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -386,6 +366,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/Fabiha/source/repos/KernelTravelGuides/KernelTravelGuides/Views/Resorts/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzb3J0c1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Fabiha/source/repos/KernelTravelGuides/KernelTravelGuides/Views/Resorts/ResortDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzb3J0c1xSZXNvcnREZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Fabiha/source/repos/KernelTravelGuides/KernelTravelGuides/Views/Restaurants/Create.cshtml]
@@ -416,6 +400,22 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9EYXNoYm9hcmRMb2dpblBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Fabiha/source/repos/KernelTravelGuides/KernelTravelGuides/Views/Shared/_IndexCities.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9JbmRleENpdGllcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Fabiha/source/repos/KernelTravelGuides/KernelTravelGuides/Views/Shared/_IndexCountries.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9JbmRleENvdW50cmllcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Fabiha/source/repos/KernelTravelGuides/KernelTravelGuides/Views/Shared/_IndexHeaderPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9JbmRleEhlYWRlclBhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Fabiha/source/repos/KernelTravelGuides/KernelTravelGuides/Views/Shared/_IndexPackages.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9JbmRleFBhY2thZ2VzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Fabiha/source/repos/KernelTravelGuides/KernelTravelGuides/Views/Shared/_LoginPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -442,6 +442,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/Fabiha/source/repos/KernelTravelGuides/KernelTravelGuides/Views/TouriestSpots/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVG91cmllc3RTcG90c1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Fabiha/source/repos/KernelTravelGuides/KernelTravelGuides/Views/TouriestSpots/TouriestSpotsDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVG91cmllc3RTcG90c1xUb3VyaWVzdFNwb3RzRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Fabiha/source/repos/KernelTravelGuides/KernelTravelGuides/Views/Transports/Create.cshtml]

@@ -1,0 +1,31 @@
+﻿@model IEnumerable<KernelTravelGuides.Models.Country>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+
+<section class="ftco-section ftco-no-pt">
+    <div class="container">
+        <div class="row justify-content-center pb-4">
+            <div class="col-md-12 heading-section text-center ftco-animate">
+                <h2 class="mb-4">Travel Countries</h2>
+            </div>
+        </div>
+        <div class="row">
+               @foreach (var item in Model)
+                {
+            <div class="col-md-4 ftco-animate">
+                <div class="project-wrap">
+                        <img src="@("~/images/countryimg/" + item.country_image)" class="img" asp-append-version="false" style="background-size:cover; width: 100%; height: 470px;" />
+
+                      <span class="price">  @Html.DisplayFor(modelItem => item.country_name)</span>
+                     
+                   
+                 
+                </div>
+            </div>
+           }
+        </div>
+    </div>
+</section>

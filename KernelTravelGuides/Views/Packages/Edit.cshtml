@@ -1,80 +1,90 @@
 ﻿@model KernelTravelGuides.Models.Packages
 
+
 @{
     ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
 }
+<h1>Package Edit</h1>
 
-<h1>Edit</h1>
+<div class="page-content-wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
 
-<h4>Packages</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="packages_id" />
-            <div class="form-group">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="mt-0 header-title">Edit Package</h4>
+                        <form asp-action="Edit" enctype="multipart/form-data">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <input type="hidden" asp-for="packages_id" />
+                            <div class="row">
+            <div class="form-group  col-md-6">
                 <label asp-for="packages_name" class="control-label"></label>
                 <input asp-for="packages_name" class="form-control" />
                 <span asp-validation-for="packages_name" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group col-md-6">
                 <label asp-for="packages_desc" class="control-label"></label>
                 <input asp-for="packages_desc" class="form-control" />
                 <span asp-validation-for="packages_desc" class="text-danger"></span>
             </div>
-            <div class="form-group">
+                                <div class="form-group col-md-6">
                 <label asp-for="packages_or_price" class="control-label"></label>
                 <input asp-for="packages_or_price" class="form-control" />
                 <span asp-validation-for="packages_or_price" class="text-danger"></span>
             </div>
-            <div class="form-group">
+                                <div class="form-group  col-md-6">
                 <label asp-for="packages_img" class="control-label"></label>
-                <input asp-for="packages_img" class="form-control" />
-                <span asp-validation-for="packages_img" class="text-danger"></span>
+                <input asp-for="main_image" class="form-control" accept="/image/packageimg/*"/>
+                <span asp-validation-for="main_image" class="text-danger"></span>
             </div>
-            <div class="form-group">
+                                <div class="form-group col-md-6">
                 <label asp-for="resorts_id" class="control-label"></label>
-                <select asp-for="resorts_id" class="form-control" asp-items="ViewBag.resorts_id"></select>
+                <select asp-for="resorts_id" class="form-control" asp-items="ViewBag.resorts_name"></select>
                 <span asp-validation-for="resorts_id" class="text-danger"></span>
             </div>
-            <div class="form-group">
+                                <div class="form-group  col-md-6">
                 <label asp-for="tra_category_id" class="control-label"></label>
-                <select asp-for="tra_category_id" class="form-control" asp-items="ViewBag.tra_category_id"></select>
+                <select asp-for="tra_category_id" class="form-control" asp-items="ViewBag.tra_category_name"></select>
                 <span asp-validation-for="tra_category_id" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group  col-md-6">
                 <label asp-for="t_spot_id" class="control-label"></label>
-                <select asp-for="t_spot_id" class="form-control" asp-items="ViewBag.t_spot_id"></select>
+                <select asp-for="t_spot_id" class="form-control" asp-items="ViewBag.t_spot_name"></select>
                 <span asp-validation-for="t_spot_id" class="text-danger"></span>
             </div>
-            <div class="form-group">
+                                <div class="form-group col-md-6">
                 <label asp-for="transport_id" class="control-label"></label>
-                <select asp-for="transport_id" class="form-control" asp-items="ViewBag.transport_id"></select>
+                <select asp-for="transport_id" class="form-control" asp-items="ViewBag.transport_name"></select>
                 <span asp-validation-for="transport_id" class="text-danger"></span>
             </div>
-            <div class="form-group form-check">
+                                <div class="form-group form-check col-md-6">
                 <label class="form-check-label">
                     <input class="form-check-input" asp-for="packages_status" /> @Html.DisplayNameFor(model => model.packages_status)
                 </label>
             </div>
-            <div class="form-group">
+        @*    <div class="form-group">
                 <label asp-for="created_at" class="control-label"></label>
                 <input asp-for="created_at" class="form-control" />
                 <span asp-validation-for="created_at" class="text-danger"></span>
-            </div>
-          
-            <div class="form-group">
+            </div>*@
+
+                                <div class="form-group col-md-6">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>
+        </div>
         </form>
-    </div>
-</div>
+                    </div>
+                </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+            </div>
+        </div>
+    </div><!-- end col -->
 
+</div><!-- end row -->
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }
