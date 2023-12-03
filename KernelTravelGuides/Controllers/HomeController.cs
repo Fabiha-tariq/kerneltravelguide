@@ -45,7 +45,19 @@ namespace KernelTravelGuides.Controllers
                 var applicationDbContext = _context.TouriestSpots.Include(t => t.country);
                 return View(await applicationDbContext.ToListAsync());
         }
+        public IActionResult Touriest(string? t_spot_name)
+        {
 
+            var applicationDbContext = _context.TouriestSpots.Include(t => t.country).
+            Where(t => t.t_spot_name == t_spot_name).ToList();
+
+
+            if (t_spot_name == null)
+            {
+                applicationDbContext = _context.TouriestSpots.Include(t => t.country).ToList();
+            }
+            return View(applicationDbContext); 
+        }
         public async Task<IActionResult> _IndexHeaderPartial()
         {
             var applicationDbContext = _context.TouriestSpots.Include(t => t.country);

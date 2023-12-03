@@ -19,12 +19,28 @@
     </div>
 </div>
 <br /><br /><br />
+
 <section class="ftco-section ftco-no-pt">
     <div class="container">
+     
         <div class="row justify-content-center pb-4">
             <div class="col-md-12 heading-section text-center ftco-animate">
                 <h2 class="mb-4">Tour Destination</h2>
             </div>
+        </div>
+        <div class="row justify-content-center pb-4">
+            <form method="post">
+                <div class="row">
+                    <div class="col-6">
+                        <input type="text" class="form-control" name="t_spot_name" />
+                    </div>
+
+                    <div class="col-3">
+                        <input type="submit" value="Search" class="btn btn-success" />
+                    </div>
+                </div>
+            </form>
+
         </div>
         <div class="row">
             @foreach (var item in Model) {

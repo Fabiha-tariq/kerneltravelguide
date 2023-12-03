@@ -35,10 +35,10 @@
                         <a asp-action="PackageDetails" asp-controller="Packages" asp-route-id="@item.packages_id">
                             <img src="@("~/images/packageimg/" + item.packages_img)" class="img" asp-append-version="false" style="background-size:cover; width: 100%;" />
                             <div class="text">
-                                <h3 style="color: black;  margin-top: -325px">
+                                <h3 style="color: black;">
                                     @Html.DisplayFor(modelItem => item.packages_name)
                                 </h3>
-                                <p style="color: black;  margin-top: 180px"><a asp-action="PackageDetails" asp-controller="Packages" asp-route-id="@item.packages_id" class="btn btn-primary py-3 px-4 justify-content-end">More Info</a></p>
+                                <p style="color: black;"><a asp-action="PackageDetails" asp-controller="Packages" asp-route-id="@item.packages_id" class="btn btn-primary py-3 px-4 justify-content-end">More Info</a></p>
                                 </div>
 
                         </a>
