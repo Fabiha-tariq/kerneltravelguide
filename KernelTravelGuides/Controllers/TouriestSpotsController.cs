@@ -25,10 +25,15 @@ namespace KernelTravelGuides.Controllers
 
         [Authorize(Roles = "Admin")]
         // GET: TouriestSpots
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string? searchString)
         {
-            var applicationDbContext = _context.TouriestSpots.Include(t => t.country);
-            return View(await applicationDbContext.ToListAsync());
+            var products = from p in _context.TouriestSpots select p;
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                products = products.Where(p => p.t_spot_name.Contains(searchString) || p.t_spot_name.Contains(searchString));
+            }
+           // var applicationDbContext = _context.TouriestSpots.Include(t => t.country);
+            return View(await products.ToListAsync());
         }
 
         // GET: TouriestSpots/Details/5

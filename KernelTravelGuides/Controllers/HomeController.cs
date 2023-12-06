@@ -40,10 +40,14 @@ namespace KernelTravelGuides.Controllers
             var applicationDbContext = _context.Packages.Include(p => p.resorts).Include(p => p.t_spot).Include(p => p.tra_category).Include(p => p.transport);
             return View(await applicationDbContext.ToListAsync());
         }
-        public async Task<IActionResult> TouriestSpots()
+        public async Task<IActionResult> TouriestSpots(string? searchString)
         {
-                var applicationDbContext = _context.TouriestSpots.Include(t => t.country);
-                return View(await applicationDbContext.ToListAsync());
+            var products = from p in _context.TouriestSpots select p;
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                products = products.Where(p => p.t_spot_name.Contains(searchString));
+            }
+            return View(await products.ToListAsync());
         }
         public IActionResult Touriest(string? t_spot_name)
         {
@@ -89,39 +93,33 @@ namespace KernelTravelGuides.Controllers
             var applicationDbContext3 = _context.Resorts;
             return View(await applicationDbContext3.ToListAsync());
         }
-        
-       
-        
         public async Task<IActionResult> Feedback()
         {
             var applicationDbContext35 = _context.Feedback;
             return View(await applicationDbContext35.ToListAsync());
         }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
-
         public async Task<IActionResult> _IndexPackages()
         {
-             var applicationDbContext = _context.Packages.Include(p => p.resorts).Include(p => p.t_spot).Include(p => p.tra_category).Include(p => p.transport);
+            var applicationDbContext = _context.Packages.Include(p => p.resorts).Include(p => p.t_spot).Include(p => p.tra_category).Include(p => p.transport);
             return View(await applicationDbContext.ToListAsync());
 
         }
-
         public async Task<IActionResult> _IndexCountries()
         {
             var applicationDbContext35 = _context.Countries;
             return View(await applicationDbContext35.ToListAsync());
         }
-
         public async Task<IActionResult> _IndexCities()
         {
             var applicationDbContext = _context.Cities.Include(c => c.country);
             return View(await applicationDbContext.ToListAsync());
 
         }
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult Error()
+        {
+            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
     }
 }
